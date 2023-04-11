@@ -1,9 +1,12 @@
 import "../src/styles/styles.css";
+import Header from "./components/header";
+import Main from "./components/main";
 
 function App() {
   return (
     <div>
-      <h1>Pet Name Generator</h1>
+      <Header></Header>
+      <Main></Main>
     </div>
   );
 }
