@@ -1,0 +1,25 @@
+{
+  "name": "jax-pet-names",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd server && npm i",
+    "client": "cd client && npm i && npm start", 
+    "app": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaxTurboNerd/Jax-Pet-Names.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaxTurboNerd/Jax-Pet-Names/issues"
+  },
+  "homepage": "https://github.com/JaxTurboNerd/Jax-Pet-Names#readme",
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
