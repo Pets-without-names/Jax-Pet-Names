@@ -18,7 +18,6 @@ h1 {
 @media screen and (min-width: 750px) {
   header {
     flex-direction: row;
-    /* justify-content: space-around; */
   }
   h1 {
     width: 80%;
