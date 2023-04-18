@@ -15,7 +15,8 @@ main {
 }
 
 h2,
-h3 {
+h3,
+p {
   text-align: center;
 }
 
@@ -62,6 +63,7 @@ button {
 .card-container {
   width: 30%;
   max-width: 200px;
+  min-width: 140px;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgb(161, 160, 160);
   border: 1px solid black;
