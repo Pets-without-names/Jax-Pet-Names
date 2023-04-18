@@ -31,14 +31,43 @@ button {
   justify-content: center;
 }
 
+/* Generate name button container styling */
 .btn-generate {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-generate button {
+  background-color: rgb(81, 197, 81);
+  width: 100px;
+  border-radius: 3px;
+  padding: 1em;
 }
 
 /* Apply styling to the gender buttons */
 .custom-button {
-  
+  background-color: rgb(186, 182, 182);
+  color: white;
+  width: 100px;
+  padding: 1em;
+  border-radius: 3px;
+}
+
+.active {
+  background-color: lightcoral;
+}
+
+/* Generated name "card" styling */
+.card-container {
+  width: 30%;
+  max-width: 200px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgb(161, 160, 160);
+  border: 1px solid black;
+  padding: 1.5em;
+  margin: 1em auto;
+  background-color: aqua;
 }
 
 @media screen and (min-width: 750px) {
