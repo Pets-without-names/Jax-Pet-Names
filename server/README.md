@@ -9,8 +9,8 @@
 2. Navigate into folder: `cd Jax-Pet-Names/server`
 3. Install dependencies: `npm install`
 4. Create database: `CREATE DATABASE pet_names``;`
-5. To setup tables without data:  `psql -U user pet_names < schema.sql`
-6. To setup tables with data:  `psql -U user pet_names < seed.sql`
+5. Run migrations: `knex migrate:up`
+6. Run seed to populate with demo data: `knex seed:run`
 7. Start the server: `node index.js`
 
 ### Current APIs
