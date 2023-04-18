@@ -34,7 +34,7 @@ function Main() {
         <button type="button">Generate</button>
       </div>
       <div className="card-container">
-        <h3>Generated name</h3>
+        <p>Generated name</p>
       </div>
     </main>
   );
