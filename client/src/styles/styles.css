@@ -22,21 +22,17 @@ p {
   text-align: center;
 }
 
-<<<<<<< HEAD
 p {
   margin: 0;
 }
 
-=======
->>>>>>> origin/front-end
 button {
   cursor: pointer;
 }
 
 /* gender button container set-up */
 .btn-genders {
-<<<<<<< HEAD
-  display: -webkit-box;HEADdisplay
+  display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
@@ -50,27 +46,22 @@ button {
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-=======
-  display: flex;display
+  display: flex;
   flex-direction: column;
   align-items: center;
->>>>>>> origin/front-end
-  justify-content: center;origin/front-endjustify-content
+  justify-content: center;
 }
 
 /* Generate name button container styling */
 .btn-generate {
-<<<<<<< HEAD
-  display: -webkit-box;HEADdisplay
+  display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-=======
-  display: flex;display
->>>>>>> origin/front-end
-  justify-content: center;origin/front-endjustify-content
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
 }
 
@@ -89,11 +80,7 @@ button {
   padding: 1em;
   border-radius: 3px;
 }
-<<<<<<< HEAD
 /* styling for the gender button that is clicked */
-=======
-
->>>>>>> origin/front-end
 .active {
   background-color: lightcoral;
 }
@@ -101,24 +88,20 @@ button {
 /* Generated name "card" styling */
 .card-container {
   width: 30%;
-<<<<<<< HEAD
-  height: 70px;HEADheight
+  height: 70px;
   max-width: 200px;
   min-width: 140px;
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 5px rgb(161, 160, 160);
-=======
-  max-width: 200px;max-width
+  max-width: 200px;
   min-width: 140px;
   border-radius: 10px;
->>>>>>> origin/front-end
-  box-shadow: 5px 5px 5px rgb(161, 160, 160);origin/front-endbox-shadow
+  box-shadow: 5px 5px 5px rgb(161, 160, 160);
   border: 1px solid black;
   padding: 1.5em;
   margin: 1em auto;
   background-color: aqua;
-<<<<<<< HEAD
-  -webkit-transition: border 0.25s;HEAD-webkit-transition
+  -webkit-transition: border 0.25s;
   -o-transition: border 0.25s;
   -webkit-transition: border 0.25s;
   transition: border 0.25s;
@@ -126,18 +109,13 @@ button {
 
 .name-style {
   border: 2px solid black;
-=======
->>>>>>> origin/front-end
 }
 
 @media screen and (min-width: 750px) {
   .btn-genders {
-<<<<<<< HEAD
-    -webkit-box-orient: horizontal;HEAD-webkit-box-orient
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
-=======
->>>>>>> origin/front-end
-    flex-direction: row;origin/front-endflex-direction
+    flex-direction: row;
   }
 }

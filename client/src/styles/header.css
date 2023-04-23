@@ -24,14 +24,12 @@ h1 {
 
 @media screen and (min-width: 750px) {
   header {
-<<<<<<< HEAD
-    -webkit-box-orient: horizontal;HEAD-webkit-box-orient
+    -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
-=======
->>>>>>> origin/front-end
-    flex-direction: row;origin/front-endflex-direction
+    flex-direction: row;
   }
+  
   h1 {
     width: 80%;
     font-size: 5vw;
