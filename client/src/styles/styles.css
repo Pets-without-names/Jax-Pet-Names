@@ -1,17 +1,10 @@
 * {
-<<<<<<< HEAD
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 body,
 html {
-=======
-  box-sizing: border-box;
-}
-
-body {
->>>>>>> origin/front-end
   padding: 0;
   margin: 0;
   font-size: 16px;
@@ -43,8 +36,9 @@ button {
 /* gender button container set-up */
 .btn-genders {
 <<<<<<< HEAD
-  display: -webkit-box;
+  display: -webkit-box;HEADdisplay
   display: -ms-flexbox;
+  display: -webkit-box;
   display: flex;
   display: -webkit-flex;
   -webkit-box-orient: vertical;
@@ -57,25 +51,26 @@ button {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 =======
-  display: flex;
+  display: flex;display
   flex-direction: column;
   align-items: center;
 >>>>>>> origin/front-end
-  justify-content: center;
+  justify-content: center;origin/front-endjustify-content
 }
 
 /* Generate name button container styling */
 .btn-generate {
 <<<<<<< HEAD
-  display: -webkit-box;
+  display: -webkit-box;HEADdisplay
   display: -ms-flexbox;
+  display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
 =======
-  display: flex;
+  display: flex;display
 >>>>>>> origin/front-end
-  justify-content: center;
+  justify-content: center;origin/front-endjustify-content
   margin-top: 2rem;
 }
 
@@ -107,24 +102,25 @@ button {
 .card-container {
   width: 30%;
 <<<<<<< HEAD
-  height: 70px;
+  height: 70px;HEADheight
   max-width: 200px;
   min-width: 140px;
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 5px rgb(161, 160, 160);
 =======
-  max-width: 200px;
+  max-width: 200px;max-width
   min-width: 140px;
   border-radius: 10px;
 >>>>>>> origin/front-end
-  box-shadow: 5px 5px 5px rgb(161, 160, 160);
+  box-shadow: 5px 5px 5px rgb(161, 160, 160);origin/front-endbox-shadow
   border: 1px solid black;
   padding: 1.5em;
   margin: 1em auto;
   background-color: aqua;
 <<<<<<< HEAD
-  -webkit-transition: border 0.25s;
+  -webkit-transition: border 0.25s;HEAD-webkit-transition
   -o-transition: border 0.25s;
+  -webkit-transition: border 0.25s;
   transition: border 0.25s;
 }
 
@@ -137,11 +133,11 @@ button {
 @media screen and (min-width: 750px) {
   .btn-genders {
 <<<<<<< HEAD
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: horizontal;HEAD-webkit-box-orient
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
 =======
 >>>>>>> origin/front-end
-    flex-direction: row;
+    flex-direction: row;origin/front-endflex-direction
   }
 }

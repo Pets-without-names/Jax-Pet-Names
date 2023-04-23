@@ -1,5 +1,4 @@
 header {
-<<<<<<< HEAD
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,10 +8,6 @@ header {
   flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
-=======
-  display: flex;
-  flex-direction: column;
->>>>>>> origin/front-end
   align-items: center;
   padding: 1em;
 }
@@ -30,12 +25,12 @@ h1 {
 @media screen and (min-width: 750px) {
   header {
 <<<<<<< HEAD
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: horizontal;HEAD-webkit-box-orient
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
 =======
 >>>>>>> origin/front-end
-    flex-direction: row;
+    flex-direction: row;origin/front-endflex-direction
   }
   h1 {
     width: 80%;
