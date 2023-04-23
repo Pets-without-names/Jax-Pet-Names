@@ -1,8 +1,10 @@
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   padding: 0;
   margin: 0;
   font-size: 16px;
@@ -20,21 +22,39 @@ p {
   text-align: center;
 }
 
+p {
+  margin: 0;
+}
+
 button {
   cursor: pointer;
 }
 
 /* gender button container set-up */
 .btn-genders {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  display: -webkit-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 /* Generate name button container styling */
 .btn-generate {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-top: 2rem;
 }
@@ -54,7 +74,7 @@ button {
   padding: 1em;
   border-radius: 3px;
 }
-
+/* styling for the gender button that is clicked */
 .active {
   background-color: lightcoral;
 }
@@ -62,18 +82,30 @@ button {
 /* Generated name "card" styling */
 .card-container {
   width: 30%;
+  height: 70px;
   max-width: 200px;
   min-width: 140px;
   border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 5px rgb(161, 160, 160);
   box-shadow: 5px 5px 5px rgb(161, 160, 160);
   border: 1px solid black;
   padding: 1.5em;
   margin: 1em auto;
   background-color: aqua;
+  -webkit-transition: border 0.25s;
+  -o-transition: border 0.25s;
+  transition: border 0.25s;
+}
+
+.name-style {
+  border: 2px solid black;
 }
 
 @media screen and (min-width: 750px) {
   .btn-genders {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
   }
 }
