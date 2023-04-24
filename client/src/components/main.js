@@ -6,6 +6,7 @@ function Main() {
   const [petName, setPetName] = useState("Artie");
 
   const handleClick = () => {
+    console.log("button clicked");
     fetch("http://localhost:3001/names/9")
       .then((response) => response.json())
       .then((data) => {
