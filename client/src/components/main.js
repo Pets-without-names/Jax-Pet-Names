@@ -3,9 +3,20 @@ import "../styles/styles.css";
 
 function Main() {
   const [isMale, setIsMale] = useState(true);
-  useEffect(() => {
-    console.log(isMale);
-  }, [isMale]);
+  const [petName, setPetName] = useState("Artie");
+
+  const handleClick = () => {
+    fetch("http://localhost:3001/names/9")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("button clicked");
+        console.log(data);
+        setPetName(data[0].name);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {}, [isMale]);
 
   return (
     <main>
@@ -31,10 +42,12 @@ function Main() {
         </button>
       </div>
       <div className="btn-generate">
-        <button type="button">Generate</button>
+        <button type="button" onClick={handleClick}>
+          Generate
+        </button>
       </div>
       <div className="card-container">
-        <p>Generated name</p>
+        <p>{petName}</p>
       </div>
     </main>
   );
