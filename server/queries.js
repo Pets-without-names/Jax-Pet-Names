@@ -7,8 +7,14 @@ const pool = new Pool({
   port: 5432,
 })
 
-const getNames = (request, response) => {
-  pool.query('SELECT * FROM pet_names ORDER BY id ASC', (error, results) => {
+const getNames = async (request, response) => {
+  const isMale = request.query.is_male || null;
+  const whereClause = isMale != null ? `WHERE is_male = ${isMale}` : '';
+
+  const { rows } = await pool.query(`SELECT COUNT(*) FROM pet_names ${whereClause}`);
+  const recordCount = rows[0].count;
+
+  pool.query(`SELECT * FROM pet_names ${whereClause} OFFSET floor(random() * ${recordCount}) LIMIT 1`, (error, results) => {
     if (error) {
       throw error
     }
