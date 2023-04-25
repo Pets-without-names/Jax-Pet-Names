@@ -9,7 +9,6 @@ function Main() {
     fetch(`http://localhost:3001/names?is_male=${isMale}`)
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data);
         setPetName(data[0].name);
       })
       .catch((error) => console.log("crap: " + error));
