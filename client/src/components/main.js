@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/styles.css";
+import React, { useEffect, useState } from "react";
+import "../styles/styles.css";
 
 function Main() {
   const [isMale, setIsMale] = useState(true);
@@ -40,6 +42,9 @@ function Main() {
         >
           Female
         </button>
+      </div>
+      <div className="btn-generate">
+        <button type="button">Generate</button>
       </div>
       <div className="btn-generate">
         <button type="button" onClick={handleClick}>

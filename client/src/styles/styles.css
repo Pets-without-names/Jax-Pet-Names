@@ -78,3 +78,8 @@ button {
     flex-direction: row;
   }
 }
+@media screen and (min-width: 750px) {
+  .btn-genders {
+    flex-direction: row;
+  }
+}
