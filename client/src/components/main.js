@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../styles/styles.css";
-import React, { useEffect, useState } from "react";
-import "../styles/styles.css";
 
 function Main() {
   const [isMale, setIsMale] = useState(true);
   const [petName, setPetName] = useState("Artie");
 
   const handleClick = () => {
-    console.log("button clicked");
-    fetch("http://localhost:3001/names/9")
+    fetch(`http://localhost:3001/names?is_male=${isMale}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setPetName(data[0].name);
       })
       .catch((error) => console.log("crap: " + error));
@@ -42,9 +39,6 @@ function Main() {
         >
           Female
         </button>
-      </div>
-      <div className="btn-generate">
-        <button type="button">Generate</button>
       </div>
       <div className="btn-generate">
         <button type="button" onClick={handleClick}>
