@@ -10,11 +10,10 @@ function Main() {
     fetch("http://localhost:3001/names/9")
       .then((response) => response.json())
       .then((data) => {
-        console.log("button clicked");
         console.log(data);
         setPetName(data[0].name);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("crap: " + error));
   };
 
   useEffect(() => {}, [isMale]);
