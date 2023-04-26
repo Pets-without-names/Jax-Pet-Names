@@ -1,4 +1,4 @@
-import "../src/styles/styles.css";
+import "../src/styles/main.css";
 import Header from "./components/header";
 import Main from "./components/main";
 
