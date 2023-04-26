@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../styles/styles.css";
+import "../styles/main.css";
 
 function Main() {
   const [isMale, setIsMale] = useState(true);
