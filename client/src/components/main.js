@@ -32,7 +32,7 @@ function Main() {
         <button type="button">Generate</button>
       </div>
       <div className="card-container">
-        <p>Generated name</p>
+        <p>Name</p>
       </div>
     </main>
   );

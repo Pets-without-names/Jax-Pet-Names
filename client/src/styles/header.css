@@ -1,3 +1,26 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+html,
+p,
+div,
+span,
+footer,
+header,
+section {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9,7 +32,9 @@ header {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 1em;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 img {
@@ -19,6 +44,7 @@ img {
 }
 
 h1 {
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -29,7 +55,7 @@ h1 {
     -ms-flex-direction: row;
     flex-direction: row;
   }
-  
+
   h1 {
     width: 80%;
     font-size: 5vw;
