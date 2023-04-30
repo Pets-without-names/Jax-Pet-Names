@@ -8,7 +8,7 @@ function Main() {
   const handleClick = async () => {
     try {
       const response = await fetch(`http://localhost:3001/names`, {
-        method: 'POST',
+        method: 'GET',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ isMale: isMale }),
       });
