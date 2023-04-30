@@ -8,7 +8,7 @@ const pool = new Pool({
 });
 
 const getNames = async (request, response) => {
-  const isMale = request.query.is_male || null;
+  const isMale = request.body.isMale;
   const whereClause = isMale != null ? `WHERE is_male = ${isMale}` : '';
 
   const { rows } = await pool.query(`SELECT COUNT(*) FROM pet_names ${whereClause}`);
