@@ -60,6 +60,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-pack: center;
+  display: flex;
   -ms-flex-pack: center;
   justify-content: center;
   margin-top: 2rem;
