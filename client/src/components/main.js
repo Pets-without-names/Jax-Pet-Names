@@ -1,20 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../styles/main.css";
 
 function Main() {
   const [isMale, setIsMale] = useState(true);
-  const [petName, setPetName] = useState("Artie");
+  const [petName, setPetName] = useState();
 
-  const handleClick = () => {
+  const getName = useCallback(() => {
     fetch(`http://localhost:3001/names?is_male=${isMale}`)
       .then((response) => response.json())
       .then((data) => {
         setPetName(data[0].name);
       })
       .catch((error) => console.log("crap: " + error));
+  }, [isMale]);
+
+  const handleClick = () => {
+    getName();
   };
 
-  useEffect(() => {}, [isMale]);
+  useEffect(() => {
+    getName();
+  }, [isMale, getName]);
 
   return (
     <main>
