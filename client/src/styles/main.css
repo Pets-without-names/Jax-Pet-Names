@@ -31,6 +31,7 @@ h2,
 h3,
 p {
   text-align: center;
+  margin: 0;
 }
 
 button {
@@ -42,24 +43,22 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  display: -webkit-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 /* Generate name button container styling */
 .btn-generate {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -94,6 +93,7 @@ button {
   min-width: 140px;
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 5px rgb(161, 160, 160);
+  border-radius: 10px;
   box-shadow: 5px 5px 5px rgb(161, 160, 160);
   border: 1px solid black;
   padding: 1.5em;
@@ -101,7 +101,6 @@ button {
   background-color: aqua;
   -webkit-transition: border 0.25s;
   -o-transition: border 0.25s;
-  -webkit-transition: border 0.25s;
   transition: border 0.25s;
 }
 
@@ -109,6 +108,14 @@ button {
   border: 2px solid black;
 }
 
+@media screen and (min-width: 750px) {
+  .btn-genders {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+}
 @media screen and (min-width: 750px) {
   .btn-genders {
     -webkit-box-orient: horizontal;
