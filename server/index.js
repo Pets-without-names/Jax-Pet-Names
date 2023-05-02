@@ -13,7 +13,7 @@ app.use(
   })
 );
 
-app.get('/names', db.getNames);
+app.get('/names', db.getName);
 app.get('/names/:id', db.getNameById);
 app.post('/names', db.createName);
 app.put('/names/:id', db.updateName);

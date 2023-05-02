@@ -1,91 +1,74 @@
-const Pool = require('pg').Pool;
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'pet_names',
-  password: 'postgres',
-  port: 5432,
-});
+const knex = require('./knex.js');
 
-const getNames = async (request, response) => {
-  const isMale = request.query.is_male || null;
-  const whereClause = isMale != null ? `WHERE is_male = ${isMale}` : '';
+const randomOffset = async (query) => {
+  const countQuery = query.clone();
+  const countResult = await countQuery.count();
+  const count = countResult[0].count;
 
-  const { rows } = await pool.query(
-    `SELECT COUNT(*) FROM pet_names ${whereClause}`
-  );
-  const recordCount = rows[0].count;
+  return Math.floor(Math.random() * count);
+}
 
-  pool.query(
-    `SELECT * FROM pet_names ${whereClause} OFFSET floor(random() * ${recordCount}) LIMIT 1`,
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).json(results.rows);
-    }
-  );
+const getName = async (request, response) => {
+  let query = knex('pet_names');
+
+  const is_male = request.query.is_male || null;
+  if (is_male != null) {
+    query = query.where({ is_male });
+  }
+
+  const offset = await randomOffset(query);
+  query = query.offset(offset).limit(1);
+
+  const results = await query.select();
+
+  response.status(200).json(results);
 };
 
-const getNameById = (request, response) => {
+const getNameById = async (request, response) => {
+  const id = parseInt(request.params.id);
+  const result = await knex('pet_names').where({ id }).first();
+  const status = !!result ? 200 : 404;
+
+  response.status(status).json(result);
+};
+
+const createName = async (request, response) => {
+  const { name, is_used, is_male } = request.body;
+
+  const result = await knex('pet_names')
+    .insert(
+      { name, is_used, is_male },
+      ['id', 'name', 'is_used', 'is_male']
+    );
+
+  response.status(201).json(result[0]);
+};
+
+const updateName = async (request, response) => {
+  const id = parseInt(request.params.id);
+  const { name, is_used, is_male } = request.body;
+
+  const result = await knex('pet_names')
+    .where({ id })
+    .update(
+      { name, is_used, is_male },
+      ['id', 'name', 'is_used', 'is_male']
+    );
+  const status = !!result.length ? 200 : 404;
+
+  response.status(status).json(result[0]);
+};
+
+const deleteName = async (request, response) => {
   const id = parseInt(request.params.id);
 
-  pool.query(
-    'SELECT * FROM pet_names WHERE id = $1',
-    [id],
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).json(results.rows);
-    }
-  );
-};
+  const result = await knex('pet_names').where({ id }).del();
 
-const createName = (request, response) => {
-  const { name, used } = request.body;
-
-  pool.query(
-    'INSERT INTO pet_names (name, used) VALUES ($1, $2)',
-    [name, used],
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(201).send(`Name added with ID: ${results.insertId}`);
-    }
-  );
-};
-
-const updateName = (request, response) => {
-  const id = parseInt(request.params.id);
-  const { name, used } = request.body;
-
-  pool.query(
-    'UPDATE pet_names SET name = $1, used = $2 WHERE id = $3',
-    [name, used, id],
-    (error, results) => {
-      if (error) {
-        throw error;
-      }
-      response.status(200).send(`Name modified with ID: ${id}`);
-    }
-  );
-};
-
-const deleteName = (request, response) => {
-  const id = parseInt(request.params.id);
-
-  pool.query('DELETE FROM pet_names WHERE id = $1', [id], (error, results) => {
-    if (error) {
-      throw error;
-    }
-    response.status(200).send(`Name deleted with ID: ${id}`);
-  });
+  response.status(204).send();
 };
 
 module.exports = {
-  getNames,
+  getName,
   getNameById,
   createName,
   updateName,
