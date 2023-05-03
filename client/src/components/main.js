@@ -20,7 +20,7 @@ function Main() {
 
   useEffect(() => {
     getName();
-  }, [isMale, getName]);
+  }, [getName]);
 
   return (
     <main>
