@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "server": "cd server && npm i && node index.js",
+<<<<<<< HEAD
     "client": "cd client && npm i && npm start", 
+=======
+    "client": "cd client && npm i && npm start",
+>>>>>>> ac9a5e5fc8fbc542278452a274384a340eeccc67
     "app": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
