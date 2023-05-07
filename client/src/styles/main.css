@@ -4,26 +4,33 @@
 }
 
 body,
-html {
+html,
+p,
+div,
+span,
+footer,
+header,
+section {
   padding: 0;
   margin: 0;
-  font-size: 16px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 main {
-  padding: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 h2,
 h3,
 p {
   text-align: center;
-  margin: 0;
-}
-
-p {
   margin: 0;
 }
 
@@ -38,7 +45,6 @@ button {
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-box-orient: vertical;
@@ -46,6 +52,7 @@ button {
   -ms-flex-direction: column;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
 
@@ -54,8 +61,8 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
   display: flex;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-top: 2rem;
 }
@@ -63,7 +70,7 @@ button {
 .btn-generate button {
   background-color: rgb(81, 197, 81);
   width: 100px;
-  border-radius: 3px;
+  border-radius: 10px;
   padding: 1em;
 }
 
@@ -83,7 +90,7 @@ button {
 /* Generated name "card" styling */
 .card-container {
   width: 30%;
-  height: 70px;
+  height: 4.5em;
   max-width: 200px;
   min-width: 140px;
   border-radius: 10px;

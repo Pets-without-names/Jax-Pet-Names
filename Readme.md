@@ -1,4 +1,4 @@
-## Overview: 
+## Overview:
 "Jax Pet Names" started with a lone volunteer at the Humane Society who identified the complexities faced by the organization when a dog with a cool name was adopted. That name, which would have previously been a duplicate (and there for not allowed as a name by the system), was now available to be assigned to an incoming pet. Wahoo!
 
 Thinking up a good name for a pet at the shelter that was not a duplicate turned out to be a time consuming process. Sure, there are other pet naming tools out there. But why don't I make one myself? This brave soul asked into the universe! Next, forming a brainstorm at a local meetup a council was formed and this project began to churn into what you see today.
@@ -40,10 +40,11 @@ This web app will allow the user to simply click a button and a randomly generat
 1. Clone project: `git clone git@github.com:JaxTurboNerd/Jax-Pet-Names.git`
 2. Navigate into folder: `cd Jax-Pet-Names/server`
 3. Install dependencies: `npm install`
-4. Create database: `CREATE DATABASE pet_names``;`
-5. Run migrations: `knex migrate:up`
-6. Run seed to populate with demo data: `knex seed:run`
-7. Start the server: `node index.js`
+4. Install `knex` globally: `npm install knex -g`
+5. Create database: `CREATE DATABASE pet_names``;`
+6. Run migrations: `knex migrate:up`
+7. Run seed to populate with demo data: `knex seed:run`
+8. Start the server: `node index.js`
 
 ### Current APIs
 - `GET /names`
