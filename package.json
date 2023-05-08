@@ -8,7 +8,7 @@
     "client": "cd client && npm i && npm start",
     "cypress": "cypress open",
     "app": "concurrently \"npm run server\" \"npm run client\"",
-    "cypress: app": "concurrently \"npm run server\" \"npm run client\" \"npm run cypress\""
+    "cypress:app": "concurrently \"npm run server\" \"npm run client\" \"npm run cypress\""
   },
   "repository": {
     "type": "git",
