@@ -7,6 +7,13 @@ Primarily our planning is located: here: **(To Be Revealed, probably github issu
 
 regards, **woof woof meow**.
 
+Cypress test suite usage: 
+
+1. If the front end and backend are not running:
+`npm install; npm run app:cypress;`
+2. If the front end and backend are running:
+`npm install; npm run cypress;`
+
 <details>
     <summary>
         <h2>Front End Details,</h2> sourced from the readme:

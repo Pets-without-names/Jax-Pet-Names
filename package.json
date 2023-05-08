@@ -6,8 +6,9 @@
   "scripts": {
     "server": "cd server && npm i && node index.js",
     "client": "cd client && npm i && npm start",
+    "cypress": "cypress open",
     "app": "concurrently \"npm run server\" \"npm run client\"",
-    "cypress": "cypress open"
+    "cypress: app": "concurrently \"npm run server\" \"npm run client\" \"npm run cypress\""
   },
   "repository": {
     "type": "git",
