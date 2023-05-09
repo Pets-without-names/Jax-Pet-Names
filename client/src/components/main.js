@@ -45,7 +45,7 @@ function Main() {
           Female
         </button>
       </div>
-      <div className='btn-generate'>
+      <div className='btn-generate-container'>
         <button type='button' onClick={handleClick}>
           Generate
         </button>

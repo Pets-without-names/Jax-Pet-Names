@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif; */
+  font-family: 'Marko One', serif;
 }
 
 body,
@@ -17,8 +22,6 @@ section {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
 }
 
 main {
@@ -57,7 +60,7 @@ button {
 }
 
 /* Generate name button container styling */
-.btn-generate {
+.btn-generate-container {
   display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-pack: center;
@@ -67,9 +70,8 @@ button {
   margin-top: 2rem;
 }
 
-.btn-generate button {
+.btn-generate-container button {
   background-color: rgb(81, 197, 81);
-  width: 100px;
   border-radius: 10px;
   padding: 1em;
 }
@@ -104,10 +106,10 @@ button {
   -webkit-transition: border 0.25s;
   -o-transition: border 0.25s;
   transition: border 0.25s;
-}
-
-.name-style {
-  border: 2px solid black;
+  font-size: 1.25rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: bolder;
 }
 
 @media screen and (min-width: 750px) {

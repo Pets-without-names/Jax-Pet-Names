@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: 'Marko One', serif;
 }
 
 body,
@@ -17,8 +20,8 @@ section {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif; */
 }
 
 header {
