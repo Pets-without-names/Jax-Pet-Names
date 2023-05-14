@@ -4,53 +4,53 @@
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 
-require('dotenv').config()
+require('dotenv').config();
 module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'pet_names',
-      user:     'postgres',
-      password: process.env.DB_PASSWORD
+      database: process.env.DB_NAME,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      tableName: 'knex_migrations',
+    },
   },
 
   staging: {
     client: 'postgresql',
     connection: {
       database: 'pet_names',
-      user:     'postgres',
-      password: process.env.DB_PASSWORD
+      user: 'postgres',
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      tableName: 'knex_migrations',
+    },
   },
 
   production: {
     client: 'postgresql',
     connection: {
       database: 'pet_names',
-      user:     'postgres',
-      password: process.env.DB_PASSWORD
+      user: 'postgres',
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
+      tableName: 'knex_migrations',
+    },
+  },
 };
