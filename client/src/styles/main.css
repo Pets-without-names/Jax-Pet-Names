@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
 
+/* reset styles */
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -24,10 +25,24 @@ section {
   vertical-align: baseline;
 }
 
+/* property variables: */
+:root {
+  --main-bg-color: hsl(80, 33%, 95%);
+  --active-btn-color: hsla(355, 78%, 56%, 0.8);
+  --inactive-btn-color: hsl(0, 3%, 72%);
+  --generate-btn-color: hsl(215, 64%, 28%);
+  --results-bg-color: hsla(203, 39%, 44%, 0.5);
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
 main {
-  padding-bottom: 1em;
+  padding: 1em;
+  /* padding-bottom: 1em;
   padding-left: 1em;
-  padding-right: 1em;
+  padding-right: 1em; */
 }
 
 h2,
@@ -58,6 +73,19 @@ button {
   align-items: center;
   margin-top: 1rem;
 }
+/* Apply styling to the gender buttons */
+.gender-button {
+  background-color: var(--inactive-btn-color);
+  color: white;
+  width: 100px;
+  padding: 0.5em;
+  border-radius: 3px;
+  font-size: 1rem;
+}
+/* styling for the gender button that is clicked */
+.active {
+  background-color: var(--active-btn-color);
+}
 
 /* Generate name button container styling */
 .btn-generate-container {
@@ -71,22 +99,11 @@ button {
 }
 
 .btn-generate-container button {
-  background-color: rgb(81, 197, 81);
-  border-radius: 10px;
-  padding: 1em;
-}
-
-/* Apply styling to the gender buttons */
-.custom-button {
-  background-color: rgb(186, 182, 182);
+  background-color: var(--header-bg-color);
   color: white;
-  width: 100px;
-  padding: 1em;
-  border-radius: 3px;
-}
-/* styling for the gender button that is clicked */
-.active {
-  background-color: lightcoral;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 0.75em;
 }
 
 /* Generated name "card" styling */
@@ -102,11 +119,11 @@ button {
   border: 1px solid black;
   padding: 1.5em;
   margin: 1em auto;
-  background-color: aqua;
+  background-color: var(--results-bg-color);
   -webkit-transition: border 0.25s;
   -o-transition: border 0.25s;
   transition: border 0.25s;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   font-weight: bolder;

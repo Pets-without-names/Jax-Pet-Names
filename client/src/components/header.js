@@ -1,5 +1,5 @@
 import React from 'react';
-import petlogo from '../images/petlogo.jpg';
+import petlogo from '../images/petlogo-transparent.png';
 import '../styles/header.css';
 
 function Header() {

@@ -23,7 +23,12 @@ section {
   /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif; */
 }
+/* custom properties: */
+:root {
+  --header-bg-color: hsla(215, 72%, 31%, 0.8);
+}
 
+/* main styling */
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -35,15 +40,24 @@ header {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
+  border: 1px solid black;
+  /* background styling */
+  background-image: linear-gradient(
+    to right,
+    hsla(195, 53%, 79%, 0.5),
+    var(--header-bg-color)
+  );
+}
+
+header h1 {
+  text-shadow: 0px 5px 10px darkgray;
 }
 
 img {
-  width: 25%;
-  max-width: 180px;
-  min-width: 100px;
+  width: 20%;
+  max-width: 150px;
+  min-width: 80px;
 }
 
 h1 {
