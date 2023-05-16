@@ -6,7 +6,9 @@
   "scripts": {
     "server": "cd server && npm i && node index.js",
     "client": "cd client && npm i && npm start",
-    "app": "concurrently \"npm run server\" \"npm run client\""
+    "cypress": "cypress open",
+    "app": "concurrently \"npm run server\" \"npm run client\"",
+    "cypress:app": "concurrently \"npm run server\" \"npm run client\" \"npm run cypress\""
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,8 @@
   "homepage": "https://github.com/JaxTurboNerd/Jax-Pet-Names#readme",
   "dependencies": {
     "concurrently": "^8.0.1"
+  },
+  "devDependencies": {
+    "cypress": "^12.11.0"
   }
 }
