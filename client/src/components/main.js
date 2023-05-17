@@ -24,34 +24,36 @@ function Main() {
 
   return (
     <main>
-      <h2>A tool to randomly generate a dog or cat name!</h2>
-      <div className='btn-genders'>
-        <button
-          type='button'
-          onClick={() => {
-            setIsMale(true);
-          }}
-          className={isMale ? 'gender-button active' : 'gender-button'}
-        >
-          Male
-        </button>
-        <button
-          type='button'
-          onClick={() => {
-            setIsMale(false);
-          }}
-          className={isMale ? 'gender-button' : 'gender-button active'}
-        >
-          Female
-        </button>
-      </div>
-      <div className='btn-generate-container'>
-        <button type='button' onClick={handleClick}>
-          Generate
-        </button>
-      </div>
-      <div className='card-container'>
-        <p>{petName}</p>
+      <div className='content'>
+        <h2>A tool to randomly generate a dog or cat name!</h2>
+        <div className='btn-genders'>
+          <button
+            type='button'
+            onClick={() => {
+              setIsMale(true);
+            }}
+            className={isMale ? 'gender-button active' : 'gender-button'}
+          >
+            Male
+          </button>
+          <button
+            type='button'
+            onClick={() => {
+              setIsMale(false);
+            }}
+            className={isMale ? 'gender-button' : 'gender-button active'}
+          >
+            Female
+          </button>
+        </div>
+        <div className='btn-generate-container'>
+          <button type='button' onClick={handleClick}>
+            Generate
+          </button>
+        </div>
+        <div className='card-container'>
+          <p>{petName}</p>
+        </div>
       </div>
     </main>
   );

@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
 
+/* property variables: */
+:root {
+  --main-bg-color: hsl(80, 33%, 95%);
+  --active-btn-color: hsl(355, 78%, 56%);
+  --inactive-btn-color: hsl(0, 3%, 72%);
+  --generate-btn-color: hsl(215, 46%, 34%);
+  --results-bg-color: hsl(210, 40%, 98%);
+  --dark-bg-color: hsla(221, 39%, 11%, 0.9);
+  --dark-bg-font: hsl(75, 12%, 94%);
+}
+
 /* reset styles */
 * {
   -webkit-box-sizing: border-box;
@@ -25,21 +36,38 @@ section {
   vertical-align: baseline;
 }
 
-/* property variables: */
-:root {
-  --main-bg-color: hsl(80, 33%, 95%);
-  --active-btn-color: hsla(355, 78%, 56%, 0.8);
-  --inactive-btn-color: hsl(0, 3%, 72%);
-  --generate-btn-color: hsl(215, 64%, 28%);
-  --results-bg-color: hsla(210, 40%, 98%, 0.5);
-}
-
 body {
-  background-color: var(--main-bg-color);
+  height: 100vh;
 }
 
 main {
+  background-color: var(--dark-bg-color);
   padding: 1em;
+  height: 80vh;
+}
+
+h2 {
+  color: var(--dark-bg-font);
+}
+
+/* background styling */
+main::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-image: url('../images/pawprint-transparent.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.2;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
 }
 
 h2,
@@ -96,7 +124,7 @@ button {
 }
 
 .btn-generate-container button {
-  background-color: var(--header-bg-color);
+  background-color: var(--generate-btn-color);
   color: white;
   border-radius: 10px;
   font-size: 1rem;
