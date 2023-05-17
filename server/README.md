@@ -9,7 +9,7 @@
 2. Navigate into folder: `cd Jax-Pet-Names/server`
 3. Install dependencies: `npm install`
 4. Install `knex` globally: `npm install knex -g`
-5. Create database: `CREATE DATABASE pet_names``;`
+5. Create database: `CREATE DATABASE pet_names;`
 6. Run migrations: `cd server && knex migrate:up` after loading repeat the command `knex migrate:up`
 7. Run seed to populate with demo data: `knex seed:run && cd ..`
 8. Start the server: `node index.js`
