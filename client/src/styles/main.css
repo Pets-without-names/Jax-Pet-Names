@@ -7,7 +7,7 @@
   --inactive-btn-color: hsl(0, 3%, 72%);
   --generate-btn-color: hsl(215, 46%, 34%);
   --results-bg-color: hsl(210, 40%, 98%);
-  --dark-bg-color: hsla(221, 39%, 11%, 0.9);
+  --dark-bg-color: hsl(221, 39%, 11%);
   --dark-bg-font: hsl(75, 12%, 94%);
 }
 
@@ -47,7 +47,11 @@ main {
 }
 
 h2 {
+  font-family: Moranga, sans-serif;
   color: var(--dark-bg-font);
+  background: linear-gradient(90deg, #ffd16a, #ec61b2 50%, #6e40f1);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* background styling */
@@ -79,6 +83,7 @@ p {
 
 button {
   cursor: pointer;
+  font-family: Moranga, sans-serif;
 }
 
 /* gender button container set-up */
@@ -106,10 +111,12 @@ button {
   padding: 0.5em;
   border-radius: 3px;
   font-size: 1rem;
+  border: 1px solid white;
 }
 /* styling for the gender button that is clicked */
 .active {
   background-color: var(--active-btn-color);
+  border: 1.75px solid lightgreen;
 }
 
 /* Generate name button container styling */
