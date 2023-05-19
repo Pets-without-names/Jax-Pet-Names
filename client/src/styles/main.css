@@ -101,7 +101,7 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 102px;
   margin: 2rem auto;
   border: 1px solid white;
 }
@@ -166,5 +166,6 @@ button {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+    width: 200px;
   }
 }
