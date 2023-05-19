@@ -3,7 +3,6 @@
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Marko One', serif;
 }
 
 body,
@@ -20,9 +19,8 @@ section {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif; */
 }
+
 /* custom properties: */
 :root {
   --header-bg-color: hsla(215, 72%, 31%, 0.8);
@@ -48,6 +46,7 @@ header {
     hsla(195, 53%, 79%, 0.5),
     var(--header-bg-color)
   );
+  font-family: 'Marko One', serif;
 }
 
 h1 {
