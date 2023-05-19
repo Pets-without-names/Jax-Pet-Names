@@ -26,13 +26,13 @@ function Main() {
     <main>
       <div className='content'>
         <h2>A tool to randomly generate a dog or cat name!</h2>
-        <div className='btn-genders'>
+        <div className='gender-btn-container'>
           <button
             type='button'
             onClick={() => {
               setIsMale(true);
             }}
-            className={isMale ? 'gender-button active male' : 'gender-button'}
+            className={isMale ? 'gender-btn active male' : 'gender-btn'}
           >
             Male
           </button>
@@ -41,12 +41,12 @@ function Main() {
             onClick={() => {
               setIsMale(false);
             }}
-            className={isMale ? 'gender-button' : 'gender-button active female'}
+            className={isMale ? 'gender-btn' : 'gender-btn active female'}
           >
             Female
           </button>
         </div>
-        <div className='btn-generate-container'>
+        <div className='generate-btn-container'>
           <button type='button' onClick={handleClick}>
             Generate
           </button>

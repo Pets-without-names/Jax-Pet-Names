@@ -87,7 +87,7 @@ button {
 }
 
 /* gender button container set-up */
-.btn-genders {
+.gender-button-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -107,7 +107,7 @@ button {
 }
 
 /* Apply styling to the gender buttons */
-.gender-button {
+.gender-btn {
   background-color: var(--inactive-btn-color);
   color: white;
   width: 100px;
@@ -121,7 +121,7 @@ button {
 }
 
 /* Generate name button container styling */
-.btn-generate-container {
+.generate-btn-container {
   display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-pack: center;
@@ -131,7 +131,7 @@ button {
   margin-top: 2rem;
 }
 
-.btn-generate-container button {
+.generate-btn-container button {
   background-color: var(--generate-btn-color);
   color: white;
   border-radius: 10px;
