@@ -1,27 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
 
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body,
-html,
-p,
-div,
-span,
-footer,
-header,
-section {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
-/* custom properties: */
+/* custom header properties: */
 :root {
   --header-bg-color: hsla(215, 72%, 31%, 0.8);
 }

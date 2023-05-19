@@ -33,9 +33,9 @@ section {
   vertical-align: baseline;
 }
 
-body {
+/* body {
   height: 100vh;
-}
+} */
 
 main {
   background-color: var(--dark-bg-color);
@@ -51,17 +51,17 @@ h2 {
 }
 
 /* background styling */
-main::before {
+.content::before {
   content: '';
   position: absolute;
-  top: 20%;
-  bottom: 20%;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: -1;
   background-image: url('../images/pawprint-transparent.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: repeat;
   opacity: 0.2;
 }
 
@@ -164,5 +164,9 @@ button {
     -ms-flex-direction: row;
     flex-direction: row;
     width: 200px;
+  }
+
+  main {
+    min-height: 70vh;
   }
 }
