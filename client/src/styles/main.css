@@ -87,7 +87,7 @@ button {
 }
 
 /* gender button container set-up */
-.gender-button-container {
+.gender-btn-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,7 +161,7 @@ button {
 }
 
 @media screen and (min-width: 750px) {
-  .btn-genders {
+  .gender-btn-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
