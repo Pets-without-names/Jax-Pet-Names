@@ -4,10 +4,10 @@
 :root {
   --main-bg-color: hsl(80, 33%, 95%);
   --active-btn-color: hsl(355, 78%, 56%);
-  --inactive-btn-color: hsla(0, 3%, 72%, 0.3);
+  --inactive-btn-color: hsl(0, 2%, 57%);
   --generate-btn-color: hsl(215, 46%, 34%);
   --results-bg-color: hsl(210, 40%, 98%);
-  --dark-bg-color: hsl(221, 39%, 11%);
+  --dark-bg-color: hsl(220, 13%, 27%);
   --dark-bg-font: hsl(75, 12%, 94%);
 }
 
@@ -15,9 +15,8 @@
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif; */
-  font-family: 'Marko One', serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 body,
@@ -42,7 +41,7 @@ body {
 
 main {
   background-color: var(--dark-bg-color);
-  padding: 1em;
+  padding: 1em 2em;
   height: 80vh;
 }
 
@@ -103,7 +102,7 @@ button {
   align-items: center;
   width: 102px;
   margin: 2rem auto;
-  border: 1px solid white;
+  border: 2px solid white;
 }
 
 /* Apply styling to the gender buttons */
@@ -133,6 +132,8 @@ button {
 
 .generate-btn-container button {
   background-color: var(--generate-btn-color);
+  border: 2px solid lightgray;
+  box-shadow: 1px 1px 2px rgb(170, 167, 167);
   color: white;
   border-radius: 10px;
   font-size: 1rem;
@@ -154,9 +155,8 @@ button {
   -webkit-transition: border 0.25s;
   -o-transition: border 0.25s;
   transition: border 0.25s;
-  font-size: 1.35rem;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  font-family: 'Moranga';
+  font-size: 1.45rem;
   font-weight: bolder;
 }
 
