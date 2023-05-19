@@ -32,7 +32,7 @@ function Main() {
             onClick={() => {
               setIsMale(true);
             }}
-            className={isMale ? 'gender-button active' : 'gender-button'}
+            className={isMale ? 'gender-button active male' : 'gender-button'}
           >
             Male
           </button>
@@ -41,7 +41,7 @@ function Main() {
             onClick={() => {
               setIsMale(false);
             }}
-            className={isMale ? 'gender-button' : 'gender-button active'}
+            className={isMale ? 'gender-button' : 'gender-button active female'}
           >
             Female
           </button>

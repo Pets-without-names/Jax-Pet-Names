@@ -4,7 +4,7 @@
 :root {
   --main-bg-color: hsl(80, 33%, 95%);
   --active-btn-color: hsl(355, 78%, 56%);
-  --inactive-btn-color: hsl(0, 3%, 72%);
+  --inactive-btn-color: hsla(0, 3%, 72%, 0.3);
   --generate-btn-color: hsl(215, 46%, 34%);
   --results-bg-color: hsl(210, 40%, 98%);
   --dark-bg-color: hsl(221, 39%, 11%);
@@ -101,22 +101,23 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  width: 200px;
+  margin: 2rem auto;
+  border: 1px solid white;
 }
+
 /* Apply styling to the gender buttons */
 .gender-button {
   background-color: var(--inactive-btn-color);
   color: white;
   width: 100px;
   padding: 0.5em;
-  border-radius: 3px;
   font-size: 1rem;
-  border: 1px solid white;
+  transition: background-color 600ms ease;
 }
 /* styling for the gender button that is clicked */
 .active {
   background-color: var(--active-btn-color);
-  border: 1.75px solid lightgreen;
 }
 
 /* Generate name button container styling */
