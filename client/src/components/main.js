@@ -27,34 +27,34 @@ function Main() {
       <h2>A tool to randomly generate a dog or cat name!</h2>
       <div className='flex-container'>
         <div className='content'>
-          <div className='gender-btn-container'>
-            <button
-              type='button'
-              onClick={() => {
-                setIsMale(true);
-              }}
-              className={isMale ? 'gender-btn active male' : 'gender-btn'}
-            >
-              Male
-            </button>
-            <button
-              type='button'
-              onClick={() => {
-                setIsMale(false);
-              }}
-              className={isMale ? 'gender-btn' : 'gender-btn active female'}
-            >
-              Female
-            </button>
-          </div>
-          <div className='generate-btn-container'>
-            <button type='button' onClick={handleClick}>
-              Generate
-            </button>
-          </div>
-          <div className='card-container'>
-            <p>{petName}</p>
-          </div>
+            <div className='gender-btn-container'>
+              <button
+                type='button'
+                onClick={() => {
+                  setIsMale(true);
+                }}
+                className={isMale ? 'gender-btn active male' : 'gender-btn'}
+              >
+                Male
+              </button>
+              <button
+                type='button'
+                onClick={() => {
+                  setIsMale(false);
+                }}
+                className={isMale ? 'gender-btn' : 'gender-btn active female'}
+              >
+                Female
+              </button>
+            </div>
+            <div className='generate-btn-container'>
+              <button type='button' onClick={handleClick}>
+                Generate
+              </button>
+            </div>
+            <div className='card-container'>
+              <p>{petName}</p>
+            </div>
         </div>
         <aside>
           <div className='aside-content'>
