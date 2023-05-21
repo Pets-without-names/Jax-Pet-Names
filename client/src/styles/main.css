@@ -179,6 +179,8 @@ aside h3 {
 
 .aside-card p {
   color: black;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
 }
 
 @media screen and (min-width: 750px) {
