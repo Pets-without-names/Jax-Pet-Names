@@ -9,13 +9,10 @@ function AddName() {
     setName(event.target.value);
   };
 
-  const handleGenderChange = useCallback(
-    (genderValue) => {
-      setGender(genderValue);
-      console.log('gender: ' + gender);
-    },
-    [gender]
-  );
+  const handleGenderChange = useCallback((genderValue) => {
+    setGender(genderValue);
+    // console.log('gender: ' + gender);
+  }, []);
 
   const handleOnChange = (event) => {
     handleGenderChange(event.target.value);
