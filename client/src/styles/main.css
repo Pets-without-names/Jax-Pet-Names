@@ -53,7 +53,7 @@ button {
   font-family: Moranga, sans-serif;
 }
 
-h2 {
+main h2 {
   font-family: Moranga, sans-serif;
   color: var(--dark-bg-font);
   background: linear-gradient(90deg, #ffd16a, #ec61b2 50%, #6e40f1);
