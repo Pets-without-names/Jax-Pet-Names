@@ -7,7 +7,7 @@ Primarily our planning is located: here: **(To Be Revealed, probably github issu
 
 regards, **woof woof meow**.
 
-Cypress test suite usage: 
+Cypress test suite usage:
 
 1. If the front end and backend are not running:
 `npm install; npm run app:cypress;`
@@ -48,7 +48,7 @@ This web app will allow the user to simply click a button and a randomly generat
 2. Navigate into folder: `cd Jax-Pet-Names/server`
 3. Install dependencies: `npm install`
 4. Install `knex` globally: `npm install knex -g`
-5. Create database: `CREATE DATABASE pet_names``;`
+5. Create database: `CREATE DATABASE pet_names;`
 6. Run migrations: `knex migrate:up`
 7. Run seed to populate with demo data: `knex seed:run`
 8. Start the server: `node index.js`
