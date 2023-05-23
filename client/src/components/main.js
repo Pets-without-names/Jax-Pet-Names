@@ -25,33 +25,54 @@ function Main() {
   return (
     <main>
       <h2>A tool to randomly generate a dog or cat name!</h2>
-      <div className='btn-genders'>
-        <button
-          type='button'
-          onClick={() => {
-            setIsMale(true);
-          }}
-          className={isMale ? 'custom-button active' : 'custom-button'}
-        >
-          Male
-        </button>
-        <button
-          type='button'
-          onClick={() => {
-            setIsMale(false);
-          }}
-          className={isMale ? 'custom-button' : 'custom-button active'}
-        >
-          Female
-        </button>
-      </div>
-      <div className='btn-generate'>
-        <button type='button' onClick={handleClick}>
-          Generate
-        </button>
-      </div>
-      <div className='card-container'>
-        <p>{petName}</p>
+      <div className='flex-container'>
+        <div className='content'>
+            <div className='gender-btn-container'>
+              <button
+                type='button'
+                onClick={() => {
+                  setIsMale(true);
+                }}
+                className={isMale ? 'gender-btn active male' : 'gender-btn'}
+              >
+                Male
+              </button>
+              <button
+                type='button'
+                onClick={() => {
+                  setIsMale(false);
+                }}
+                className={isMale ? 'gender-btn' : 'gender-btn active female'}
+              >
+                Female
+              </button>
+            </div>
+            <div className='generate-btn-container'>
+              <button type='button' onClick={handleClick}>
+                Generate
+              </button>
+            </div>
+            <div className='card-container'>
+              <p>{petName}</p>
+            </div>
+        </div>
+        <aside>
+          <div className='aside-content'>
+            <h3>Other names you may like:</h3>
+            <div className='aside-card'>
+              <p>{petName}</p>
+            </div>
+            <div className='aside-card'>
+              <p>{petName}</p>
+            </div>
+            <div className='aside-card'>
+              <p>{petName}</p>
+            </div>
+            <div className='aside-card'>
+              <p>{petName}</p>
+            </div>
+          </div>
+        </aside>
       </div>
     </main>
   );

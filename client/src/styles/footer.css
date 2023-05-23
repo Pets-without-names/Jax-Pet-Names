@@ -1,0 +1,30 @@
+footer {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: min-content;
+}
+
+section {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+  section {
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
