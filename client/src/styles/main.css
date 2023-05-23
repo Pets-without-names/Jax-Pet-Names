@@ -35,7 +35,8 @@ section {
 
 main {
   height: auto;
-  background-color: var(--dark-bg-color);
+  /* background-color: var(--dark-bg-color); */
+  background-color: var(--header-bg-color);
   padding: 2em;
   position: relative;
   z-index: 2;
