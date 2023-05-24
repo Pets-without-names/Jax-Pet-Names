@@ -7,16 +7,16 @@ function AddName() {
 
   const handleNameChange = (event) => {
     setName(event.target.value);
+    console.log(name);
   };
-
-  const handleGenderChange = useCallback((genderValue) => {
-    setGender(genderValue);
-    // console.log('gender: ' + gender);
-  }, []);
 
   const handleOnChange = (event) => {
     handleGenderChange(event.target.value);
   };
+
+  const handleGenderChange = useCallback((genderValue) => {
+    setGender(genderValue);
+  }, []);
 
   const handleSubmit = (event) => {
     event.prevent.default();
@@ -53,10 +53,7 @@ function AddName() {
             value='Female'
             name='gender'
             checked={gender === 'Female'}
-            onChange={(event) => {
-              setGender(event.target.value);
-              console.log('gender: ' + gender);
-            }}
+            onChange={handleOnChange}
           />
           <label htmlFor='female'>Female</label>
         </div>

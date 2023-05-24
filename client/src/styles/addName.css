@@ -3,4 +3,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid red;
+}
+
+.add-name-container form {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
 }
