@@ -1,39 +1,57 @@
-import { React, useCallback, useEffect, useState } from 'react';
+import { React } from 'react';
+import { useForm } from 'react-hook-form';
 import '../styles/addName.css';
 
 function AddName() {
-  const [name, setName] = useState('');
-  const [gender, setGender] = useState('Male');
+  // React Hook Form setup:
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: 'onBlur' });
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-    console.log(name);
+  const onSubmit = async (formData) => {
+    //POST API call
+    try {
+      const response = fetch(`http://localhost:3001/names/`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': ' multipart/form-data',
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+      // const data = await response.json();
+      // response.send(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleOnChange = (event) => {
-    handleGenderChange(event.target.value);
+  const handleErrors = (errors) => {
+    console.log('error: ' + errors);
+    //Other error handling code:
   };
-
-  const handleGenderChange = useCallback((genderValue) => {
-    setGender(genderValue);
-  }, []);
-
-  const handleSubmit = (event) => {
-    event.prevent.default();
-  };
-
-  useEffect(() => {
-    handleGenderChange(gender);
-  }, [handleGenderChange, gender]);
 
   return (
     <div className='add-name-container'>
       <h2>Want to add a name to the database?</h2>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit(onSubmit, handleErrors)}
+        method='POST'
+        encType='multipart/form-data'
+        autoComplete='off'
+      >
         <label>
           Name:{' '}
-          <input type='text' value={name} onChange={handleNameChange}></input>
+          <input
+            type='text'
+            name='petName'
+            {...register('petName', { required: 'Name is required' })}
+          />
         </label>
+        <small>{errors?.petName && errors.petName.message}</small>
         <br></br>
 
         <div>
@@ -41,19 +59,18 @@ function AddName() {
           <input
             type='radio'
             id='male'
-            value='Male'
-            name='gender'
-            checked={gender === 'Male'}
-            onChange={handleOnChange}
+            value={true}
+            name='isMale'
+            checked={true}
+            {...register('isMale')}
           />
           <label htmlFor='male'>Male</label>
           <input
             type='radio'
             id='female'
-            value='Female'
-            name='gender'
-            checked={gender === 'Female'}
-            onChange={handleOnChange}
+            value={false}
+            name='isMale'
+            {...register('isMale')}
           />
           <label htmlFor='female'>Female</label>
         </div>
