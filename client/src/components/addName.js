@@ -10,26 +10,28 @@ function AddName() {
     formState: { errors },
   } = useForm({ mode: 'onBlur' });
 
-  const onSubmit = async (formData) => {
-    //POST API call
-    try {
-      const response = fetch(`http://localhost:3001/names/`, {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': ' multipart/form-data',
-        },
-        body: JSON.stringify(formData),
-      });
-      console.log(response);
-      // const data = await response.json();
-      // response.send(data);
-    } catch (error) {
-      console.log(error);
-    }
+  const onSubmit = (formData) => {
+    // POST API call
+    console.log('form data:' + JSON.stringify(formData));
+    fetch('http://localhost:3001/names', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        response.json();
+      })
+      .then((data) => {
+        //Code for data
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
   };
 
-  const handleErrors = (errors) => {
+  const onError = (errors) => {
     console.log('error: ' + errors);
     //Other error handling code:
   };
@@ -37,21 +39,16 @@ function AddName() {
   return (
     <div className='add-name-container'>
       <h2>Want to add a name to the database?</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit, handleErrors)}
-        method='POST'
-        encType='multipart/form-data'
-        autoComplete='off'
-      >
+      <form onSubmit={handleSubmit(onSubmit, onError)} autoComplete='off'>
         <label>
           Name:{' '}
           <input
             type='text'
-            name='petName'
-            {...register('petName', { required: 'Name is required' })}
+            name='name'
+            {...register('name', { required: 'Name is required' })}
           />
         </label>
-        <small>{errors?.petName && errors.petName.message}</small>
+        <small>{errors.petName?.message}</small>
         <br></br>
 
         <div>
@@ -60,17 +57,17 @@ function AddName() {
             type='radio'
             id='male'
             value={true}
-            name='isMale'
+            name='is_male'
             checked={true}
-            {...register('isMale')}
+            {...register('is_male')}
           />
           <label htmlFor='male'>Male</label>
           <input
             type='radio'
             id='female'
             value={false}
-            name='isMale'
-            {...register('isMale')}
+            name='is_male'
+            {...register('is_male')}
           />
           <label htmlFor='female'>Female</label>
         </div>

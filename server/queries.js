@@ -33,14 +33,13 @@ const getNameById = async (request, response) => {
 
 const createName = async (request, response) => {
   const { name, is_used, is_male } = request.body;
-
   const result = await knex('pet_names').insert({ name, is_used, is_male }, [
     'id',
     'name',
     'is_used',
     'is_male',
   ]);
-
+  console.log(result);
   response.status(201).json(result[0]);
 };
 
