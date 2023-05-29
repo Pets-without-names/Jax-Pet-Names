@@ -34,22 +34,17 @@ function AddName() {
       })
       .then((data) => {
         //Code for data
-        console.log(data);
         setAddedName(data.name);
-        setIsOpen(true);
+        setIsOpen(true); //will trigger the modal to open
       })
       .catch((error) => console.log(error));
-    reset({ name: '' });
+    reset({ name: '' }); //clears the form values from the user
   };
 
   const onError = (errors) => {
     console.log('error: ' + errors);
     //Other error handling code:
   };
-
-  // useEffect(() => {
-  //   //code to run on first render and when addedName changes
-  // }, []);
 
   const closeModal = (event) => {
     setIsOpen(false);
