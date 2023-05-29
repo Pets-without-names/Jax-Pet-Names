@@ -1,0 +1,6 @@
+.add-name-container {
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

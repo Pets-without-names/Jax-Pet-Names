@@ -9,13 +9,10 @@ function AddName() {
     setName(event.target.value);
   };
 
-  const handleGenderChange = useCallback(
-    (genderValue) => {
-      setGender(genderValue);
-      console.log('gender: ' + gender);
-    },
-    [gender]
-  );
+  const handleGenderChange = useCallback((genderValue) => {
+    setGender(genderValue);
+    // console.log('gender: ' + gender);
+  }, []);
 
   const handleOnChange = (event) => {
     handleGenderChange(event.target.value);
@@ -30,8 +27,8 @@ function AddName() {
   }, [handleGenderChange, gender]);
 
   return (
-    <div>
-      <h2>Have a name you want to add?</h2>
+    <div className='add-name-container'>
+      <h2>Want to add a name to the database?</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Name:{' '}
