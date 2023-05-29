@@ -1,18 +1,26 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import '../styles/addName.css';
 
 function AddName() {
+  const [addedName, setAddedName] = useState('');
+  const [modalIsOpen, setIsOpen] = useState(false);
+
   // React Hook Form setup:
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm({ mode: 'onBlur' });
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      name: '',
+    },
+  });
 
   const onSubmit = (formData) => {
     // POST API call
-    console.log('form data:' + JSON.stringify(formData));
     fetch('http://localhost:3001/names', {
       method: 'POST',
       mode: 'cors',
@@ -22,18 +30,29 @@ function AddName() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        response.json();
+        return response.json();
       })
       .then((data) => {
         //Code for data
         console.log(data);
+        setAddedName(data.name);
+        setIsOpen(true);
       })
       .catch((error) => console.log(error));
+    reset({ name: '' });
   };
 
   const onError = (errors) => {
     console.log('error: ' + errors);
     //Other error handling code:
+  };
+
+  // useEffect(() => {
+  //   //code to run on first render and when addedName changes
+  // }, []);
+
+  const closeModal = (event) => {
+    setIsOpen(false);
   };
 
   return (
@@ -48,7 +67,7 @@ function AddName() {
             {...register('name', { required: 'Name is required' })}
           />
         </label>
-        <small>{errors.petName?.message}</small>
+        <small>{errors.name?.message}</small>
         <br></br>
 
         <div>
@@ -75,6 +94,12 @@ function AddName() {
           <button type='submit'>Add Name</button>
         </div>
       </form>
+      <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
+        <p>{addedName} has been added</p>
+        <button id='close-btn' onClick={closeModal}>
+          OK
+        </button>
+      </div>
     </div>
   );
 }

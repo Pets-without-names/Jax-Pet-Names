@@ -6,12 +6,12 @@ const app = express();
 const port = 3001;
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //used for POST/PUT
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
-);
+); //used for POST/PUT
 
 app.get('/names', db.getName);
 app.get('/names/:id', db.getNameById);
