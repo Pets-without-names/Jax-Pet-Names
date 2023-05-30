@@ -2,10 +2,30 @@
 
 // enter uses for the application here as test names.
 // later we will break out into separate test files.
-describe('app-plan', () => {
-  it('generates the name of a dog', () => { expect(true).to.equal(true)});
-  it('presents a user interface', () => { expect(true).to.equal(true)});
+describe('jax pet name generator website', () => {
+  const environment = [ "localhost:3000" ]
+  it('navigates and clicks a bunch of buttons', () => { 
+    cy.visit(`http://${environment}`)
+    cy.get('.active').click();
+    cy.wait(1000)
+    cy.get('.generate-btn-container > button').click();
+    cy.wait(1000)
+    cy.get('.generate-btn-container > button').click();
+    cy.wait(1000)
+    cy.get('.generate-btn-container > button').click();
+    cy.wait(1000)
+    cy.get('.generate-btn-container > button').dblclick();
+    cy.wait(1000)
+    cy.get('.active').click();
+    cy.wait(1000)
+    cy.get('.active').click();
+    cy.wait(1000)
+    cy.get('.generate-btn-container > button').click();
+    cy.wait(1000)
+    cy.get('.generate-btn-container > button').click();
+  });
 })
+
 let networkFails = []; 
 
 /* ********** ********** ********** ********** ********** ********** ********** ********** */
@@ -23,7 +43,7 @@ describe('app navigation', () => {
   environments.forEach((environment) => { // Do not change me
     describe('Test '+ environment + ' Environment', () => {
         beforeEach(function() {
-            cy.viewport(width, height);
+            // cy.viewport(width, height);
         })
         Cypress.on('window:before:load', (win) => {
             cy.spy(win.console, 'error');
@@ -65,4 +85,5 @@ after(() => {
   saveNetworkFails()            // runs after all tests, even when test fails
 })
 
+// Do not change above
 /* ********** ********** ********** ********** ********** ********** ********** ********** */
