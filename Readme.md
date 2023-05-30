@@ -50,8 +50,9 @@ This web app will allow the user to simply click a button and a randomly generat
 4. Install `knex` globally: `npm install knex -g`
 5. Create database: `CREATE DATABASE pet_names;`
 6. Run migrations: `knex migrate:up`
-7. Run seed to populate with demo data: `knex seed:run`
-8. Start the server: `node index.js`
+7. You may need to run #5 multiple times until caught up.
+8. Run seed to populate with demo data: `npx knex seed:run`
+9. Start the server: `npm run server`
 
 ### Current APIs
 - `GET /names`
