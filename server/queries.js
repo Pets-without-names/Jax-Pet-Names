@@ -39,7 +39,6 @@ const createName = async (request, response) => {
     'is_used',
     'is_male',
   ]);
-  console.log(result);
   response.status(201).json(result[0]);
 };
 

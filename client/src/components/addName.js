@@ -34,6 +34,7 @@ function AddName() {
       })
       .then((data) => {
         //Code for data
+        console.log(data);
         setAddedName(data.name);
         setIsOpen(true); //will trigger the modal to open
       })
