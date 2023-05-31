@@ -19,6 +19,13 @@ function AddName() {
     },
   });
 
+  //Validate user input for the text input:
+  const validateText = (event) => {
+    // allow only letters, periods, spaces and hyphens
+    event.target.value =
+      event.target.value.replace(/[^a-zA-Z. -]+/gi, '') || '';
+  };
+
   const onSubmit = (formData) => {
     // POST API call
     fetch('http://localhost:3001/names', {
@@ -61,6 +68,7 @@ function AddName() {
             type='text'
             name='name'
             {...register('name', { required: 'Name is required' })}
+            onChange={validateText}
           />
         </label>
         <small>{errors.name?.message}</small>
