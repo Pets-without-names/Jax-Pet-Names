@@ -16,23 +16,6 @@ Cypress test suite usage:
 
 <details>
     <summary>
-        <h2>Front End Details,</h2> sourced from the readme:
-          <a href="https://github.com/JaxTurboNerd/Jax-Pet-Names/tree/main/client"> here </a>
-    </summary>
-
-# Pet Names Web App
-
-This web app will allow the user to simply click a button and a randomly generated pet name will show. The user can chose between a male or female name.
-
-## Requirements
-
-- Node.js
-- React
-
-</details>
-
-<details>
-    <summary>
         <h2>Backend Details,</h2> sourced from the readme:
           <a href="https://github.com/JaxTurboNerd/Jax-Pet-Names/tree/main/server"> here </a>
     </summary>
@@ -51,8 +34,10 @@ This web app will allow the user to simply click a button and a randomly generat
 5. Install `knex` globally: `npm install knex -g`
 6. Create database: `CREATE DATABASE pet_names;`
 7. Run migrations: `knex migrate:up`
-8. Run seed to populate with demo data: `knex seed:run`
-9. Start the server: `node index.js`
+8. You may need to run #5 multiple times until caught up.
+9. Run seed to populate with demo data: `knex seed:run`
+10. Navigate to Jax-Pet-Names directory: `cd ..`
+11. Start the server: `npm run server`
 
 ### Current APIs
 - `GET /names`
@@ -60,5 +45,32 @@ This web app will allow the user to simply click a button and a randomly generat
 - `GET /names/:id`
 - `PUT /names/:id`
 - `DELETE /names/:id`
+
+</details>
+
+
+<details>
+    <summary>
+        <h2>Front End Details,</h2> sourced from the readme:
+          <a href="https://github.com/JaxTurboNerd/Jax-Pet-Names/tree/main/client"> here </a>
+    </summary>
+
+# Pet Names Web App
+
+This web app will allow the user to simply click a button and a randomly generated pet name will show. The user can chose between a male or female name.
+
+## Requirements
+
+- Node.js
+- React
+
+### Local Setup
+1. Clone project: `git clone git@github.com:JaxTurboNerd/Jax-Pet-Names.git`
+2. Navigate into folder: `cd Jax-Pet-Names/client`
+3. Install dependencies: `npm install`
+4. Navigate to Jax-Pet-Names directory: `cd ..`
+5. Start just front end : `npm run client`
+6. Usually you need the backend running locally along with the front end to start both at the same time run : `npm run app`
+
 
 </details>
