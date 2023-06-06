@@ -32,12 +32,22 @@ Cypress test suite usage:
 3. Add .env file with your database credentials. Set variables `DB_NAME`, `DB_USER`, `DB_PASSWORD`.
 4. Install dependencies: `npm install`
 5. Install `knex` globally: `npm install knex -g`
-6. Create database: `CREATE DATABASE pet_names;`
-7. Run migrations: `knex migrate:up`
-8. You may need to run #5 multiple times until caught up.
-9. Run seed to populate with demo data: `knex seed:run`
-10. Navigate to Jax-Pet-Names directory: `cd ..`
-11. Start the server: `npm run server`
+6. Setup database with tables and test data: `npm run db:setup`
+7. Start the server: `node index.js`
+
+### Docker
+To avoid configuring Postgres locally, you can setup a Postgres container with Docker.
+1. Ensure Docker is installed. See [Docker Engine docs](https://docs.docker.com/engine/install/) for installation instructions.
+2. Close any current Postgres processes. MacOS: `brew services stop postgresql`, Ubuntu/Debian: `sudo systemctl stop postgresql`
+3. Run command to setup Postgres container: `sudo docker run -p 5432:5432 --name jax-pet-names-pg -e POSTGRES_PASSWORD=postgres -d postgres`
+
+### Database Scripts
+- Create Database: `npm run db:create`
+- Drop Database: `npm run db:drop`
+- Migrate Database: `npm run db:migrate`
+- Seed Database: `npm run db:seed`
+- Reset Database (without seed): `npm run db:reset`
+- Reset Database (with seed): `npm run db:setup`
 
 ### Current APIs
 - `GET /names`

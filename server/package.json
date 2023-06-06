@@ -4,6 +4,14 @@
   "description": "Jax Pet Names API",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "db:create": "node knex_create.js",
+    "db:drop": "node knex_drop.js",
+    "db:migrate": "knex migrate:latest",
+    "db:seed": "knex seed:run",
+    "db:reset": "node knex_drop.js && node knex_create.js && knex migrate:latest",
+    "db:setup": "node knex_drop.js && node knex_create.js && knex migrate:latest && knex seed:run"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
