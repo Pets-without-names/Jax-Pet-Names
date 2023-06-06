@@ -1,39 +1,77 @@
-import { React, useCallback, useEffect, useState } from 'react';
+import { React, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import '../styles/addName.css';
 
 function AddName() {
-  const [name, setName] = useState('');
-  const [gender, setGender] = useState('Male');
+  const [addedName, setAddedName] = useState('');
+  const [modalIsOpen, setIsOpen] = useState(false);
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
+  // React Hook Form setup:
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    mode: 'onBlur',
+    defaultValues: {
+      name: '',
+    },
+  });
+
+  //Validate user input for the text input:
+  const validateText = (event) => {
+    // allow only letters, periods, spaces and hyphens
+    event.target.value =
+      event.target.value.replace(/[^a-zA-Z. -]+/gi, '') || '';
   };
 
-  const handleGenderChange = useCallback((genderValue) => {
-    setGender(genderValue);
-    // console.log('gender: ' + gender);
-  }, []);
-
-  const handleOnChange = (event) => {
-    handleGenderChange(event.target.value);
+  const onSubmit = (formData) => {
+    // POST API call
+    fetch('http://localhost:3001/names', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //Code for data
+        console.log(data);
+        setAddedName(data.name);
+        setIsOpen(true); //will trigger the modal to open
+      })
+      .catch((error) => console.log(error));
+    reset({ name: '' }); //clears the form values from the user
   };
 
-  const handleSubmit = (event) => {
-    event.prevent.default();
+  const onError = (errors) => {
+    console.log('error: ' + errors);
+    //Other error handling code:
   };
 
-  useEffect(() => {
-    handleGenderChange(gender);
-  }, [handleGenderChange, gender]);
+  const closeModal = (event) => {
+    setIsOpen(false);
+  };
 
   return (
     <div className='add-name-container'>
       <h2>Want to add a name to the database?</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit, onError)} autoComplete='off'>
         <label>
           Name:{' '}
-          <input type='text' value={name} onChange={handleNameChange}></input>
+          <input
+            type='text'
+            name='name'
+            {...register('name', { required: 'Name is required' })}
+            onChange={validateText}
+          />
         </label>
+        <small>{errors.name?.message}</small>
         <br></br>
 
         <div>
@@ -41,22 +79,18 @@ function AddName() {
           <input
             type='radio'
             id='male'
-            value='Male'
-            name='gender'
-            checked={gender === 'Male'}
-            onChange={handleOnChange}
+            value={true}
+            name='is_male'
+            checked={true}
+            {...register('is_male')}
           />
           <label htmlFor='male'>Male</label>
           <input
             type='radio'
             id='female'
-            value='Female'
-            name='gender'
-            checked={gender === 'Female'}
-            onChange={(event) => {
-              setGender(event.target.value);
-              console.log('gender: ' + gender);
-            }}
+            value={false}
+            name='is_male'
+            {...register('is_male')}
           />
           <label htmlFor='female'>Female</label>
         </div>
@@ -64,6 +98,12 @@ function AddName() {
           <button type='submit'>Add Name</button>
         </div>
       </form>
+      <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
+        <p>{addedName} has been added</p>
+        <button id='close-btn' onClick={closeModal}>
+          OK
+        </button>
+      </div>
     </div>
   );
 }

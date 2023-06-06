@@ -17,7 +17,7 @@ const getName = async (request, response) => {
   }
 
   const offset = await randomOffset(query);
-  query = query.offset(offset).limit(5); //limit will return 5 values from the database
+  query = query.offset(offset).limit(1);
 
   const results = await query.select();
   response.status(200).json(results);
@@ -33,14 +33,12 @@ const getNameById = async (request, response) => {
 
 const createName = async (request, response) => {
   const { name, is_used, is_male } = request.body;
-
   const result = await knex('pet_names').insert({ name, is_used, is_male }, [
     'id',
     'name',
     'is_used',
     'is_male',
   ]);
-
   response.status(201).json(result[0]);
 };
 
