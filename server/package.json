@@ -10,7 +10,8 @@
     "db:migrate": "knex migrate:latest",
     "db:seed": "knex seed:run",
     "db:reset": "node knex_drop.js && node knex_create.js && knex migrate:latest",
-    "db:setup": "node knex_drop.js && node knex_create.js && knex migrate:latest && knex seed:run"
+    "db:setup": "node knex_drop.js && node knex_create.js && knex migrate:latest && knex seed:run",
+    "db:production:setup": "npm install && knex migrate:latest --env production"
   },
   "dependencies": {
     "cors": "^2.8.5",

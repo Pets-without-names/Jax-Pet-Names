@@ -48,6 +48,7 @@ To avoid configuring Postgres locally, you can setup a Postgres container with D
 - Seed Database: `npm run db:seed`
 - Reset Database (without seed): `npm run db:reset`
 - Reset Database (with seed): `npm run db:setup`
+- Production Database Setup: `npm run db:production:setup`
 
 ### Current APIs
 - `GET /names`
