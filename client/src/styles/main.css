@@ -21,6 +21,7 @@ main {
 }
 
 main h2 {
+main h2 {
   text-align: center;
   margin: 0;
   font-family: Moranga, sans-serif;
@@ -191,6 +192,8 @@ main h2 {
   font-weight: bolder;
 }
 
+.card-container p {
+  text-align: center;
 .card-container p {
   text-align: center;
 }
