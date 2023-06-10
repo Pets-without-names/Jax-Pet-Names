@@ -1,0 +1,29 @@
+@import 'normalize.css';
+
+/* reset styles */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+html,
+p,
+div,
+span,
+footer,
+header,
+section {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* basic styles which are standardized */
+button {
+  cursor: pointer;
+  font-family: Morange, sans-serif;
+}

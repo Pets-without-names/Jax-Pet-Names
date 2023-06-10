@@ -20,17 +20,17 @@ header {
   padding: 1em;
   border: 1px solid black;
   /* background styling */
+  background-image: -o-linear-gradient(
+    left,
+    hsla(195, 53%, 79%, 0.5),
+    var(--header-bg-color)
+  );
   background-image: -webkit-gradient(
     linear,
     left top,
     right top,
     from(hsla(195, 53%, 79%, 0.5)),
     to(var(--header-bg-color))
-  );
-  background-image: -o-linear-gradient(
-    left,
-    hsla(195, 53%, 79%, 0.5),
-    var(--header-bg-color)
   );
   background-image: linear-gradient(
     to right,
@@ -40,13 +40,13 @@ header {
   font-family: 'Marko One', serif;
 }
 
-h1 {
+header > h1 {
   margin: 0;
   text-shadow: 0px 5px 10px darkgray;
   text-align: center;
 }
 
-img {
+header > img {
   width: 10%;
   max-width: 100px;
   min-width: 50px;
@@ -60,7 +60,7 @@ img {
     flex-direction: row;
   }
 
-  h1 {
+  header > h1 {
     width: 80%;
     font-size: 4vw;
   }

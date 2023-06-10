@@ -74,8 +74,8 @@ function AddName() {
         <small>{errors.name?.message}</small>
         <br></br>
 
-        <div>
-          <label>Gender: </label>
+        <div className='gender-inputs'>
+          <label id='gender-lbl'>Gender: </label>
           <input
             type='radio'
             id='male'
@@ -84,7 +84,9 @@ function AddName() {
             checked={true}
             {...register('is_male')}
           />
-          <label htmlFor='male'>Male</label>
+          <label className='input-lbl' htmlFor='male'>
+            Male
+          </label>
           <input
             type='radio'
             id='female'
@@ -92,10 +94,14 @@ function AddName() {
             name='is_male'
             {...register('is_male')}
           />
-          <label htmlFor='female'>Female</label>
+          <label className='input-lbl' htmlFor='female'>
+            Female
+          </label>
         </div>
         <div>
-          <button type='submit'>Add Name</button>
+          <button className='submit-btn' type='submit'>
+            Add Name
+          </button>
         </div>
       </form>
       <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
