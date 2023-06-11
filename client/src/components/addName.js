@@ -11,6 +11,7 @@ function AddName() {
     register,
     handleSubmit,
     reset,
+    clearErrors,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
@@ -24,6 +25,7 @@ function AddName() {
     // allow only letters, periods, spaces and hyphens
     event.target.value =
       event.target.value.replace(/[^a-zA-Z. -]+/gi, '') || '';
+    clearErrors('name');
   };
 
   const onSubmit = (formData) => {
@@ -41,12 +43,11 @@ function AddName() {
       })
       .then((data) => {
         //Code for data
-        console.log(data);
         setAddedName(data.name);
         setIsOpen(true); //will trigger the modal to open
       })
       .catch((error) => console.log(error));
-    reset({ name: '' }); //clears the form values from the user
+    reset({ name: '' }); //clears the form values
   };
 
   const onError = (errors) => {
@@ -81,7 +82,7 @@ function AddName() {
             id='male'
             value={true}
             name='is_male'
-            checked={true}
+            defaultChecked={true}
             {...register('is_male')}
           />
           <label className='input-lbl' htmlFor='male'>
