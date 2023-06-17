@@ -3,17 +3,11 @@ const environment = process.env.ENVIRONMENT || 'development'
 const config = {
   development: {
     client: 'postgresql',
-    connection: {
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-    },
+    connection: process.env.DB_SETUP_URL,
   },
   staging: {
     client: 'postgresql',
-    connection: {
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-    },
+    connection: process.env.DB_SETUP_URL,
   },
   production: {
     client: 'postgresql',
