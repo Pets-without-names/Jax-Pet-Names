@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "cd server && npm i && node index.js",
+    "server:db:setup": "cd server && npm i && npm run db:setup",
+    "server:db:reset": "cd server && npm i && npm run db:reset",
     "client": "cd client && npm i && npm start",
     "cypress": "cypress open",
     "app": "concurrently \"npm run server\" \"npm run client\"",
