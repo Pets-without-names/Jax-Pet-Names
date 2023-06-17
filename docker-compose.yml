@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  web:
+    restart: on-failure
+    build: .
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    depends_on:
+      - db
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
