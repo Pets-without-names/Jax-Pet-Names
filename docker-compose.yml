@@ -9,8 +9,8 @@ services:
     depends_on:
       - db
     volumes:
-      - ./:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./:/app
+      - /app/node_modules
   db:
     image: postgres
     restart: always

@@ -27,19 +27,28 @@ Cypress test suite usage:
 - Postgres (14.7 or higher)
 
 ### Local Setup
+**Note**: Skip this section if running docker compose on the entire app.
+
 1. Clone project: `git clone git@github.com:JaxTurboNerd/Jax-Pet-Names.git`
-2. Navigate into folder: `cd Jax-Pet-Names/server`
-3. Add .env file with your database credentials. Set variables `DB_NAME`, `DB_USER`, `DB_PASSWORD`.
+2. Navigate into server folder: `cd Jax-Pet-Names/server`
+3. Add .env file for your database URLs. Set variables:
+  - `DB_URL`: Connection URL to postgres server **including database**. (Example: `postgresql://username:password@host:port/database`)
+  - `DB_SETUP_URL`: URL to postgres server only. (Example: `postgresql://username:password@host:port`)
 4. Install dependencies: `npm install`
 5. Install `knex` globally: `npm install knex -g`
 6. Setup database with tables and test data: `npm run db:setup`
 7. Start the server: `node index.js`
 
-### Docker
+### Docker (Database only)
+**Note**: Skip this section if running docker compose on the entire app.
+
 To avoid configuring Postgres locally, you can setup a Postgres container with Docker.
 1. Ensure Docker is installed. See [Docker Engine docs](https://docs.docker.com/engine/install/) for installation instructions.
 2. Close any current Postgres processes. MacOS: `brew services stop postgresql`, Ubuntu/Debian: `sudo systemctl stop postgresql`
-3. Run command to setup Postgres container: `sudo docker run -p 5432:5432 --name jax-pet-names-pg -e POSTGRES_PASSWORD=postgres -d postgres`
+3. Configure .env file for your database URLs. Set the URLs to these values:
+  - `DB_URL`: `postgresql://postgres:postgres@localhost:5432/pet_names`
+  - `DB_SETUP_URL`: `postgresql://postgres:postgres@localhost:5432`
+4. Run command to setup Postgres container: `sudo docker run -p 5432:5432 --name jax-pet-names-pg -e POSTGRES_PASSWORD=postgres -d postgres`
 
 ### Database Scripts
 - Create Database: `npm run db:create`
@@ -76,12 +85,37 @@ This web app will allow the user to simply click a button and a randomly generat
 - React
 
 ### Local Setup
+**Note**: Skip this section if running docker compose on the entire app.
+
 1. Clone project: `git clone git@github.com:JaxTurboNerd/Jax-Pet-Names.git`
 2. Navigate into folder: `cd Jax-Pet-Names/client`
 3. Install dependencies: `npm install`
 4. Navigate to Jax-Pet-Names directory: `cd ..`
-5. Start just front end : `npm run client`
-6. Usually you need the backend running locally along with the front end to start both at the same time run : `npm run app`
+5. Start just front end: `npm run client:start`
+6. Usually you need the backend running locally along with the front end to start both at the same time run: `npm run app:start`
 
 
 </details>
+
+### Docker
+This app can optionally be run entirely in Docker. This can be used to avoid setting up Node and Postgres locally.
+
+1. Ensure Docker is installed. See [Docker Engine docs](https://docs.docker.com/engine/install/) for installation instructions.
+2. Configure server/.env file for your database URLs. Set the URLs to these values:
+  - `DB_URL`: `postgresql://postgres:postgres@db:5432/pet_names`
+  - `DB_SETUP_URL`: `postgresql://postgres:postgres@db:5432`
+3. Run `docker compose up`. This builds containers for the Postgres database and web servers (frontend and backend).
+4. Run the script to setup the database tables and seed data: `docker exec -it jax-pet-names-web-1 npm run server:db:setup`
+5. The app is now running.
+  - Frontend URL: http://localhost:3000
+  - Server API URL: http://localhost:3001
+  - Postgres Server URL: postgresql://postgres:postgres@localhost:5432/pet_names
+
+### App Scripts
+- Start Server: `npm run server:start`
+- Server Reset Database (with seed): `npm run server:db:setup`
+- Server Reset Database (without seed): `npm run server:db:reset`
+- Frontend Start: `npm run client:start`
+- Full App Start: `npm run app:start`
+- Cypress Run (without app): `npm run cypress`
+- Cypress Run (with app): `npm run cypress:app`
