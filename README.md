@@ -104,14 +104,10 @@ This app can optionally be run entirely in Docker. This can be used to avoid set
 2. Configure server/.env file for your database URLs. Set the URLs to these values:
   - `DB_URL`: `postgresql://postgres:postgres@db:5432/pet_names`
   - `DB_SETUP_URL`: `postgresql://postgres:postgres@db:5432`
-3. Navigate into server folder: `cd server`
-4. Run `docker compose build`. This builds the image for the backend server.
-5. Run `docker compose up -d`. This starts the containers for database and backend servers. This runs in a background daemon so you can continue using this shell.
-6. Run the script to setup the database tables and seed data: `docker exec -it jax-pet-names-server npm run server:db:setup`
-7. Navigate into client folder: `cd ../client`
-8. Run `docker compose build`. This builds the image for the React client.
-9. Run `docker compose up -d`. This starts the container for React client. This runs in a background daemon so you can continue using this shell.
-10. The app is now running.
+3. Run `docker compose build`. This builds the images for frontend and backend servers.
+4. Run `docker compose up`. This starts the containers for the servers.
+5. Run the script to setup the database tables and seed data: `docker exec -it jax-pet-names-server npm run db:setup`
+6. The app is now running.
   - Frontend URL: http://localhost:3000
   - Server API URL: http://localhost:3001
   - Postgres Server URL: postgresql://postgres:postgres@localhost:5432/pet_names
