@@ -1,9 +1,18 @@
 version: "3.8"
 services:
+  client:
+    container_name: jax-pet-names-client
+    restart: on-failure
+    build: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/client_app
+      - /client_app/node_modules
   server:
     container_name: jax-pet-names-server
     restart: on-failure
-    build: .
+    build: ./server
     ports:
       - "3001:3001"
     depends_on:
