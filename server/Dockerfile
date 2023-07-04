@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /server_app
+WORKDIR /server_app/server
 
 # Copy packages first.
 # This becomes image layer 1 and only rebuilds when packages change.
