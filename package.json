@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "cd server && npm i && node index.js",
-    "client": "cd client && npm i && npm start",
+    "server:start": "cd server && npm i && node index.js",
+    "server:db:setup": "cd server && npm i && npm run db:setup",
+    "server:db:reset": "cd server && npm i && npm run db:reset",
+    "client:start": "cd client && npm i && npm start",
+    "app:start": "concurrently \"npm run server:start\" \"npm run client:start\"",
     "cypress": "cypress open",
-    "app": "concurrently \"npm run server\" \"npm run client\"",
-    "cypress:app": "concurrently \"npm run server\" \"npm run client\" \"npm run cypress\""
+    "cypress:app": "concurrently \"npm run server:start\" \"npm run client:start\" \"npm run cypress\""
   },
   "repository": {
     "type": "git",
