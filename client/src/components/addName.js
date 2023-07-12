@@ -11,6 +11,7 @@ function AddName() {
     register,
     handleSubmit,
     reset,
+    clearErrors,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
@@ -24,6 +25,7 @@ function AddName() {
     // allow only letters, periods, spaces and hyphens
     event.target.value =
       event.target.value.replace(/[^a-zA-Z. -]+/gi, '') || '';
+    clearErrors('name');
   };
 
   const onSubmit = (formData) => {
@@ -41,12 +43,11 @@ function AddName() {
       })
       .then((data) => {
         //Code for data
-        console.log(data);
         setAddedName(data.name);
         setIsOpen(true); //will trigger the modal to open
       })
       .catch((error) => console.log(error));
-    reset({ name: '' }); //clears the form values from the user
+    reset({ name: '' }); //clears the form values
   };
 
   const onError = (errors) => {
@@ -74,17 +75,19 @@ function AddName() {
         <small>{errors.name?.message}</small>
         <br></br>
 
-        <div>
-          <label>Gender: </label>
+        <div className='gender-inputs'>
+          <label id='gender-lbl'>Gender: </label>
           <input
             type='radio'
             id='male'
             value={true}
             name='is_male'
-            checked={true}
+            defaultChecked={true}
             {...register('is_male')}
           />
-          <label htmlFor='male'>Male</label>
+          <label className='input-lbl' htmlFor='male'>
+            Male
+          </label>
           <input
             type='radio'
             id='female'
@@ -92,10 +95,14 @@ function AddName() {
             name='is_male'
             {...register('is_male')}
           />
-          <label htmlFor='female'>Female</label>
+          <label className='input-lbl' htmlFor='female'>
+            Female
+          </label>
         </div>
         <div>
-          <button type='submit'>Add Name</button>
+          <button className='submit-btn' type='submit'>
+            Add Name
+          </button>
         </div>
       </form>
       <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
