@@ -26,3 +26,6 @@ yarn-error.log*
 
 # Server env vars
 server/.env
+
+# Client env vars
+client/.env
