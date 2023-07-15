@@ -89,10 +89,10 @@ This web app will allow the user to simply click a button and a randomly generat
 
 1. Clone project: `git clone git@github.com:JaxTurboNerd/Jax-Pet-Names.git`
 2. Navigate into folder: `cd Jax-Pet-Names/client`
-3. Install dependencies: `npm install`
-4. Navigate to Jax-Pet-Names directory: `cd ..`
-5. Start just front end: `npm run client:start`
-6. Usually you need the backend running locally along with the front end to start both at the same time run: `npm run app:start`
+3. Add `.env` file with `REACT_APP_HOST` set to your host URL. This will be `http://localhost:3001` when using the local backend server.
+4. Install dependencies: `npm install`
+6. Start just front end: `npm run start`
+7. Usually you need the backend running locally along with the front end. To start both at the same time, navigate to the root folder (`cd ..`) and run: `npm run app:start`
 
 
 </details>
@@ -101,13 +101,15 @@ This web app will allow the user to simply click a button and a randomly generat
 This app can optionally be run entirely in Docker. This can be used to avoid setting up Node and Postgres locally.
 
 1. Ensure Docker is installed. See [Docker Engine docs](https://docs.docker.com/engine/install/) for installation instructions.
-2. Configure server/.env file for your database URLs. Set the URLs to these values:
+2. Configure client/.env file for your host URL. Set the URLs to these values:
+  - `REACT_APP_HOST`: `http://localhost:3001`
+3. Configure server/.env file for your database URLs. Set the URLs to these values:
   - `DB_URL`: `postgresql://postgres:postgres@db:5432/pet_names`
   - `DB_SETUP_URL`: `postgresql://postgres:postgres@db:5432`
-3. Run `docker compose build`. This builds the images for frontend and backend servers.
-4. Run `docker compose up`. This starts the containers for the servers.
-5. Run the script to setup the database tables and seed data: `docker exec -it jax-pet-names-server npm run db:setup`
-6. The app is now running.
+4. Run `docker compose build`. This builds the images for frontend and backend servers.
+5. Run `docker compose up`. This starts the containers for the servers.
+6. Run the script to setup the database tables and seed data: `docker exec -it jax-pet-names-server npm run db:setup`
+7. The app is now running.
   - Frontend URL: http://localhost:3000
   - Server API URL: http://localhost:3001
   - Postgres Server URL: postgresql://postgres:postgres@localhost:5432/pet_names
