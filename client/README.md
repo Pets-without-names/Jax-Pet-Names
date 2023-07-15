@@ -12,7 +12,7 @@ This web app will allow the user to simply click a button and a randomly generat
 
 1. Clone project: `git clone git@github.com:JaxTurboNerd/Jax-Pet-Names.git`
 2. Navigate into folder: `cd Jax-Pet-Names/client`
-3. Install dependencies: `npm install`
-4. Navigate to Jax-Pet-Names directory: `cd ..`
-5. Start just front end: `npm run client:start`
-6. Usually you need the backend running locally along with the front end to start both at the same time run: `npm run app:start`
+3. Add `.env` file with `REACT_APP_HOST` set to your host URL. This will be `http://localhost:3001` when using the local backend server.
+4. Install dependencies: `npm install`
+6. Start just front end: `npm run start`
+7. Usually you need the backend running locally along with the front end. To start both at the same time, navigate to the root folder (`cd ..`) and run: `npm run app:start`
