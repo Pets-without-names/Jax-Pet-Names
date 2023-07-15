@@ -28,7 +28,7 @@ function AddName() {
 
   const onSubmit = (formData) => {
     // POST API call
-    fetch('http://localhost:3001/names', {
+    fetch(`${process.env.REACT_APP_HOST}/names`, {
       method: 'POST',
       mode: 'cors',
       headers: {
