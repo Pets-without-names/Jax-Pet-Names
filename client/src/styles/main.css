@@ -109,14 +109,28 @@ main h2 {
 
 .generate-btn-container button {
   background-color: var(--generate-btn-color);
-  border: 1px solid lightgray;
-  -webkit-box-shadow: 1px 1px 2px rgb(170, 167, 167);
-  box-shadow: 1px 1px 2px rgb(170, 167, 167);
+  border: 2px solid lightgray;
+  -webkit-box-shadow: 2px 2px 2px rgb(170, 167, 167);
+  box-shadow: 2px 2px 2px rgb(170, 167, 167);
   color: white;
   border-radius: 10px;
   font-size: 1rem;
   padding: 0.75em;
   cursor: pointer;
+}
+
+.generate-btn-container button:hover {
+  background-color: #2a4441;
+}
+
+.generate-btn-container button:active {
+  background-color: #2a4441;
+  -webkit-box-shadow: 0 5px #666;
+  box-shadow: 0 5px #666;
+  -webkit-transform: translateY(6px);
+  -ms-transform: translateY(6px);
+  transform: translateY(6px);
+  -webkit-transform: translateY(6px) 300ms ease;
 }
 
 /* Generated name "card" styling */
