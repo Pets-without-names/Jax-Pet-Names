@@ -48,7 +48,11 @@ function Main() {
             </button>
           </div>
           <div className='generate-btn-container'>
-            <button type='button' onClick={handleClick}>
+            <button
+              className='generate-btn'
+              type='button'
+              onClick={handleClick}
+            >
               Generate
             </button>
           </div>
