@@ -84,9 +84,9 @@ main h2 {
   width: 100px;
   padding: 0.5em;
   font-size: 1rem;
-  -webkit-transition: background-color 600ms ease;
-  -o-transition: background-color 600ms ease;
-  transition: background-color 600ms ease;
+  -webkit-transition: background-color 300ms ease;
+  -o-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
   border-top: 2px solid rgb(118, 118, 118);
   border-left: 2px solid rgb(118, 118, 118);
   border-bottom: 2px solid rgb(54, 54, 54);
