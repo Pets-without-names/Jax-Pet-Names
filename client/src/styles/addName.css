@@ -32,9 +32,12 @@
   margin-top: 0.75rem;
   padding: 0.25rem 0.55rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
   height: 30.4px;
 =======
 >>>>>>> 7ea296c (added padding to add-name elements added index.js/css with reset/normalize css)
+=======
+>>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
 }
 
 form small {
@@ -97,9 +100,13 @@ form small {
 
 .input-lbl {
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-left: 0.15rem;
 =======
   margin-left: 0.25rem;
 >>>>>>> 7ea296c (added padding to add-name elements added index.js/css with reset/normalize css)
+=======
+  margin-left: 0.25rem;
+>>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
   margin-right: 0.5rem;
 }

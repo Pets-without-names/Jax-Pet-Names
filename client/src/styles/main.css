@@ -21,7 +21,10 @@ main {
 }
 
 main h2 {
+<<<<<<< HEAD
 main h2 {
+=======
+>>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
   text-align: center;
   margin: 0;
   font-family: Moranga, sans-serif;
@@ -119,6 +122,7 @@ main h2 {
   font-size: 1rem;
   padding: 0.75em;
   cursor: pointer;
+<<<<<<< HEAD
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -175,6 +179,8 @@ main h2 {
   -ms-transform: translateY(6px);
   transform: translateY(6px);
   -webkit-transform: translateY(6px) 300ms ease; */
+=======
+>>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
 }
 
 /* Generated name "card" styling */
@@ -194,8 +200,11 @@ main h2 {
 
 .card-container p {
   text-align: center;
+<<<<<<< HEAD
 .card-container p {
   text-align: center;
+=======
+>>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
 }
 
 @media screen and (min-width: 550px) {
