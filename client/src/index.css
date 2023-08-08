@@ -1,24 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 @import 'normalize.css';
 
->>>>>>> 7ea296c (added padding to add-name elements added index.js/css with reset/normalize css)
-=======
-@import 'normalize.css';
-
->>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
 /* reset styles */
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
 body,
 html,
 p,
@@ -35,18 +22,11 @@ section {
   vertical-align: baseline;
 }
 
-<<<<<<< HEAD
->>>>>>> 7ea296c (added padding to add-name elements added index.js/css with reset/normalize css)
-=======
->>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
 /* basic styles which are standardized */
 button {
   cursor: pointer;
   font-family: Morange, sans-serif;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -406,7 +386,3 @@ template {
 [hidden] {
   display: none;
 }
-=======
->>>>>>> 7ea296c (added padding to add-name elements added index.js/css with reset/normalize css)
-=======
->>>>>>> e41033b (added padding to add-name elements added index.js/css with reset/normalize css)
