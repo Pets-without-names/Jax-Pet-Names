@@ -32,11 +32,10 @@ const getNameById = async (request, response) => {
 };
 
 const createName = async (request, response) => {
-  const { name, is_used, is_male } = request.body;
-  const result = await knex('pet_names').insert({ name, is_used, is_male }, [
+  const { name, is_male } = request.body;
+  const result = await knex('pet_names').insert({ name, is_male }, [
     'id',
     'name',
-    'is_used',
     'is_male',
   ]);
   response.status(201).json(result[0]);
@@ -44,11 +43,11 @@ const createName = async (request, response) => {
 
 const updateName = async (request, response) => {
   const id = parseInt(request.params.id);
-  const { name, is_used, is_male } = request.body;
+  const { name, is_male } = request.body;
 
   const result = await knex('pet_names')
     .where({ id })
-    .update({ name, is_used, is_male }, ['id', 'name', 'is_used', 'is_male']);
+    .update({ name, is_male }, ['id', 'name', 'is_male']);
   const status = !!result.length ? 200 : 404;
 
   response.status(status).json(result[0]);
