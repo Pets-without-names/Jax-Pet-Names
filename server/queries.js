@@ -33,12 +33,21 @@ const getNameById = async (request, response) => {
 
 const createName = async (request, response) => {
   const { name, is_male } = request.body;
-  const result = await knex('pet_names').insert({ name, is_male }, [
-    'id',
-    'name',
-    'is_male',
-  ]);
-  response.status(201).json(result[0]);
+  try {
+    const result = await knex('pet_names').insert({ name, is_male }, [
+      'id',
+      'name',
+      'is_male',
+    ]);
+    response.status(201).json(result[0]);
+  } catch (error) {
+    console.log(error);
+    if (error.code == '23505') {
+      response.status(598).json({ msg: `${name} already exists` });
+      return;
+    }
+    response.status(500).json({ msg: 'something went wrong' });
+  }
 };
 
 const updateName = async (request, response) => {

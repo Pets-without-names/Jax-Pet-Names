@@ -7,7 +7,8 @@ function Main() {
   // const [names, setNames] = useState([]); //an empty array for the names
 
   const getName = useCallback(() => {
-    fetch(`${process.env.REACT_APP_HOST}/names?is_male=${isMale}`)
+    fetch(`http://localhost:3001/names?is_male=${isMale}`)
+      // fetch(`${process.env.REACT_APP_HOST}/names?is_male=${isMale}`)
       .then((response) => response.json())
       .then((data) => {
         //creats an array of names from the data array

@@ -5,6 +5,8 @@ import '../styles/addName.css';
 function AddName() {
   const [addedName, setAddedName] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [uniqeModalIsOpen, setUniqueModalIsOpen] = useState(false);
+  const [uniqueError, setUniqueError] = useState(false);
 
   // React Hook Form setup:
   const {
@@ -28,7 +30,8 @@ function AddName() {
 
   const onSubmit = (formData) => {
     // POST API call
-    fetch(`${process.env.REACT_APP_HOST}/names`, {
+    fetch(`http://localhost:3001/names`, {
+      // fetch(`${process.env.REACT_APP_HOST}/names`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -37,15 +40,25 @@ function AddName() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
+        console.log(response);
+        //unique constraint error
+        if (response.status === 598) {
+          setUniqueError(true);
+        }
+
         return response.json();
       })
       .then((data) => {
         //Code for data
-        console.log(data);
-        setAddedName(data.name);
-        setIsOpen(true); //will trigger the modal to open
+        if (!uniqueError) {
+          setAddedName(data.name);
+          setIsOpen(true); //will trigger the modal to open
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(() => {
+        // setUniqueError(false);
+      });
     reset({ name: '' }); //clears the form values from the user
   };
 
@@ -56,6 +69,8 @@ function AddName() {
 
   const closeModal = (event) => {
     setIsOpen(false);
+    setUniqueModalIsOpen(false);
+    setUniqueError(false);
   };
 
   return (
@@ -99,11 +114,21 @@ function AddName() {
         </div>
       </form>
       <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
-        <p>{addedName} has been added</p>
+        <p>
+          {uniqueError ? 'Name already exists' : `${addedName} has been added`}
+        </p>
         <button id='close-btn' onClick={closeModal}>
           OK
         </button>
       </div>
+      {/* <div
+        className={`unique-error-modal ${uniqeModalIsOpen ? 'is-open' : ''}`}
+      >
+        <p>name already exists</p>
+        <button id='close-btn' onClick={closeModal}>
+          OK
+        </button>
+      </div> */}
     </div>
   );
 }
