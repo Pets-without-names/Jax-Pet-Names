@@ -11,28 +11,6 @@
   --dark-bg-font: hsl(75, 12%, 94%);
 }
 
-/* reset styles */
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body,
-html,
-p,
-div,
-span,
-footer,
-header,
-section {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-
 main {
   height: auto;
   /* background-color: var(--dark-bg-color); */
@@ -42,29 +20,21 @@ main {
   z-index: 2;
 }
 
-h2,
-h3,
-p {
+main h2 {
   text-align: center;
   margin: 0;
-}
-
-button {
-  cursor: pointer;
-  font-family: Moranga, sans-serif;
-}
-
-main h2 {
   font-family: Moranga, sans-serif;
   color: var(--dark-bg-font);
-  /* background: linear-gradient(90deg, #ffd16a, #ec61b2 50%, #6e40f1);
-  background-clip: text;
-  -webkit-text-fill-color: transparent; */
 }
 
 /* The outter container which holds the button groups and aside info */
 .flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
 }
@@ -102,11 +72,8 @@ main h2 {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-  /* width: 102px; */
   margin: 2rem auto;
-  /* border: 2px solid white; */
 }
 
 /* Apply styling to the individual gender buttons */
@@ -116,7 +83,13 @@ main h2 {
   width: 100px;
   padding: 0.5em;
   font-size: 1rem;
-  transition: background-color 600ms ease;
+  -webkit-transition: background-color 300ms ease;
+  -o-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
+  border-top: 2px solid rgb(118, 118, 118);
+  border-left: 2px solid rgb(118, 118, 118);
+  border-bottom: 2px solid rgb(54, 54, 54);
+  border-right: 2px solid rgb(54, 54, 54);
 }
 /* styling for the gender button when clicked */
 .active {
@@ -126,27 +99,87 @@ main h2 {
 /* Generate button container styling  */
 /* used flexbox to center the button */
 .generate-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
-.generate-btn-container button {
+.generate-btn {
+  position: relative;
   background-color: var(--generate-btn-color);
-  border: 1px solid lightgray;
-  box-shadow: 1px 1px 2px rgb(170, 167, 167);
+  /* border: 1.5px solid lightgray; */
+  /* -webkit-box-shadow: 2px 2px 2px rgb(170, 167, 167); */
+  /* box-shadow: 2px 2px 2px rgb(170, 167, 167); */
   color: white;
   border-radius: 10px;
   font-size: 1rem;
   padding: 0.75em;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.generate-btn:hover {
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  background-color: #2a4441;
+}
+
+.generate-btn:after {
+  content: '';
+  display: block;
+  position: absolute;
+  /* border-radius: 10px; */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-box-shadow: 0 0 10px 15px white;
+  box-shadow: 0 0 10px 15px white;
+  z-index: -1;
+}
+
+.generate-btn:active:after {
+  -webkit-box-shadow: 0 0 0 0 white;
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+}
+
+.generate-btn:active {
+  top: 1px;
+  /* background-color: #2a4441;
+  -webkit-box-shadow: 0 5px #666;
+  box-shadow: 0 5px #666;
+  -webkit-transform: translateY(6px);
+  -ms-transform: translateY(6px);
+  transform: translateY(6px);
+  -webkit-transform: translateY(6px) 300ms ease; */
 }
 
 /* Generated name "card" styling */
 .card-container {
   max-width: 200px;
   min-width: 140px;
+  -webkit-box-shadow: inset 0 0 10px rgb(200, 197, 197);
   box-shadow: inset 0 0 10px rgb(200, 197, 197);
   border: 2px solid lightgray;
-  padding: 1.5em;
+  padding: 1em 1.5em;
   margin: 1em auto;
   background-color: var(--results-bg-color);
   font-family: 'Moranga';
@@ -154,53 +187,31 @@ main h2 {
   font-weight: bolder;
 }
 
-/* Other Name info styling */
-aside {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1em;
-  color: var(--main-bg-color);
-}
+.card-container p {
+  text-align: center;
 
-aside h3 {
-  margin-bottom: 1em;
-}
+  @media screen and (min-width: 550px) {
+    .gender-btn-container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+    }
 
-.aside-card {
-  width: 30%;
-  max-width: 200px;
-  min-width: 140px;
-  background-color: var(--results-bg-color);
-  margin: 0.25em auto;
-  font-family: 'Moranga';
-  font-size: 1.45rem;
-  font-weight: bolder;
-}
+    .flex-container {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
 
-.aside-card p {
-  color: black;
-  padding-top: 0.25em;
-  padding-bottom: 0.25em;
-}
-
-@media screen and (min-width: 550px) {
-  .gender-btn-container {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    /* width: 200px; */
-  }
-
-  .flex-container {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  aside {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    aside {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
   }
 }
