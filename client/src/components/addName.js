@@ -29,6 +29,11 @@ function AddName() {
     clearErrors('name');
   };
 
+  //Capitalize the first letter of the user's input:
+  function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   const onSubmit = (formData) => {
     // POST API call
     fetch(`http://localhost:3001/names`, {
@@ -52,7 +57,7 @@ function AddName() {
       .then((data) => {
         //Code for data
         if (!uniqueError) {
-          setAddedName(data.name);
+          setAddedName(capitalize(data.name.trim()));
           setIsOpen(true); //will trigger the modal to open
         }
       })
@@ -79,6 +84,7 @@ function AddName() {
         <label>
           Name:{' '}
           <input
+            id='name-input'
             type='text'
             name='name'
             {...register('name', { required: 'Name is required' })}
