@@ -41,7 +41,7 @@ function AddName() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         //unique constraint error
         if (response.status === 598) {
           setUniqueError(true);
