@@ -56,8 +56,10 @@ function AddName() {
           setIsOpen(true); //will trigger the modal to open
         }
       })
-      .catch((error) => console.log(error));
-    reset({ name: '', is_male: true }); //clears/resets the form values
+      .catch((error) => console.log(error))
+      .finally(
+        reset() //clears/resets the form values
+      );
   };
 
   const onError = (errors) => {
