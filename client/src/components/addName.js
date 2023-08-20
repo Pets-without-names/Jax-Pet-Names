@@ -5,7 +5,6 @@ import '../styles/addName.css';
 function AddName() {
   const [addedName, setAddedName] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [uniqeModalIsOpen, setUniqueModalIsOpen] = useState(false);
   const [uniqueError, setUniqueError] = useState(false);
 
   // React Hook Form setup:
@@ -57,11 +56,8 @@ function AddName() {
           setIsOpen(true); //will trigger the modal to open
         }
       })
-      .catch((error) => console.log(error))
-      .finally(() => {
-        // setUniqueError(false);
-      });
-    reset({ name: '' }); //clears the form values
+      .catch((error) => console.log(error));
+    reset({ name: '', is_male: true }); //clears/resets the form values
   };
 
   const onError = (errors) => {
@@ -71,7 +67,6 @@ function AddName() {
 
   const closeModal = (event) => {
     setIsOpen(false);
-    setUniqueModalIsOpen(false);
     setUniqueError(false);
   };
 
@@ -129,14 +124,6 @@ function AddName() {
           OK
         </button>
       </div>
-      {/* <div
-        className={`unique-error-modal ${uniqeModalIsOpen ? 'is-open' : ''}`}
-      >
-        <p>name already exists</p>
-        <button id='close-btn' onClick={closeModal}>
-          OK
-        </button>
-      </div> */}
     </div>
   );
 }
