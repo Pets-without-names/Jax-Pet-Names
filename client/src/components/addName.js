@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import '../styles/addName.css';
 
 function AddName() {
+  const [inputValue, setInputValue] = useState('');
   const [addedName, setAddedName] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
   const [uniqueError, setUniqueError] = useState(false);
@@ -13,6 +14,7 @@ function AddName() {
     handleSubmit,
     reset,
     clearErrors,
+    setValue,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
@@ -26,13 +28,15 @@ function AddName() {
     // allow only letters, periods, spaces and hyphens
     event.target.value =
       event.target.value.replace(/[^a-zA-Z. -]+/gi, '') || '';
+    setInputValue(event.target.value);
     clearErrors('name');
   };
 
   //Capitalize the first letter of the user's input:
-  function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  const capitalize = (input) => {
+    const value = input.trim();
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  };
 
   const onSubmit = (formData) => {
     // POST API call
@@ -57,7 +61,7 @@ function AddName() {
       .then((data) => {
         //Code for data
         if (!uniqueError) {
-          setAddedName(capitalize(data.name.trim()));
+          setAddedName(data.name);
           setIsOpen(true); //will trigger the modal to open
         }
       })
@@ -84,11 +88,14 @@ function AddName() {
         <label>
           Name:{' '}
           <input
-            id='name-input'
             type='text'
             name='name'
             {...register('name', { required: 'Name is required' })}
             onChange={validateText}
+            onBlur={() => {
+              //trim and capitalize:
+              setValue('name', capitalize(inputValue));
+            }}
           />
         </label>
         <small>{errors.name?.message}</small>
