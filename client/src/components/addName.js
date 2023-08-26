@@ -40,8 +40,7 @@ function AddName() {
 
   const onSubmit = (formData) => {
     // POST API call
-    fetch(`http://localhost:3001/names`, {
-      // fetch(`${process.env.REACT_APP_HOST}/names`, {
+    fetch(`${process.env.REACT_APP_HOST}/names`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -50,9 +49,8 @@ function AddName() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        //console.log(response);
         //unique constraint error
-        if (response.status === 598) {
+        if (response.status === 422) {
           setUniqueError(true);
         }
 

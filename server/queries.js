@@ -43,7 +43,7 @@ const createName = async (request, response) => {
   } catch (error) {
     console.log(error);
     if (error.code == '23505') {
-      response.status(598).json({ msg: `${name} already exists` });
+      response.status(422).json({ msg: `${name} already exists` });
       return;
     }
     response.status(500).json({ msg: 'something went wrong' });
