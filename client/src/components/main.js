@@ -6,7 +6,7 @@ function Main() {
   const [petName, setPetName] = useState();
 
   const getName = useCallback(() => {
-    fetch(`${process.env.REACT_APP_HOST}/names?is_male=${isMale}`)
+      fetch(`${process.env.REACT_APP_HOST}/names?is_male=${isMale}`)
       .then((response) => response.json())
       .then((data) => {
         setPetName(data[0].name);

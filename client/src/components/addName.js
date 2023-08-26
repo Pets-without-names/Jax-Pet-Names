@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form';
 import '../styles/addName.css';
 
 function AddName() {
+  const [inputValue, setInputValue] = useState('');
   const [addedName, setAddedName] = useState('');
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [uniqueError, setUniqueError] = useState(false);
 
   // React Hook Form setup:
   const {
@@ -12,6 +14,7 @@ function AddName() {
     handleSubmit,
     reset,
     clearErrors,
+    setValue,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
@@ -25,7 +28,14 @@ function AddName() {
     // allow only letters, periods, spaces and hyphens
     event.target.value =
       event.target.value.replace(/[^a-zA-Z. -]+/gi, '') || '';
+    setInputValue(event.target.value);
     clearErrors('name');
+  };
+
+  //Capitalize the first letter of the user's input:
+  const capitalize = (input) => {
+    const value = input.trim();
+    return value.charAt(0).toUpperCase() + value.slice(1);
   };
 
   const onSubmit = (formData) => {
@@ -39,15 +49,24 @@ function AddName() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
+        //unique constraint error
+        if (response.status === 422) {
+          setUniqueError(true);
+        }
+
         return response.json();
       })
       .then((data) => {
         //Code for data
-        setAddedName(data.name);
-        setIsOpen(true); //will trigger the modal to open
+        if (!uniqueError) {
+          setAddedName(data.name);
+          setIsOpen(true); //will trigger the modal to open
+        }
       })
-      .catch((error) => console.log(error));
-    reset({ name: '' }); //clears the form values
+      .catch((error) => console.log(error))
+      .finally(
+        reset() //clears/resets the form values
+      );
   };
 
   const onError = (errors) => {
@@ -57,6 +76,7 @@ function AddName() {
 
   const closeModal = (event) => {
     setIsOpen(false);
+    setUniqueError(false);
   };
 
   return (
@@ -70,6 +90,10 @@ function AddName() {
             name='name'
             {...register('name', { required: 'Name is required' })}
             onChange={validateText}
+            onBlur={() => {
+              //trim and capitalize:
+              setValue('name', capitalize(inputValue));
+            }}
           />
         </label>
         <small>{errors.name?.message}</small>
@@ -106,7 +130,9 @@ function AddName() {
         </div>
       </form>
       <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
-        <p>{addedName} has been added</p>
+        <p>
+          {uniqueError ? 'Name already exists' : `${addedName} has been added`}
+        </p>
         <button id='close-btn' onClick={closeModal}>
           OK
         </button>

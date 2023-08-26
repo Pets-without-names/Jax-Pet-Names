@@ -69,6 +69,10 @@ form small {
   justify-content: center;
 }
 
+#close-btn {
+  margin-top: 1rem;
+}
+
 .is-open {
   visibility: visible;
 }
