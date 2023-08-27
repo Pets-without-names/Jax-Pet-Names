@@ -96,7 +96,7 @@ function AddName() {
             }}
           />
         </label>
-        <small>{errors.name?.message}</small>
+        <p className='errors'>{errors.name?.message}</p>
         <br></br>
 
         <div className='gender-inputs'>
