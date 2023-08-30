@@ -18,7 +18,10 @@ function Footer() {
         </p>
       </section>
       <section className='links'>
-        <p>external links</p>
+        {/* <p>external links</p> */}
+        <a target='#' href='https://www.humanesociety.org'>
+          Humane Society
+        </a>
       </section>
     </footer>
   );
