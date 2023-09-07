@@ -4,17 +4,24 @@ import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 import '../styles/footer.css';
 
 function Footer() {
+  const year = new Date().getFullYear();
+  console.log(year);
   return (
     <footer>
       <section className='contact'>
-        <small>contact: email@email.com</small>
+        <p>Contact Info: petswithoutnames@gmail.com</p>
       </section>
       <section className='legal'>
-        <small>Legal Stuff </small>
-        <FontAwesomeIcon icon={faCopyright} />
+        <p>
+          <FontAwesomeIcon icon={faCopyright} />
+          {` ${year} Pets Without Names`}
+        </p>
       </section>
       <section className='links'>
-        <small>external links</small>
+        {/* <p>external links</p> */}
+        <a target='#' href='https://www.humanesociety.org'>
+          Humane Society
+        </a>
       </section>
     </footer>
   );

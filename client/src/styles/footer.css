@@ -18,11 +18,17 @@ footer {
   max-height: -webkit-min-content;
   max-height: -moz-min-content;
   max-height: min-content;
+  background-color: slategrey;
+  color: wheat;
 }
 
 footer section {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.links a {
+  color: wheat;
 }
 
 @media screen and (min-width: 750px) {
@@ -35,7 +41,6 @@ footer section {
 
   footer section {
     margin-right: 1.5rem;
-    margin-bottom: 0;
     width: 100%;
     text-align: center;
   }
