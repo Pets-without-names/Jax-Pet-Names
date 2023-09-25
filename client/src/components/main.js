@@ -24,7 +24,7 @@ function Main() {
 
   return (
     <main>
-      <h2>A tool to randomly generate a dog or cat name!</h2>
+      <h2>A tool to randomly generate a pet name!</h2>
       <div className='flex-container'>
         <div className='content'>
           <div className='gender-btn-container'>
