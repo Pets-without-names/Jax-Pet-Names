@@ -2,9 +2,12 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
+
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
-  await knex('pet_names').del();
+  const result = await knex('pet_names').count('id');
+  const recordCount = parseInt(result[0]?.count)
+  if (recordCount > 0) { return; }
+
   await knex('pet_names').insert([
     { id: 7, name: 'Max', is_male: true },
     { id: 8, name: 'Charlie', is_male: true },

@@ -4,4 +4,7 @@ const knex = require('knex')({
   connection: process.env.DB_SETUP_URL,
 });
 
-knex.raw('CREATE DATABASE pet_names;').then(() => process.exit(0));
+knex
+  .raw('CREATE DATABASE pet_names;')
+  .catch((error) => console.log('Unable to create database pet_names. Proceeding assuming it already exists.'))
+  .finally(() => process.exit(0));
