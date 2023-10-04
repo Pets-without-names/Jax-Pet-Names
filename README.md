@@ -115,10 +115,11 @@ This app can optionally be run entirely in Docker. This can be used to avoid set
   - Postgres Server URL: postgresql://postgres:postgres@localhost:5432/pet_names
 
 ### App Scripts
+- Full App Setup: `npm run app:install`
+- Full App Start: `npm run app:start`
 - Start Server: `npm run server:start`
 - Server Reset Database (with seed): `npm run server:db:setup`
 - Server Reset Database (without seed): `npm run server:db:reset`
 - Frontend Start: `npm run client:start`
-- Full App Start: `npm run app:start`
 - Cypress Run (without app): `npm run cypress`
 - Cypress Run (with app): `npm run cypress:app`

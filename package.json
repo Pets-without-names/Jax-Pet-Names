@@ -8,6 +8,7 @@
     "server:db:setup": "cd server && npm i && npm run db:setup",
     "server:db:reset": "cd server && npm i && npm run db:reset",
     "client:start": "cd client && npm i && npm start",
+    "app:install": "cd client && npm i && cd ../server && npm i && npm run db:setup",
     "app:start": "concurrently \"npm run server:start\" \"npm run client:start\"",
     "cypress": "cypress open",
     "cypress:app": "concurrently \"npm run server:start\" \"npm run client:start\" \"npm run cypress\""
