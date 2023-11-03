@@ -34,7 +34,7 @@ function Main() {
         <meta name='author' content='Petswithoutnames.org' />
         <meta
           name='description'
-          content='This website randomly generates pet names.  Names 
+          content='This website generates random male or female pet names.  Names 
         may be added to the pet name database'
         />
         <meta name='robots' content='index follow'/>
