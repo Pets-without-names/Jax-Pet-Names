@@ -14,6 +14,10 @@
   padding-bottom: 1em;
 }
 
+.add-name-container > h2 {
+  text-align: center;
+}
+
 .add-name-container form {
   border: 1px solid green;
   display: -webkit-box;
