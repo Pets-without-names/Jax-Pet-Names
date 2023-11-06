@@ -48,8 +48,8 @@ header > h1 {
 
 header > img {
   width: 10%;
-  max-width: 100px;
-  min-width: 50px;
+  max-width: 150px;
+  min-width: 75px;
   padding: 1em;
 }
 
