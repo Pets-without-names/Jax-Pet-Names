@@ -11,6 +11,7 @@
     "app:install": "cd client && npm i && cd ../server && npm i && npm run db:setup",
     "app:start": "concurrently \"npm run server:start\" \"npm run client:start\"",
     "cypress": "cypress open",
+    "cypress:run": "cypress run",
     "cypress:app": "concurrently \"npm run server:start\" \"npm run client:start\" \"npm run cypress\""
   },
   "repository": {

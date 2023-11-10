@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  cypress-job:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+    - run: npm ci
+    - run: docker compose build
+    - run: docker compose up --detach
+    - uses: nick-fields/retry@v2
+      with:
+        timeout_seconds: 15
+        max_attempts: 3
+        retry_on: error
+        command: docker exec -i jax-pet-names-server npm run db:setup
+    - run: npm run cypress:run
