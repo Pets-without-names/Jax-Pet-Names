@@ -101,15 +101,10 @@ This web app will allow the user to simply click a button and a randomly generat
 This app can optionally be run entirely in Docker. This can be used to avoid setting up Node and Postgres locally.
 
 1. Ensure Docker is installed. See [Docker Engine docs](https://docs.docker.com/engine/install/) for installation instructions.
-2. Configure client/.env file for your host URL. Set the URLs to these values:
-  - `REACT_APP_HOST`: `http://localhost:3001`
-3. Configure server/.env file for your database URLs. Set the URLs to these values:
-  - `DB_URL`: `postgresql://postgres:postgres@db:5432/pet_names`
-  - `DB_SETUP_URL`: `postgresql://postgres:postgres@db:5432`
-4. Run `docker compose build`. This builds the images for frontend and backend servers.
-5. Run `docker compose up`. This starts the containers for the servers.
-6. Run the script to setup the database tables and seed data: `docker exec -it jax-pet-names-server npm run db:setup`
-7. The app is now running.
+2. Run `docker compose build`. This builds the images for frontend and backend servers.
+3. Run `docker compose up`. This starts the containers for the servers.
+4. Run the script to setup the database tables and seed data: `docker exec -it jax-pet-names-server npm run db:setup`
+5. The app is now running.
   - Frontend URL: http://localhost:3000
   - Server API URL: http://localhost:3001
   - Postgres Server URL: postgresql://postgres:postgres@localhost:5432/pet_names
@@ -121,5 +116,6 @@ This app can optionally be run entirely in Docker. This can be used to avoid set
 - Server Reset Database (with seed): `npm run server:db:setup`
 - Server Reset Database (without seed): `npm run server:db:reset`
 - Frontend Start: `npm run client:start`
-- Cypress Run (without app): `npm run cypress`
-- Cypress Run (with app): `npm run cypress:app`
+- Cypress Open (without app): `npm run cypress`
+- Cypress Open (with app): `npm run cypress:app`
+- Cypress Run (headless): `npm run cypress:run`

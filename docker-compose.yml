@@ -6,9 +6,11 @@ services:
     build: ./client
     ports:
       - "3000:3000"
+    environment:
+      REACT_APP_HOST: "http://localhost:3001"
     volumes:
       - ./:/client_app
-      - /client_app/node_modules
+      - /client_app/client/node_modules
   server:
     container_name: jax-pet-names-server
     restart: on-failure
@@ -17,9 +19,12 @@ services:
       - "3001:3001"
     depends_on:
       - db
+    environment:
+      DB_URL: "postgresql://postgres:postgres@db:5432/pet_names"
+      DB_SETUP_URL: "postgresql://postgres:postgres@db:5432"
     volumes:
       - ./:/server_app
-      - /server_app/node_modules
+      - /server_app/server/node_modules
   db:
     container_name: jax-pet-names-db
     image: postgres
