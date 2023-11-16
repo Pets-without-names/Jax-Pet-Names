@@ -85,6 +85,17 @@ function AddName() {
       );
   };
 
+  const onError = (errors) => {
+    console.log('error: ' + errors);
+    //Other error handling code:
+  };
+
+  const closeModal = (event) => {
+    setIsOpen(false);
+    setUniqueError(false);
+    reset();
+  };
+
   return (
     <div className='add-name-container'>
       <h2>Want to add a name to the database?</h2>
@@ -96,6 +107,7 @@ function AddName() {
             name='name'
             {...register('name', { required: 'Name is required' })}
             onChange={validateText}
+            onKeyDown={handleKeyPress}
             onBlur={() => {
               //trim and capitalize:
               setValue('name', capitalize(inputValue));
@@ -114,6 +126,7 @@ function AddName() {
             name='is_male'
             defaultChecked={true}
             {...register('is_male')}
+            
           />
           <label className='input-lbl' htmlFor='male'>
             Male
@@ -124,6 +137,7 @@ function AddName() {
             value={false}
             name='is_male'
             {...register('is_male')}
+          
           />
           <label className='input-lbl' htmlFor='female'>
             Female
