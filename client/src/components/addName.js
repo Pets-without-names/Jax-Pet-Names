@@ -38,6 +38,14 @@ function AddName() {
     return value.charAt(0).toUpperCase() + value.slice(1);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      // console.log('The enter key was pressed');
+      setValue('name', capitalize(inputValue));
+      handleSubmit(onSubmit);
+    }
+  };
+
   const onSubmit = (formData) => {
     // POST API call
     fetch(`${process.env.REACT_APP_HOST}/names`, {
@@ -77,6 +85,7 @@ function AddName() {
   const closeModal = (event) => {
     setIsOpen(false);
     setUniqueError(false);
+    reset();
   };
 
   return (
@@ -90,6 +99,7 @@ function AddName() {
             name='name'
             {...register('name', { required: 'Name is required' })}
             onChange={validateText}
+            onKeyDown={handleKeyPress}
             onBlur={() => {
               //trim and capitalize:
               setValue('name', capitalize(inputValue));
@@ -108,6 +118,7 @@ function AddName() {
             name='is_male'
             defaultChecked={true}
             {...register('is_male')}
+            
           />
           <label className='input-lbl' htmlFor='male'>
             Male
@@ -118,6 +129,7 @@ function AddName() {
             value={false}
             name='is_male'
             {...register('is_male')}
+          
           />
           <label className='input-lbl' htmlFor='female'>
             Female
