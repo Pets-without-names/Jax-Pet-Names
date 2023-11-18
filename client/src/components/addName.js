@@ -61,6 +61,7 @@ function AddName() {
     //Other error handling code:
   };
 
+  //closes the pop up modal when a name is added
   const closeModal = (event) => {
     setIsOpen(false);
     setUniqueError(false);
@@ -127,7 +128,6 @@ function AddName() {
             name='is_male'
             defaultChecked={true}
             {...register('is_male')}
-            
           />
           <label className='input-lbl' htmlFor='male'>
             Male
@@ -138,7 +138,6 @@ function AddName() {
             value={false}
             name='is_male'
             {...register('is_male')}
-          
           />
           <label className='input-lbl' htmlFor='female'>
             Female
