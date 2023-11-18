@@ -56,6 +56,17 @@ function AddName() {
     }
   };
 
+  const onError = (errors) => {
+    console.log('error: ' + errors);
+    //Other error handling code:
+  };
+
+  const closeModal = (event) => {
+    setIsOpen(false);
+    setUniqueError(false);
+    reset();
+  };
+
   const onSubmit = (formData) => {
     // POST API call
     fetch(`${process.env.REACT_APP_HOST}/names`, {
@@ -84,17 +95,6 @@ function AddName() {
       .finally(
         reset() //clears/resets the form values
       );
-  };
-
-  const onError = (errors) => {
-    console.log('error: ' + errors);
-    //Other error handling code:
-  };
-
-  const closeModal = (event) => {
-    setIsOpen(false);
-    setUniqueError(false);
-    reset();
   };
 
   return (
