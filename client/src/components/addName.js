@@ -40,7 +40,6 @@ function AddName() {
 
   const handleKeyPress = (event) => {
     if (event.keyCode === 13) {
-      // console.log('The enter key was pressed');
       setValue('name', capitalize(inputValue));
       handleSubmit(onSubmit);
     }
