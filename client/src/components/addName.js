@@ -51,7 +51,8 @@ function AddName() {
   //Allows the Enter to key to close the modal
   const handleModalKeyPress = (event) => {
     if (event.keyCode === 13) {
-      modalRef.current.close();
+      setValue('name', capitalize(inputValue));
+      handleSubmit(onSubmit);
     }
   };
 
