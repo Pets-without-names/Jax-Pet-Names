@@ -43,43 +43,35 @@ form small {
   color: red;
 }
 
-.modal-container {
-  visibility: hidden;
+dialog {
   position: absolute;
   width: 40%;
-  height: auto;
-  min-height: 100px;
+  height: 20%;
+  min-height: 80px;
   top: 60%;
-  left: 50%;
+  left: 40%;
+  font-size: 1.25rem;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.65);
-  border: 1px solid gray;
+  border: 2px solid gray;
   color: white;
   padding: 1em;
   border-radius: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  text-align: center;
+}
+
+dialog::backdrop {
+  background: rgba(115, 115, 115, 0.6);
+}
+
+dialog p {
+  margin-top: 1em;
 }
 
 #close-btn {
-  margin-top: 1rem;
-}
-
-.is-open {
-  visibility: visible;
+  margin-top: 1.5rem;
 }
 
 #gender-lbl {

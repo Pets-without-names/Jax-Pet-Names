@@ -1,12 +1,12 @@
-import { React, useState } from 'react';
+import { React, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import '../styles/addName.css';
 
 function AddName() {
   const [inputValue, setInputValue] = useState('');
   const [addedName, setAddedName] = useState('');
-  const [modalIsOpen, setIsOpen] = useState(false);
   const [uniqueError, setUniqueError] = useState(false);
+  const modalRef = useRef();
 
   // React Hook Form setup:
   const {
@@ -38,6 +38,23 @@ function AddName() {
     return value.charAt(0).toUpperCase() + value.slice(1);
   };
 
+  const onError = (errors) => {
+    console.log('error: ' + errors);
+    //Other error handling code:
+  };
+
+  const closeModal = (event) => {
+    setUniqueError(false);
+    modalRef.current.close();
+  };
+
+  //Allows the Enter to key to close the modal
+  const handleModalKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      modalRef.current.close();
+    }
+  };
+
   const onSubmit = (formData) => {
     // POST API call
     fetch(`${process.env.REACT_APP_HOST}/names`, {
@@ -49,34 +66,23 @@ function AddName() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        //unique constraint error
+        //unique constraint error(name already exists)
         if (response.status === 422) {
           setUniqueError(true);
         }
-
         return response.json();
       })
       .then((data) => {
-        //Code for data
+        //Name successfully submitted to the database:
         if (!uniqueError) {
           setAddedName(data.name);
-          setIsOpen(true); //will trigger the modal to open
+          modalRef.current.showModal();
         }
       })
       .catch((error) => console.log(error))
       .finally(
         reset() //clears/resets the form values
       );
-  };
-
-  const onError = (errors) => {
-    console.log('error: ' + errors);
-    //Other error handling code:
-  };
-
-  const closeModal = (event) => {
-    setIsOpen(false);
-    setUniqueError(false);
   };
 
   return (
@@ -129,14 +135,18 @@ function AddName() {
           </button>
         </div>
       </form>
-      <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
+      <dialog ref={modalRef} id='modal'>
         <p>
           {uniqueError ? 'Name already exists' : `${addedName} has been added`}
         </p>
-        <button id='close-btn' onClick={closeModal}>
+        <button
+          id='close-btn'
+          onClick={closeModal}
+          onKeyDown={handleModalKeyPress}
+        >
           OK
         </button>
-      </div>
+      </dialog>
     </div>
   );
 }
