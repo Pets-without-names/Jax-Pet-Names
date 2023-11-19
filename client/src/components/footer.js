@@ -5,7 +5,6 @@ import '../styles/footer.css';
 
 function Footer() {
   const year = new Date().getFullYear();
-  console.log(year);
   return (
     <footer>
       <section className='contact'>
