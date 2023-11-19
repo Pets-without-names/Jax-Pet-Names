@@ -84,9 +84,11 @@ function AddName() {
         }
       })
       .catch((error) => console.log(error))
-      .finally(
-        reset({ name: '' }) //clears/resets the form values
-      );
+      .finally(() => {
+        //clears/resets the form values
+        reset({ name: '' });
+        setInputValue('');
+      });
   };
 
   return (
@@ -99,6 +101,7 @@ function AddName() {
             type='text'
             name='name'
             {...register('name', { required: 'Name is required' })}
+            value={inputValue}
             onChange={validateText}
             onKeyDown={handleKeyPress}
             onBlur={() => {
