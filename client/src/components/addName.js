@@ -65,7 +65,7 @@ function AddName() {
   const closeModal = (event) => {
     setIsOpen(false);
     setUniqueError(false);
-    reset();
+    reset({ name: '' });
   };
 
   const onSubmit = (formData) => {
@@ -94,7 +94,7 @@ function AddName() {
       })
       .catch((error) => console.log(error))
       .finally(
-        reset() //clears/resets the form values
+        reset({ name: '' }) //clears/resets the form values
       );
   };
 
