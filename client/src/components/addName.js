@@ -38,6 +38,26 @@ function AddName() {
     return value.charAt(0).toUpperCase() + value.slice(1);
   };
 
+  //Submit the form when the user presses the Enter key
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      setValue('name', capitalize(inputValue));
+      handleSubmit(onSubmit);
+    }
+  };
+
+  const onError = (errors) => {
+    console.log('error: ' + errors);
+    //Other error handling code:
+  };
+
+  //closes the pop up modal when a name is added
+  const closeModal = (event) => {
+    setIsOpen(false);
+    setUniqueError(false);
+    reset({ name: '' });
+  };
+
   const onSubmit = (formData) => {
     // POST API call
     fetch(`${process.env.REACT_APP_HOST}/names`, {
@@ -64,19 +84,11 @@ function AddName() {
         }
       })
       .catch((error) => console.log(error))
-      .finally(
-        reset() //clears/resets the form values
-      );
-  };
-
-  const onError = (errors) => {
-    console.log('error: ' + errors);
-    //Other error handling code:
-  };
-
-  const closeModal = (event) => {
-    setIsOpen(false);
-    setUniqueError(false);
+      .finally(() => {
+        //clears/resets the form values
+        reset({ name: '' });
+        setInputValue('');
+      });
   };
 
   return (
@@ -89,7 +101,9 @@ function AddName() {
             type='text'
             name='name'
             {...register('name', { required: 'Name is required' })}
+            value={inputValue}
             onChange={validateText}
+            onKeyDown={handleKeyPress}
             onBlur={() => {
               //trim and capitalize:
               setValue('name', capitalize(inputValue));
