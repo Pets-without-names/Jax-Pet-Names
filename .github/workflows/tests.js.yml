@@ -23,3 +23,25 @@ jobs:
         retry_on: error
         command: docker exec -i jax-pet-names-server npm run db:setup
     - run: npm run cypress:run
+
+  server-test-job:
+    runs-on: ubuntu-latest
+    env:
+      DB_URL: postgresql://postgres:postgres@localhost:5432/pet_names
+      DB_SETUP_URL: postgresql://postgres:postgres@localhost:5432
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+    - run: npm ci
+      working-directory: ./server
+    - run: docker run -p 5432:5432 --name jax-pet-names-pg -e POSTGRES_PASSWORD=postgres -d postgres
+      working-directory: ./server
+    - uses: nick-fields/retry@v2
+      with:
+        timeout_seconds: 15
+        max_attempts: 3
+        retry_on: error
+        command: cd server && npm run db:reset
+    - run: npm test
+      working-directory: ./server

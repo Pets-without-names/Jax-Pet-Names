@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const db = require('./queries');
+const namesController = require('./src/namesController');
 const app = express();
 const port = 3001;
 
@@ -13,11 +13,11 @@ app.use(
   })
 ); //used for POST/PUT
 
-app.get('/names', db.getName);
-app.get('/names/:id', db.getNameById);
-app.post('/names', db.createName);
-app.put('/names/:id', db.updateName);
-app.delete('/names/:id', db.deleteName);
+app.get('/names', namesController.index);
+app.get('/names/:id', namesController.show);
+app.post('/names', namesController.create);
+app.put('/names/:id', namesController.update);
+app.delete('/names/:id', namesController.destroy);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
