@@ -42,7 +42,7 @@ function AddName() {
     console.log('error: ' + errors);
     //Other error handling code:
   };
-
+  
   const closeModal = (event) => {
     setUniqueError(false);
     modalRef.current.close();
@@ -54,7 +54,6 @@ function AddName() {
       setValue('name', capitalize(inputValue));
       handleSubmit(onSubmit);
     }
-  };
 
   const onSubmit = (formData) => {
     // POST API call
