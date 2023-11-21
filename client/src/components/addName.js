@@ -48,24 +48,12 @@ function AddName() {
     modalRef.current.close();
   };
 
-  //Allows the Enter to key to close the modal
-  const handleModalKeyPress = (event) => {
+  //Allows the enter key to submit the form
+  const handleKeyPress = (event) => {
     if (event.keyCode === 13) {
       setValue('name', capitalize(inputValue));
       handleSubmit(onSubmit);
     }
-  };
-
-  const onError = (errors) => {
-    console.log('error: ' + errors);
-    //Other error handling code:
-  };
-
-  //closes the pop up modal when a name is added
-  const closeModal = (event) => {
-    setIsOpen(false);
-    setUniqueError(false);
-    reset({ name: '' });
   };
 
   const onSubmit = (formData) => {
@@ -95,7 +83,7 @@ function AddName() {
       .catch((error) => console.log(error))
       .finally(() => {
         //clears/resets the form values
-        reset({ name: '' });
+        reset();
         setInputValue('');
       });
   };
@@ -156,11 +144,7 @@ function AddName() {
         <p>
           {uniqueError ? 'Name already exists' : `${addedName} has been added`}
         </p>
-        <button
-          id='close-btn'
-          onClick={closeModal}
-          onKeyDown={handleModalKeyPress}
-        >
+        <button id='close-btn' onClick={closeModal} onKeyDown={handleKeyPress}>
           OK
         </button>
       </dialog>
