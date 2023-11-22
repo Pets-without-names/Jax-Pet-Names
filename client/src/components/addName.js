@@ -128,7 +128,7 @@ function AddName() {
             id='female'
             value={false}
             name='is_male'
-            {...register('is_male', { required: 'select a gender' })}
+            {...register('is_male')}
           />
           <label className='input-lbl' htmlFor='female'>
             Female
