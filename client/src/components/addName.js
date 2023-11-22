@@ -147,11 +147,7 @@ function AddName() {
               ? 'Name already exists'
               : `${addedName} has been added`}
           </p>
-          <button
-            id='close-btn'
-            onClick={closeModal}
-            onKeyDown={handleKeyPress}
-          >
+          <button id='close-btn' onClick={closeModal}>
             OK
           </button>
         </div>
