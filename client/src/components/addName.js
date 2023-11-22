@@ -55,7 +55,7 @@ function AddName() {
       handleSubmit(onSubmit);
     }
   };
-  
+
   const onSubmit = (formData) => {
     // POST API call
     fetch(`${process.env.REACT_APP_HOST}/names`, {
@@ -118,7 +118,7 @@ function AddName() {
             value={true}
             name='is_male'
             defaultChecked={true}
-            {...register('is_male')}
+            {...register('is_male', { required: 'select a gender' })}
           />
           <label className='input-lbl' htmlFor='male'>
             Male
@@ -128,7 +128,7 @@ function AddName() {
             id='female'
             value={false}
             name='is_male'
-            {...register('is_male')}
+            {...register('is_male', { required: 'select a gender' })}
           />
           <label className='input-lbl' htmlFor='female'>
             Female
