@@ -1,12 +1,12 @@
-import { React, useState } from 'react';
+import { React, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import '../styles/addName.css';
 
 function AddName() {
   const [inputValue, setInputValue] = useState('');
   const [addedName, setAddedName] = useState('');
-  const [modalIsOpen, setIsOpen] = useState(false);
   const [uniqueError, setUniqueError] = useState(false);
+  const modalRef = useRef();
 
   // React Hook Form setup:
   const {
@@ -38,24 +38,22 @@ function AddName() {
     return value.charAt(0).toUpperCase() + value.slice(1);
   };
 
-  //Submit the form when the user presses the Enter key
-  const handleKeyPress = (event) => {
-    if (event.keyCode === 13) {
-      setValue('name', capitalize(inputValue));
-      handleSubmit(onSubmit);
-    }
-  };
-
   const onError = (errors) => {
     console.log('error: ' + errors);
     //Other error handling code:
   };
 
-  //closes the pop up modal when a name is added
   const closeModal = (event) => {
-    setIsOpen(false);
     setUniqueError(false);
-    reset({ name: '' });
+    modalRef.current.close();
+  };
+
+  //Allows the enter key to submit the form
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      setValue('name', capitalize(inputValue));
+      handleSubmit(onSubmit);
+    }
   };
 
   const onSubmit = (formData) => {
@@ -69,24 +67,23 @@ function AddName() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        //unique constraint error
+        //unique constraint error(name already exists)
         if (response.status === 422) {
           setUniqueError(true);
         }
-
         return response.json();
       })
       .then((data) => {
-        //Code for data
+        //Name successfully submitted to the database:
         if (!uniqueError) {
           setAddedName(data.name);
-          setIsOpen(true); //will trigger the modal to open
+          modalRef.current.showModal();
         }
       })
       .catch((error) => console.log(error))
       .finally(() => {
         //clears/resets the form values
-        reset({ name: '' });
+        reset();
         setInputValue('');
       });
   };
@@ -121,7 +118,7 @@ function AddName() {
             value={true}
             name='is_male'
             defaultChecked={true}
-            {...register('is_male')}
+            {...register('is_male', { required: 'select a gender' })}
           />
           <label className='input-lbl' htmlFor='male'>
             Male
@@ -143,14 +140,22 @@ function AddName() {
           </button>
         </div>
       </form>
-      <div className={`modal-container ${modalIsOpen ? 'is-open' : ''}`}>
-        <p>
-          {uniqueError ? 'Name already exists' : `${addedName} has been added`}
-        </p>
-        <button id='close-btn' onClick={closeModal}>
-          OK
-        </button>
-      </div>
+      <dialog ref={modalRef} id='modal'>
+        <div className='vertical-align'>
+          <p>
+            {uniqueError
+              ? 'Name already exists'
+              : `${addedName} has been added`}
+          </p>
+          <button
+            id='close-btn'
+            onClick={closeModal}
+            onKeyDown={handleKeyPress}
+          >
+            OK
+          </button>
+        </div>
+      </dialog>
     </div>
   );
 }
