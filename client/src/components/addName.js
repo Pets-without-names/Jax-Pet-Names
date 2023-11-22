@@ -141,12 +141,20 @@ function AddName() {
         </div>
       </form>
       <dialog ref={modalRef} id='modal'>
-        <p>
-          {uniqueError ? 'Name already exists' : `${addedName} has been added`}
-        </p>
-        <button id='close-btn' onClick={closeModal} onKeyDown={handleKeyPress}>
-          OK
-        </button>
+        <div className='vertical-align'>
+          <p>
+            {uniqueError
+              ? 'Name already exists'
+              : `${addedName} has been added`}
+          </p>
+          <button
+            id='close-btn'
+            onClick={closeModal}
+            onKeyDown={handleKeyPress}
+          >
+            OK
+          </button>
+        </div>
       </dialog>
     </div>
   );
