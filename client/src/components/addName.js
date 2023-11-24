@@ -72,18 +72,19 @@ function AddName() {
         //unique constraint error(name already exists)
         if (response.status === 422) {
           setUniqueError(true);
+          return Promise.reject(response);
         }
         return response.json();
       })
       .then((data) => {
         //Name successfully submitted to the database:
         if (!uniqueError) {
-          setAddedName(data.name);
-          modalRef.current.showModal();
+          setAddedName(data[0].name);
         }
       })
       .catch((error) => console.log(error))
       .finally(() => {
+        modalRef.current.showModal();
         //clears/resets the form values
         reset();
         setInputValue('');

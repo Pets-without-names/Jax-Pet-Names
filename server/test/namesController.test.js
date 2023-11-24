@@ -13,13 +13,13 @@ test('index', async () => {
 
       return {
         json: (body) => {
-          expect(body[0]).toMatchObject(name)
+          expect(body).toMatchObject(name)
         }
       }
     }
   };
   jest.mock('../src/nameQueries', () => ({
-    getRandomName: jest.fn(() => Promise.resolve([name]))
+    getRandomName: jest.fn(() => Promise.resolve(name))
   }));
 
   let namesController = require('../src/namesController');
