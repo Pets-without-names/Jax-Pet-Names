@@ -151,7 +151,6 @@ function AddName() {
           <button
             id='close-btn'
             onClick={closeModal}
-            onKeyDown={handleKeyPress}
           >
             OK
           </button>
