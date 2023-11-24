@@ -29,6 +29,6 @@
     "concurrently": "^8.0.1"
   },
   "devDependencies": {
-    "cypress": "^12.11.0"
+    "cypress": "^12.17.4"
   }
 }
