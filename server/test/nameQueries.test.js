@@ -50,12 +50,15 @@ test('getRandomName with is_male', async () => {
   const femaleRecords = await nameQueries.getRandomName(false);
 
   expect(maleRecords.length).toBe(1)
-  expect(maleRecords.length).toBe(1)
   expect(maleNames.includes(maleRecords[0].name)).toBe(true);
 
   expect(femaleRecords.length).toBe(1)
-  expect(femaleRecords.length).toBe(1)
   expect(femaleNames.includes(femaleRecords[0].name)).toBe(true);
+});
+
+test('getRandomName when no names added', async () => {
+  const nameRecords = await nameQueries.getRandomName();
+  expect(nameRecords.length).toBe(0);
 });
 
 test('createName new name', async () => {

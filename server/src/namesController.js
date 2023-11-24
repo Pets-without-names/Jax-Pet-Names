@@ -63,6 +63,7 @@ const parseErrorStatus = (error) => {
     case 'Name not found':
       return 404;
     case 'Invalid name fields':
+    case 'Name already exists':
       return 422;
     default:
       return 500;
