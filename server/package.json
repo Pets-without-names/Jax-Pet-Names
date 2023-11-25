@@ -11,7 +11,8 @@
     "db:seed": "knex seed:run",
     "db:reset": "node knex_drop.js && node knex_create.js && knex migrate:latest",
     "db:setup": "node knex_drop.js && node knex_create.js && knex migrate:latest && knex seed:run",
-    "db:production:setup": "npm install && knex migrate:latest --env production"
+    "db:production:setup": "npm install && knex migrate:latest --env production",
+    "test": "jest"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -20,5 +21,8 @@
     "express": "^4.18.2",
     "knex": "2.4.2",
     "pg": "^8.10.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
