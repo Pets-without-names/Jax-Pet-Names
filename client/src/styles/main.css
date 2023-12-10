@@ -2,7 +2,7 @@
 
 /* property variables: */
 :root {
-  --main-bg-color: hsl(80, 33%, 95%);
+  /* --main-bg-color: hsl(80, 33%, 95%); */
   --active-btn-color: hsl(355, 78%, 56%);
   --inactive-btn-color: hsl(0, 2%, 57%);
   --generate-btn-color: hsl(215, 46%, 34%);
@@ -13,8 +13,7 @@
 
 main {
   height: auto;
-  /* background-color: var(--dark-bg-color); */
-  background-color: var(--header-bg-color);
+  background-color: var(--main-bg-color);
   padding: 2em;
   position: relative;
   z-index: 2;
