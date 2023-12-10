@@ -2,11 +2,14 @@
 
 /* property variables: */
 :root {
-  /* --main-bg-color: hsl(80, 33%, 95%); */
+  --main-bg-color: hsla(215, 72%, 31%, 0.8);
+  --dark-bg-color: hsla(0, 0, 0);
+  --add-name-bg: hsl(80, 33%, 95%);
   --active-btn-color: hsl(355, 78%, 56%);
   --inactive-btn-color: hsl(0, 2%, 57%);
   --generate-btn-color: hsl(215, 46%, 34%);
   --results-bg-color: hsl(210, 40%, 98%);
+  --results-color: hsl(0, 0, 0);
   --dark-bg-color: hsl(220, 13%, 27%);
   --dark-bg-font: hsl(75, 12%, 94%);
 }
@@ -192,29 +195,38 @@ main h2 {
 
 .card-container p {
   text-align: center;
+  color: var(--results-color);
+}
 
-  @media screen and (min-width: 550px) {
-    .gender-btn-container {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
-    }
+@media screen and (min-width: 550px) {
+  .gender-btn-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
 
-    .flex-container {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-      flex-direction: row;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-    }
+  .flex-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
 
-    aside {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-    }
+  aside {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: hsla(0, 0%, 0%, 0.85);
+    --results-bg-color: hsla(0, 3%, 15%, 0.8);
+    --results-color: rgb(255, 255, 255);
   }
 }

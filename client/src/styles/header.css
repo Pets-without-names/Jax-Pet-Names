@@ -3,8 +3,6 @@
 /* custom header properties: */
 :root {
   --header-bg-color: hsla(215, 72%, 31%, 0.8);
-  --main-bg-color: hsla(215, 72%, 31%, 0.8);
-  --dark-bg-color: hsla(0, 0, 0);
 }
 
 /* main styling */
@@ -71,6 +69,6 @@ header > img {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-bg-color: hsla(0, 0%, 0%);
+    --header-bg-color: hsla(0, 0%, 0%, 0.85);
   }
 }
