@@ -1,5 +1,9 @@
+:root {
+  
+}
+
 .add-name-container {
-  background-color: var(--main-bg-color);
+  background-color: var(--add-name-bg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
