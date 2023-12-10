@@ -96,6 +96,10 @@ main h2 {
   background-color: var(--active-btn-color);
 }
 
+.gender-btn:first-child {
+  margin-bottom: 0.25rem;
+}
+
 /* Generate button container styling  */
 /* used flexbox to center the button */
 .generate-btn-container {
