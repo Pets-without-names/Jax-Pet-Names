@@ -2,6 +2,7 @@
   --add-name-bg: hsl(80, 33%, 95%);
   --name-font: hsl(0, 0%, 0%);
   --input-bg-color: hsl(0, 0%, 100%);
+  --submit-bg-color: hsl(0, 0%, 90%);
 }
 
 .add-name-container {
@@ -37,13 +38,14 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 1em;
+  padding: 3% 5%;
 }
 
 .submit-btn {
   margin-top: 0.75rem;
-  padding: 0.25rem 0.55rem;
-  height: 30.4px;
+  padding: 0.3vw 0.55vw;
+  font-size: calc(12px + 0.5vw);
+  background-color: var(--submit-bg-color);
 }
 
 form small {
@@ -52,6 +54,8 @@ form small {
 
 label {
   color: var(--name-font);
+  font-size: calc(12px + 0.5vw);
+  padding: 0 0.35em;
 }
 
 input {
