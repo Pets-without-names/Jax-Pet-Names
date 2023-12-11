@@ -48,6 +48,13 @@
   background-color: var(--submit-bg-color);
 }
 
+.submit-btn:hover {
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  background-color: #bfbfc5;
+}
+
 form small {
   color: red;
 }

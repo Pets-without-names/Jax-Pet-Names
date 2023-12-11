@@ -167,16 +167,16 @@ main h2 {
   transition: 0s;
 }
 
-.generate-btn:active {
+/* .generate-btn:active {
   top: 1px;
-  /* background-color: #2a4441;
+  background-color: #2a4441;
   -webkit-box-shadow: 0 5px #666;
   box-shadow: 0 5px #666;
   -webkit-transform: translateY(6px);
   -ms-transform: translateY(6px);
   transform: translateY(6px);
-  -webkit-transform: translateY(6px) 300ms ease; */
-}
+  -webkit-transform: translateY(6px) 300ms ease;
+} */
 
 /* Generated name "card" styling */
 .card-container {
