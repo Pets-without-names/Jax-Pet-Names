@@ -1,5 +1,7 @@
 :root {
-  
+  --add-name-bg: hsl(80, 33%, 95%);
+  --name-font: hsl(0, 0%, 0%);
+  --input-bg-color: hsl(0, 0%, 100%);
 }
 
 .add-name-container {
@@ -20,6 +22,7 @@
 
 .add-name-container > h2 {
   text-align: center;
+  color: var(--name-font);
 }
 
 .add-name-container form {
@@ -45,6 +48,14 @@
 
 form small {
   color: red;
+}
+
+label {
+  color: var(--name-font);
+}
+
+input {
+  background-color: var(--input-bg-color);
 }
 
 dialog {
@@ -110,4 +121,12 @@ dialog::backdrop {
   margin-top: 0.55rem;
   font-size: 1em;
   color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --add-name-bg: hsl(0, 0%, 15%);
+    --name-font: hsl(0, 0%, 80%);
+    --input-bg-color: hsl(0, 0%, 85%);
+  }
 }
