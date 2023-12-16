@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100vh;
+}
+
 body,
 html,
 p,
@@ -51,6 +55,7 @@ html {
 
 body {
   margin: 0;
+  height: 100vh;
 }
 
 /**

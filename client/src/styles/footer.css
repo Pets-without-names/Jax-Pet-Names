@@ -1,6 +1,6 @@
 :root {
-  --bg-color: hsl(210, 13%, 50%);
-  --font-color: hsl(39, 77%, 83%);
+  --footer-bg-color: hsl(210, 13%, 50%);
+  --footer-font-color: hsl(39, 77%, 83%);
 }
 
 footer {
@@ -20,11 +20,11 @@ footer {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  max-height: -webkit-min-content;
+  /* max-height: -webkit-min-content;
   max-height: -moz-min-content;
-  max-height: min-content;
-  background-color: var(--bg-color);
-  color: var(--font-color);
+  max-height: min-content; */
+  background-color: var(--footer-bg-color);
+  color: var(--footer-font-color);
 }
 
 footer section {
@@ -53,7 +53,7 @@ footer section {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: hsla(0, 0%, 0%, 0.85);
-    --font-color: hsl(39, 77%, 83%);
+    --footer-bg-color: hsla(0, 0%, 0%, 0.85);
+    --footer-font-color: hsl(39, 77%, 83%);
   }
 }
