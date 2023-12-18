@@ -197,13 +197,6 @@ main h2 {
   color: var(--results-color);
 }
 
-@media screen and (min-width: 550px) {
-  /* .gender-btn {
-    padding: 0.65rem;
-    font-size: 1.25rem;
-  } */
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --main-bg-color: hsla(0, 0%, 0%, 0.85);
