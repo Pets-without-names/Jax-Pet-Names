@@ -80,7 +80,7 @@ main h2 {
   background-color: var(--inactive-btn-color);
   color: white;
   width: 10%;
-  min-width: 75px;
+  min-width: 85px;
   max-width: 150px;
   padding: 0.75vw;
   font-size: calc(12px + 0.5vw);
@@ -117,7 +117,7 @@ main h2 {
   background-color: var(--generate-btn-color);
   color: white;
   width: 10%;
-  min-width: 75px;
+  min-width: 85px;
   max-width: 150px;
   border-radius: 10px;
   font-size: calc(12px + 0.5vw);
