@@ -1,4 +1,3 @@
-import '../src/styles/main.css';
 import Header from './components/header';
 import Main from './components/main';
 import Footer from './components/footer';
@@ -6,7 +5,13 @@ import AddName from './components/addName';
 
 function App() {
   return (
-    <div>
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Header></Header>
       <Main></Main>
       <AddName></AddName>

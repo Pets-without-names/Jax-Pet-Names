@@ -3,6 +3,9 @@
 /* custom header properties: */
 :root {
   --header-bg-color: hsla(215, 72%, 31%, 0.8);
+  --header-left-edge: hsla(195, 53%, 79%, 0.5);
+  --h1-color: hsl(0, 0%, 0%);
+  --text-shadow-color: darkgrey;
 }
 
 /* main styling */
@@ -22,19 +25,19 @@ header {
   /* background styling */
   background-image: -o-linear-gradient(
     left,
-    hsla(195, 53%, 79%, 0.5),
+    var(--header-left-edge),
     var(--header-bg-color)
   );
   background-image: -webkit-gradient(
     linear,
     left top,
     right top,
-    from(hsla(195, 53%, 79%, 0.5)),
+    from(var(--header-left-edge)),
     to(var(--header-bg-color))
   );
   background-image: linear-gradient(
     to right,
-    hsla(195, 53%, 79%, 0.5),
+    var(--header-left-edge),
     var(--header-bg-color)
   );
   font-family: 'Marko One', serif;
@@ -42,8 +45,9 @@ header {
 
 header > h1 {
   margin: 0;
-  text-shadow: 0px 5px 10px darkgray;
+  text-shadow: 0px 4px 4px var(--text-shadow-color);
   text-align: center;
+  color: var(--h1-color);
 }
 
 header > img {
@@ -64,5 +68,14 @@ header > img {
   header > h1 {
     width: 80%;
     font-size: 4vw;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --header-bg-color: hsla(0, 0%, 0%, 0.85);
+    --header-left-edge: hsla(0, 0%, 38%, 0.85);
+    --h1-color: hsl(0, 0%, 80%);
+    --text-shadow-color: hsla(0, 0%, 0%, 0.85);
   }
 }

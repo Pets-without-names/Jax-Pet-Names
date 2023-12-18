@@ -1,3 +1,8 @@
+:root {
+  --footer-bg-color: hsl(210, 13%, 50%);
+  --footer-font-color: hsl(39, 77%, 83%);
+}
+
 footer {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
@@ -15,11 +20,11 @@ footer {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  max-height: -webkit-min-content;
+  /* max-height: -webkit-min-content;
   max-height: -moz-min-content;
-  max-height: min-content;
-  background-color: slategrey;
-  color: wheat;
+  max-height: min-content; */
+  background-color: var(--footer-bg-color);
+  color: var(--footer-font-color);
 }
 
 footer section {
@@ -43,5 +48,12 @@ footer section {
     margin-right: 1.5rem;
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --footer-bg-color: hsla(0, 0%, 0%, 0.85);
+    --footer-font-color: hsl(39, 77%, 83%);
   }
 }

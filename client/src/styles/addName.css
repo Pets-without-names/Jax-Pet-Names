@@ -1,5 +1,11 @@
+:root {
+  --name-font: hsl(0, 0%, 0%);
+  --input-bg-color: hsl(0, 0%, 100%);
+  --submit-bg-color: hsl(0, 0%, 81%);
+}
+
 .add-name-container {
-  background-color: var(--main-bg-color);
+  background-color: var(--add-name-bg);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,6 +22,7 @@
 
 .add-name-container > h2 {
   text-align: center;
+  color: var(--name-font);
 }
 
 .add-name-container form {
@@ -30,17 +37,35 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 1em;
+  padding: 3% 5%;
 }
 
 .submit-btn {
   margin-top: 0.75rem;
-  padding: 0.25rem 0.55rem;
-  height: 30.4px;
+  padding: 0.3vw 0.55vw;
+  font-size: calc(12px + 0.5vw);
+  background-color: var(--submit-bg-color);
+}
+
+.submit-btn:hover {
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  background-color: #bfbfc5;
 }
 
 form small {
   color: red;
+}
+
+label {
+  color: var(--name-font);
+  font-size: calc(12px + 0.5vw);
+  padding: 0 0.35em;
+}
+
+input {
+  background-color: var(--input-bg-color);
 }
 
 dialog {
@@ -106,4 +131,12 @@ dialog::backdrop {
   margin-top: 0.55rem;
   font-size: 1em;
   color: red;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --add-name-bg: hsl(0, 0%, 15%);
+    --name-font: hsl(0, 0%, 80%);
+    --input-bg-color: hsl(0, 0%, 85%);
+  }
 }
