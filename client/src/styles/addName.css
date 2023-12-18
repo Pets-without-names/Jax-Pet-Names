@@ -1,8 +1,7 @@
 :root {
-  --add-name-bg: hsl(80, 33%, 95%);
   --name-font: hsl(0, 0%, 0%);
   --input-bg-color: hsl(0, 0%, 100%);
-  --submit-bg-color: hsl(0, 0%, 90%);
+  --submit-bg-color: hsl(0, 0%, 81%);
 }
 
 .add-name-container {
