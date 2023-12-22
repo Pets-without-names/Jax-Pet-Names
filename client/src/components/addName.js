@@ -97,6 +97,7 @@ function AddName() {
           Name:{' '}
           <input
             type='text'
+            id='name-input'
             name='name'
             {...register('name', { required: 'Name is required' })}
             value={inputValue}

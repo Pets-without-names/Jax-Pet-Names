@@ -2,6 +2,8 @@
   --name-font: hsl(0, 0%, 0%);
   --input-bg-color: hsl(0, 0%, 100%);
   --submit-bg-color: hsl(0, 0%, 81%);
+  --btn-border-tl: rgb(118, 118, 118);
+  --btn-border-br: rgb(54, 54, 54);
 }
 
 .add-name-container {
@@ -45,6 +47,10 @@
   padding: 0.3vw 0.55vw;
   font-size: calc(12px + 0.5vw);
   background-color: var(--submit-bg-color);
+  border-top: 2px solid var(--btn-border-tl);
+  border-left: 2px solid var(--btn-border-tl);
+  border-bottom: 2px solid var(--btn-border-br);
+  border-right: 2px solid var(--btn-border-br);
 }
 
 .submit-btn:hover {
@@ -138,5 +144,7 @@ dialog::backdrop {
     --add-name-bg: hsl(0, 0%, 15%);
     --name-font: hsl(0, 0%, 80%);
     --input-bg-color: hsl(0, 0%, 85%);
+    --btn-border-tl: rgb(0, 128, 0);
+    --btn-border-br: rgb(0, 128, 0);
   }
 }
