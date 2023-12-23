@@ -44,7 +44,8 @@
 
 .submit-btn {
   margin-top: 0.75rem;
-  padding: 0.3vw 0.55vw;
+  padding: 0.3vw 0.75vw;
+  color: black;
   font-size: calc(12px + 0.5vw);
   background-color: var(--submit-bg-color);
   border-top: 2px solid var(--btn-border-tl);
