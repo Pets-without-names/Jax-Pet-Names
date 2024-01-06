@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import '../styles/main.css';
 import { Helmet } from 'react-helmet';
+import ReactGA from 'react-ga4';
 
 function Main() {
   const [isMale, setIsMale] = useState(true);
@@ -17,6 +18,10 @@ function Main() {
 
   const handleClick = () => {
     getName();
+    ReactGA.event({
+      category: 'Visitor',
+      action: 'Clicked the Generate button',
+    });
   };
 
   useEffect(() => {
@@ -37,8 +42,8 @@ function Main() {
           content='This website generates random male or female pet names.  Names 
         may be added to the pet name database'
         />
-        <meta name='robots' content='index follow'/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name='robots' content='index follow' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       </Helmet>
       <h2>A tool to randomly generate a pet name!</h2>
       <div className='flex-container'>
