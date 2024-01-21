@@ -1,5 +1,6 @@
 import { React, useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import ReactGA from 'react-ga4';
 import '../styles/addName.css';
 
 function AddName() {
@@ -78,6 +79,10 @@ function AddName() {
         //Name successfully submitted to the database:
         if (!uniqueError) {
           setAddedName(data[0].name);
+          ReactGA.event({
+            category: 'Visitor',
+            action: 'Added a new name',
+          });
         }
       })
       .catch((error) => console.log(error))
@@ -149,10 +154,7 @@ function AddName() {
               ? 'Name already exists'
               : `${addedName} has been added`}
           </p>
-          <button
-            id='close-btn'
-            onClick={closeModal}
-          >
+          <button id='close-btn' onClick={closeModal}>
             OK
           </button>
         </div>
