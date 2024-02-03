@@ -31,16 +31,18 @@ function Main() {
   return (
     <main>
       <Helmet>
-        <title>Random Pet Name Generator and Database</title>
+        <title>Random Pet Name Generator. Add names to the database!</title>
         <meta
           name='namemypets.app'
-          content='random pet name generator.  A website that randomly generates a pet name based on male or female. Add a name to the database of pet names'
+          content='Random pet name generator.  A website that randomly generates a pet name.
+          The user is able to select either a male or female name.
+          Add a name to the database of pet names'
         />
         <meta name='author' content='Petswithoutnames.org' />
         <meta
           name='description'
-          content='This website randomly generates male or female pet names.  Names 
-        may be added to the pet name database'
+          content='Randomly generate either male or female pet names.  You can help build a better product by
+          adding names to the pet name database'
         />
         <meta name='robots' content='index follow' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
