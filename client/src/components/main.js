@@ -31,7 +31,7 @@ function Main() {
   return (
     <main>
       <Helmet>
-        <title>Random Pet Name Generator. Add names to the database!</title>
+        <title>Random Pet Name Generator</title>
         <meta
           name='namemypets.app'
           content='Random pet name generator.  A website that randomly generates a pet name.
