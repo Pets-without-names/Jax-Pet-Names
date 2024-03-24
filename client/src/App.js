@@ -2,6 +2,7 @@ import Header from './components/header';
 import Main from './components/main';
 import Footer from './components/footer';
 import AddName from './components/addName';
+import OpenaiComponent from './components/openai';
 import ReactGA from 'react-ga4';
 
 const measurementID = 'G-CG5SKK9RSW';
@@ -20,6 +21,7 @@ function App() {
       <Header></Header>
       <Main></Main>
       <AddName></AddName>
+      <OpenaiComponent></OpenaiComponent>
       <Footer></Footer>
     </div>
   );

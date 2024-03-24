@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import Openai from 'openai';
 import '../styles/openai.css';
 
 function OpenaiComponent() {
@@ -8,20 +9,30 @@ function OpenaiComponent() {
   const [gender, setGender] = useState('Male');
   const [completion, setCompletion] = useState('');
 
-  const callOpenai = () => {
-    fetch(`${process.env.REACT_APP_HOST}/openai`, {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('data: ' + data);
-        setCompletion(data[0]);
-      })
-      .catch((error) => console.log(error));
+  const openai = new Openai({
+    apiKey: `${process.env.REACT_APP_OPENAI_KEY}`,
+    dangerouslyAllowBrowser: true,
+  });
+
+  const callOpenai = async () => {
+    try {
+      const completion = await openai.chat.completions.create({
+        messages: [
+          { role: 'system', content: 'You are a creative assistant.' },
+          {
+            role: 'user',
+            content:
+              'generate one random male dog name.  Return only the name.',
+          },
+        ],
+        model: 'gpt-3.5-turbo',
+        max_tokens: 75,
+        temperature: 0.8,
+      });
+      console.log(completion.choices[0].message.content);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleClick = () => {
