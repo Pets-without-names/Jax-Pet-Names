@@ -2,12 +2,13 @@
   --name-font: hsl(0, 0%, 0%);
   --input-bg-color: hsl(0, 0%, 100%);
   --submit-bg-color: hsl(0, 0%, 81%);
+  --header-background: hsla(215, 72%, 31%, 0.35);
   --btn-border-tl: rgb(118, 118, 118);
   --btn-border-br: rgb(54, 54, 54);
 }
 
 .add-name-container {
-  background-color: var(--add-name-bg);
+  background-color: var(--header-background);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,11 +25,12 @@
 
 .add-name-container > h2 {
   text-align: center;
+  font-family: Moranga, sans-serif;
+  font-size: calc(24px + 0.5vw);
   color: var(--name-font);
 }
 
 .add-name-container form {
-  border: 1px solid green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,22 +45,51 @@
 }
 
 .submit-btn {
+  background-color: #3498db;
+  color: #ffffff;
   margin-top: 0.75rem;
-  padding: 0.3vw 0.75vw;
-  color: black;
+  padding: 0.5vw 0.95vw;
   font-size: calc(12px + 0.5vw);
-  background-color: var(--submit-bg-color);
-  border-top: 2px solid var(--btn-border-tl);
-  border-left: 2px solid var(--btn-border-tl);
-  border-bottom: 2px solid var(--btn-border-br);
-  border-right: 2px solid var(--btn-border-br);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+.submit-btn:hover {
+  padding: 0.5vw 1vw;
+  transform: translateZ(10px);
 }
 
-.submit-btn:hover {
-  -webkit-transition-duration: 0.25s;
-  -o-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-  background-color: #bfbfc5;
+/* Submit button click effects: */
+.submit-btn:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-box-shadow: 0 0 10px 15px white;
+  box-shadow: 0 0 10px 15px white;
+  z-index: -1;
+}
+
+.submit-btn:active:after {
+  -webkit-box-shadow: 0 0 0 0 white;
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
 }
 
 form small {

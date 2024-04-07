@@ -3,6 +3,7 @@
 /* property variables: */
 :root {
   --main-bg-color: hsla(215, 72%, 31%, 0.8);
+  --header-background: hsla(215, 72%, 31%, 0.35);
   --active-btn-color: hsl(355, 78%, 56%);
   --inactive-btn-color: hsl(0, 2%, 57%);
   --generate-btn-color: hsl(215, 46%, 34%);
@@ -13,7 +14,7 @@
 
 main {
   height: auto;
-  background-color: var(--main-bg-color);
+  background-color: var(--header-background);
   padding: 2em;
   position: relative;
   z-index: 2;
@@ -23,7 +24,7 @@ main h2 {
   text-align: center;
   margin: 0;
   font-family: Moranga, sans-serif;
-  color: var(--dark-bg-font);
+  /* color: var(--dark-bg-font); */
 }
 
 /* The outter container which holds the button groups */
@@ -47,15 +48,17 @@ main h2 {
 .flex-container::before {
   content: '';
   position: absolute;
-  top: 10%;
+  top: 5%;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: -1;
-  background-image: url('../images/pawprint-transparent-crop.png');
+  /* background-image: url('../images/pawprint-transparent-crop.png'); */
+  background-image: url('../images/pawprint-trnspt3.png');
   background-size: contain;
-  background-repeat: repeat;
-  opacity: 0.2;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.15;
 }
 
 /* male/female button container set-up */
@@ -79,11 +82,11 @@ main h2 {
 .gender-btn {
   background-color: var(--inactive-btn-color);
   color: white;
-  width: 10%;
-  min-width: 85px;
-  max-width: 150px;
-  padding: 0.75vw;
-  font-size: calc(12px + 0.5vw);
+  width: 50%;
+  border-radius: 10px;
+  max-width: 200px;
+  padding: 1vw;
+  font-size: calc(12px + 0.8vw);
   -webkit-transition: background-color 300ms ease;
   -o-transition: background-color 300ms ease;
   transition: background-color 300ms ease;
@@ -98,7 +101,7 @@ main h2 {
 }
 
 .gender-btn:first-child {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 /* Generate button container styling  */
@@ -116,12 +119,11 @@ main h2 {
   position: relative;
   background-color: var(--generate-btn-color);
   color: white;
-  width: 10%;
-  min-width: 85px;
-  max-width: 150px;
+  width: 50%;
+  max-width: 200px;
   border-radius: 10px;
-  font-size: calc(12px + 0.5vw);
-  padding: 0.85vw;
+  font-size: calc(12px + 0.8vw);
+  padding: 1vw;
   cursor: pointer;
   -webkit-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
@@ -129,17 +131,15 @@ main h2 {
 }
 
 .generate-btn:hover {
-  -webkit-transition-duration: 0.25s;
+  /* -webkit-transition-duration: 0.25s;
   -o-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-  background-color: #2a4441;
+  transition-duration: 0.25s; */
 }
 
 .generate-btn:after {
   content: '';
   display: block;
   position: absolute;
-  /* border-radius: 10px; */
   left: 0;
   top: 0;
   width: 100%;
@@ -166,7 +166,7 @@ main h2 {
   transition: 0s;
 }
 
-.generate-btn:active {
+/* .generate-btn:active {
   top: 1px;
   background-color: #2a4441;
   -webkit-box-shadow: 0 5px #666;
@@ -175,7 +175,7 @@ main h2 {
   -ms-transform: translateY(6px);
   transform: translateY(6px);
   -webkit-transform: translateY(6px) 300ms ease;
-}
+} */
 
 /* Generated name "card" styling */
 .card-container {
@@ -195,6 +195,11 @@ main h2 {
 .card-container p {
   text-align: center;
   color: var(--results-color);
+}
+@media screen and (min-width: 750px) {
+  main h2 {
+    font-size: calc(24px + 0.5vw);
+  }
 }
 
 @media (prefers-color-scheme: dark) {

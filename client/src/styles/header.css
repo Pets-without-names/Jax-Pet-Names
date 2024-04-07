@@ -3,7 +3,8 @@
 /* custom header properties: */
 :root {
   --header-bg-color: hsla(215, 72%, 31%, 0.8);
-  --header-left-edge: hsla(195, 53%, 79%, 0.5);
+  --header-left-edge: hsla(209, 53%, 79%, 0.5);
+  --header-background: hsla(215, 72%, 31%, 0.35);
   --h1-color: hsl(0, 0%, 0%);
   --text-shadow-color: darkgrey;
 }
@@ -20,26 +21,7 @@ header {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 1em;
-  border: 1px solid black;
-  /* background styling */
-  background-image: -o-linear-gradient(
-    left,
-    var(--header-left-edge),
-    var(--header-bg-color)
-  );
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(var(--header-left-edge)),
-    to(var(--header-bg-color))
-  );
-  background-image: linear-gradient(
-    to right,
-    var(--header-left-edge),
-    var(--header-bg-color)
-  );
+  background-color: var(--header-background);
   font-family: 'Marko One', serif;
 }
 
@@ -50,11 +32,15 @@ header > h1 {
   color: var(--h1-color);
 }
 
-header > img {
-  width: 10%;
-  max-width: 150px;
-  min-width: 75px;
+img {
+  width: 13%;
+  max-width: 200px;
+  min-width: 100px;
   padding: 1em;
+}
+
+img:nth-last-of-type(1) {
+  display: none;
 }
 
 @media screen and (min-width: 750px) {
@@ -65,9 +51,18 @@ header > img {
     flex-direction: row;
   }
 
-  header > h1 {
+  header h1 {
     width: 80%;
     font-size: 4vw;
+  }
+
+  img:first-of-type {
+    margin-left: 5em;
+  }
+
+  img:nth-last-of-type(1) {
+    display: block;
+    margin-right: 5em;
   }
 }
 
