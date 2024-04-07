@@ -172,9 +172,6 @@ dialog::backdrop {
 }
 
 @media screen and (min-width: 750px) {
-  .add-name-container h2 {
-    font-size: calc(24px + 0.5vw);
-  }
 }
 
 @media (prefers-color-scheme: dark) {
