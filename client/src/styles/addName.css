@@ -3,8 +3,6 @@
   --input-bg-color: hsl(0, 0%, 100%);
   --submit-bg-color: hsl(0, 0%, 81%);
   --header-background: hsla(215, 72%, 31%, 0.35);
-  --btn-border-tl: rgb(118, 118, 118);
-  --btn-border-br: rgb(54, 54, 54);
 }
 
 .add-name-container {
@@ -23,11 +21,12 @@
   padding-bottom: 1em;
 }
 
-.add-name-container > h2 {
+.add-name-container h2 {
   text-align: center;
   font-family: Moranga, sans-serif;
-  font-size: calc(24px + 0.5vw);
   color: var(--name-font);
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 .add-name-container form {
@@ -41,7 +40,6 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 3% 5%;
 }
 
 .submit-btn {
@@ -173,12 +171,16 @@ dialog::backdrop {
   color: red;
 }
 
+@media screen and (min-width: 750px) {
+  .add-name-container h2 {
+    font-size: calc(24px + 0.5vw);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --add-name-bg: hsl(0, 0%, 15%);
     --name-font: hsl(0, 0%, 80%);
     --input-bg-color: hsl(0, 0%, 85%);
-    --btn-border-tl: rgb(0, 128, 0);
-    --btn-border-br: rgb(0, 128, 0);
   }
 }
