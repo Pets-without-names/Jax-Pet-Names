@@ -48,12 +48,11 @@ main h2 {
 .flex-container::before {
   content: '';
   position: absolute;
-  top: 5%;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: -1;
-  /* background-image: url('../images/pawprint-transparent-crop.png'); */
   background-image: url('../images/pawprint-trnspt3.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -197,6 +196,14 @@ main h2 {
 
   .generate-btn {
     padding: 1vw;
+  }
+
+  .flex-container::before {
+    background-image: url('../images/pawprint-trnspt3.png'),
+      url('../images/pawprint-trnspt3.png');
+    background-size: contain, contain;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left, right;
   }
 }
 
