@@ -179,6 +179,7 @@ main h2 {
 .card-container p {
   text-align: center;
   color: var(--results-color);
+  font-size: 105%;
 }
 
 @media screen and (min-width: 750px) {
