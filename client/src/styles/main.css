@@ -94,6 +94,7 @@ main h2 {
 }
 /* styling for the gender button when clicked */
 .active {
+  font-size: calc(12px + 1vw);
   background-color: var(--active-btn-color);
   border: 1px solid black;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.55);
@@ -127,12 +128,6 @@ main h2 {
   -webkit-transition-duration: 0.4s;
   -o-transition-duration: 0.4s;
   transition-duration: 0.4s;
-}
-
-.generate-btn:hover {
-  /* -webkit-transition-duration: 0.25s;
-  -o-transition-duration: 0.25s;
-  transition-duration: 0.25s; */
 }
 
 .generate-btn:after {
@@ -201,9 +196,9 @@ main h2 {
   .flex-container::before {
     background-image: url('../images/pawprint-trnspt3.png'),
       url('../images/pawprint-trnspt3.png');
-    background-size: contain, contain;
+    background-size: auto, auto;
     background-repeat: no-repeat, no-repeat;
-    background-position: left, right;
+    background-position: 7% 50%, 93% 50%;
   }
 }
 
