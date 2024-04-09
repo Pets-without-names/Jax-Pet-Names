@@ -4,7 +4,7 @@
 :root {
   --main-bg-color: hsla(215, 72%, 31%, 0.8);
   --header-background: hsla(215, 72%, 31%, 0.35);
-  --active-btn-color: hsl(355, 78%, 56%);
+  --active-btn-color: hsl(147, 32%, 41%);
   --inactive-btn-color: hsl(0, 2%, 57%);
   --generate-btn-color: hsl(215, 46%, 34%);
   --results-bg-color: hsl(210, 40%, 98%);
@@ -85,6 +85,7 @@ main h2 {
   border: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  min-width: 140px;
   max-width: 200px;
   padding: 2vw;
   font-size: calc(12px + 0.8vw);

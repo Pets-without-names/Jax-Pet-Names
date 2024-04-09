@@ -43,19 +43,21 @@
 }
 
 .submit-btn {
-  background-color: #3498db;
+  background-color: #468964;
   color: #ffffff;
   margin-top: 0.75rem;
-  padding: 0.5vw 0.95vw;
+  padding: 1.75vw 6vw;
+  min-width: 110px;
+  max-width: 175px;
+  border-radius: 10px;
   font-size: calc(12px + 0.5vw);
   border: none;
-  border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateZ(0);
   transition: transform 0.3s ease;
 }
 .submit-btn:hover {
-  padding: 0.5vw 1vw;
+  font-size: calc(12px + 0.55vw);
   transform: translateZ(10px);
 }
 
@@ -96,11 +98,11 @@ form small {
 
 label {
   color: var(--name-font);
-  font-size: calc(12px + 0.5vw);
+  font-size: calc(12px + 0.75vw);
   padding: 0 0.35em;
 }
 
-input {
+#name-input {
   background-color: var(--input-bg-color);
   border: 1.5px solid lightgray;
   box-shadow: 1px 1px 1px gray;
@@ -172,6 +174,9 @@ dialog::backdrop {
 }
 
 @media screen and (min-width: 750px) {
+  .submit-btn {
+    padding: 1vw 2vw;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
