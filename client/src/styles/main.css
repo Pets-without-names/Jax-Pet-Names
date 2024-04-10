@@ -2,14 +2,11 @@
 
 /* property variables: */
 :root {
-  --main-bg-color: hsla(215, 72%, 31%, 0.8);
-  --header-background: hsla(215, 72%, 31%, 0.35);
   --active-btn-color: hsl(147, 32%, 41%);
   --inactive-btn-color: hsl(0, 2%, 57%);
   --generate-btn-color: hsl(215, 46%, 34%);
   --results-bg-color: hsl(210, 40%, 98%);
   --results-color: hsl(0, 0%, 0%);
-  --dark-bg-font: hsl(0, 0%, 80%);
 }
 
 main {
@@ -24,7 +21,7 @@ main h2 {
   text-align: center;
   margin: 0;
   font-family: Moranga, sans-serif;
-  /* color: var(--dark-bg-font); */
+  color: var(--main-text-color);
 }
 
 /* The outter container which holds the button groups */
@@ -206,7 +203,6 @@ main h2 {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --main-bg-color: hsla(0, 0%, 0%, 0.85);
     --results-bg-color: hsla(0, 3%, 15%, 0.8);
     --results-color: hsl(0, 0%, 80%);
   }

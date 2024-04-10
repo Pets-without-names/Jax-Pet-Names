@@ -2,10 +2,8 @@
 
 /* custom header properties: */
 :root {
-  --header-bg-color: hsla(215, 72%, 31%, 0.8);
-  --header-left-edge: hsla(209, 53%, 79%, 0.5);
   --header-background: hsla(215, 72%, 31%, 0.35);
-  --h1-color: hsl(0, 0%, 0%);
+  --main-text-color: hsl(0, 0%, 0%);
   --text-shadow-color: darkgrey;
 }
 
@@ -29,7 +27,7 @@ header > h1 {
   margin: 0;
   text-shadow: 0px 4px 4px var(--text-shadow-color);
   text-align: center;
-  color: var(--h1-color);
+  color: var(--main-text-color);
 }
 
 img {
@@ -68,9 +66,8 @@ img:nth-last-of-type(1) {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-bg-color: hsla(0, 0%, 0%, 0.85);
-    --header-left-edge: hsla(0, 0%, 38%, 0.85);
-    --h1-color: hsl(0, 0%, 80%);
+    --header-background: hsla(0, 2%, 8%, 0.85);
+    --main-text-color: hsl(0, 0%, 80%);
     --text-shadow-color: hsla(0, 0%, 0%, 0.85);
   }
 }

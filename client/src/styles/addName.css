@@ -1,8 +1,6 @@
 :root {
-  --name-font: hsl(0, 0%, 0%);
   --input-bg-color: hsl(0, 0%, 100%);
   --submit-bg-color: hsl(0, 0%, 81%);
-  --header-background: hsla(215, 72%, 31%, 0.35);
 }
 
 .add-name-container {
@@ -24,7 +22,7 @@
 .add-name-container h2 {
   text-align: center;
   font-family: Moranga, sans-serif;
-  color: var(--name-font);
+  color: var(--main-text-color);
   margin-top: 0;
   margin-bottom: 1em;
 }
@@ -97,7 +95,7 @@ form small {
 }
 
 label {
-  color: var(--name-font);
+  color: var(--main-text-color);
   font-size: calc(12px + 0.75vw);
   padding: 0 0.35em;
 }
@@ -182,7 +180,6 @@ dialog::backdrop {
 @media (prefers-color-scheme: dark) {
   :root {
     --add-name-bg: hsl(0, 0%, 15%);
-    --name-font: hsl(0, 0%, 80%);
     --input-bg-color: hsl(0, 0%, 85%);
   }
 }
