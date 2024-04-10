@@ -207,10 +207,21 @@ main h2 {
     --results-color: hsl(0, 0%, 80%);
   }
   .flex-container::before {
-    background-image: url('../images/pawprint3.png'),
-      url('../images/pawprint3.png');
-    background-size: auto, auto;
-    background-repeat: no-repeat, no-repeat;
-    background-position: 7% 50%, 93% 50%;
+    background-image: url('../images/pawprint3.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @media screen and (min-width: 750px) {
+    .flex-container::before {
+      background-image: url('../images/pawprint3.png'),
+        url('../images/pawprint3.png');
+      background-size: auto, auto;
+      background-repeat: no-repeat, no-repeat;
+      background-position: 7% 50%, 93% 50%;
+    }
   }
 }
