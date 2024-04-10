@@ -66,7 +66,7 @@ img:nth-last-of-type(1) {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-background: hsla(0, 2%, 8%, 0.85);
+    --header-background: rgba(21, 20, 20, 0.85);
     --main-text-color: hsl(0, 0%, 80%);
     --text-shadow-color: hsla(0, 0%, 0%, 0.85);
   }
