@@ -2,7 +2,7 @@
 
 /* custom header properties: */
 :root {
-  --header-background: hsla(215, 72%, 31%, 0.35);
+  --header-background: hsla(215, 72%, 31%, 0.5);
   --main-text-color: hsl(0, 0%, 0%);
   --text-shadow-color: darkgrey;
 }
