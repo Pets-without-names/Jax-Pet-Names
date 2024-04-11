@@ -1,6 +1,7 @@
 :root {
   --input-bg-color: hsl(0, 0%, 100%);
-  --submit-bg-color: hsl(0, 0%, 81%);
+  --input-font-color: hsl(0, 0%, 0%);
+  --box-shadow-color: hsl(0, 0%, 28%);
 }
 
 .add-name-container {
@@ -101,9 +102,10 @@ label {
 }
 
 #name-input {
+  color: var(--input-font-color);
   background-color: var(--input-bg-color);
   border: 1.5px solid lightgray;
-  box-shadow: 1px 1px 1px gray;
+  box-shadow: 1.5px 1.5px 1.5px var(--box-shadow-color);
 }
 
 dialog {
@@ -179,7 +181,8 @@ dialog::backdrop {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --add-name-bg: hsl(0, 0%, 15%);
-    --input-bg-color: hsl(0, 0%, 85%);
+    --input-bg-color: hsla(0, 3%, 30%, 0.25);
+    --input-font-color: hsl(0, 0%, 80%);
+    --box-shadow-color: hsl(0, 0%, 85%);
   }
 }
