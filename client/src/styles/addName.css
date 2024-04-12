@@ -105,7 +105,7 @@ label {
   color: var(--input-font-color);
   background-color: var(--input-bg-color);
   border: 1.5px solid lightgray;
-  box-shadow: 1.5px 1.5px 1.5px var(--box-shadow-color);
+  box-shadow: 3px 3px 3px var(--box-shadow-color);
 }
 
 dialog {
