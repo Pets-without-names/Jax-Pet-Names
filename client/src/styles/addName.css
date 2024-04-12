@@ -183,6 +183,5 @@ dialog::backdrop {
   :root {
     --input-bg-color: hsla(0, 3%, 30%, 0.25);
     --input-font-color: hsl(0, 0%, 80%);
-    --box-shadow-color: hsl(0, 0%, 85%);
   }
 }
