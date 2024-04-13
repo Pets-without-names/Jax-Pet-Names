@@ -82,8 +82,6 @@ function Main() {
           <div className='card-container'>
             <div className='results'>
               <p>{petName}</p>
-              {/* <p>MynameisLONG</p> */}
-              {/* <p>One</p> */}
             </div>
           </div>
         </div>

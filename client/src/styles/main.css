@@ -5,7 +5,6 @@
   --generate-btn-color: hsl(215, 46%, 34%);
   --results-bg-color: hsl(210, 40%, 98%);
   --results-color: hsl(0, 0%, 0%);
-  --btn-font-size: var(14px + 0.8vw);
 }
 
 main {
@@ -19,7 +18,7 @@ main {
 main h2 {
   text-align: center;
   margin: 0;
-  font-family: Moranga, sans-serif;
+  font-family: Moranga, Times, sans-serif;
   color: var(--main-text-color);
 }
 
@@ -83,16 +82,15 @@ main h2 {
   border-radius: 10px;
   max-width: 200px;
   padding: 2vw;
-  font-family: Geneva, sans-serif;
-  /* font-size: calc(12px + 0.8vw); */
-  font-size: var(--btn-font-size);
+  font-family: Geneva, Times, sans-serif;
+  font-size: calc(14px + 0.8vw);
   -webkit-transition: background-color 300ms ease;
   -o-transition: background-color 300ms ease;
   transition: background-color 300ms ease;
 }
 /* styling for the gender button when clicked */
 .active {
-  font-size: calc(12px + 1vw);
+  font-size: calc(14px + 1vw);
   background-color: var(--active-btn-color);
   border: 1px solid black;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.55);
@@ -122,8 +120,8 @@ main h2 {
   border: 1px solid black;
   border-radius: 10px;
   box-shadow: 4px 4px 6px 2px rgba(0, 0, 0, 0.3);
-  font-family: Geneva, sans-serif;
-  font-size: calc(12px + 0.8vw);
+  font-family: Geneva, Times, sans-serif;
+  font-size: calc(14px + 0.8vw);
   padding: 2vw;
   cursor: pointer;
   -webkit-transition-duration: 0.4s;
@@ -162,18 +160,6 @@ main h2 {
 }
 
 /* Generated name "card" styling */
-.card-container {
-  /* width: fit-content; */
-  /* width: calc(100px + 10vw); */
-  /* min-width: fit-content;
-  -webkit-box-shadow: inset 0 0 10px rgb(200, 197, 197);
-  box-shadow: inset 0 0 10px rgb(200, 197, 197);
-  border: 2px solid lightgray;
-  border-radius: 1em;
-  padding: 1em 1.5em;
-  margin: 1em auto;
-  background-color: var(--results-bg-color); */
-}
 .results {
   margin: 0 auto;
   width: 50%;
@@ -187,29 +173,32 @@ main h2 {
   margin: 1em auto;
   background-color: var(--results-bg-color);
 }
+
 .card-container p {
   text-align: center;
   color: var(--results-color);
   font-family: Moranga, sans-serif;
   font-weight: bolder;
-  font-size: 1.45rem;
+  font-size: 1.65rem;
 }
 
 @media screen and (min-width: 750px) {
-  :root {
-    --btn-font-size: var(12 + 0.8vw);
-  }
-
   main h2 {
     font-size: calc(24px + 0.5vw);
   }
 
   .gender-btn {
     padding: 1vw;
+    font-size: calc(12px + 0.8vw);
+  }
+
+  .active {
+    font-size: calc(12px + 1vw);
   }
 
   .generate-btn {
     padding: 1vw;
+    font-size: calc(12px + 0.8vw);
   }
 
   .card-container {

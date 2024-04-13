@@ -48,6 +48,7 @@
   padding: 1.75vw 6vw;
   min-width: 120px;
   border-radius: 10px;
+  font-family: Geneva, Times, sans-serif;
   font-size: calc(14px + 0.8vw);
   border: none;
   box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.3);
@@ -175,6 +176,7 @@ dialog::backdrop {
 @media screen and (min-width: 750px) {
   .submit-btn {
     padding: 1vw 2vw;
+    font-size: calc(12px + 0.8vw);
   }
 }
 
