@@ -4,9 +4,13 @@ import Openai from 'openai';
 import '../styles/openai.css';
 
 function OpenaiComponent() {
+  // eslint-disable-next-line
   const [prompt, setPrompt] = useState('');
+  // eslint-disable-next-line
   const [quantity, setQuantity] = useState('1');
+  // eslint-disable-next-line
   const [gender, setGender] = useState('Male');
+  // eslint-disable-next-line
   const [completion, setCompletion] = useState('');
 
   const openai = new Openai({
