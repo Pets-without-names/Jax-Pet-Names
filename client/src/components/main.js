@@ -80,9 +80,11 @@ function Main() {
             </button>
           </div>
           <div className='card-container'>
-            <p>{petName}</p>
-            {/* <p>MynameisLONG</p> */}
-            {/* <p>One</p> */}
+            <div className='results'>
+              <p>{petName}</p>
+              {/* <p>MynameisLONG</p> */}
+              {/* <p>One</p> */}
+            </div>
           </div>
         </div>
       </div>
