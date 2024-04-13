@@ -81,6 +81,8 @@ function Main() {
           </div>
           <div className='card-container'>
             <p>{petName}</p>
+            {/* <p>MynameisLONG</p> */}
+            {/* <p>One</p> */}
           </div>
         </div>
       </div>

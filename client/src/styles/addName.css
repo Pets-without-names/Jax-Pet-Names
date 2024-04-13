@@ -46,17 +46,16 @@
   color: #ffffff;
   margin-top: 0.75rem;
   padding: 1.75vw 6vw;
-  min-width: 110px;
-  max-width: 175px;
+  min-width: 120px;
   border-radius: 10px;
-  font-size: calc(12px + 0.5vw);
+  font-size: calc(14px + 0.8vw);
   border: none;
   box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.3);
   transform: translateZ(0);
   transition: transform 0.3s ease;
 }
 .submit-btn:hover {
-  font-size: calc(12px + 0.55vw);
+  font-size: calc(14px + 0.85vw);
   transform: translateZ(10px);
 }
 
