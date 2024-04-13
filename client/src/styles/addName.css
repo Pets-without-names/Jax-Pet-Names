@@ -1,13 +1,11 @@
 :root {
-  --name-font: hsl(0, 0%, 0%);
   --input-bg-color: hsl(0, 0%, 100%);
-  --submit-bg-color: hsl(0, 0%, 81%);
-  --btn-border-tl: rgb(118, 118, 118);
-  --btn-border-br: rgb(54, 54, 54);
+  --input-font-color: hsl(0, 0%, 0%);
+  --box-shadow-color: hsl(0, 0%, 28%);
 }
 
 .add-name-container {
-  background-color: var(--add-name-bg);
+  background-color: var(--header-background);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,13 +20,15 @@
   padding-bottom: 1em;
 }
 
-.add-name-container > h2 {
+.add-name-container h2 {
   text-align: center;
-  color: var(--name-font);
+  font-family: Moranga, sans-serif;
+  color: var(--main-text-color);
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 .add-name-container form {
-  border: 1px solid green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,26 +39,56 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 3% 5%;
 }
 
 .submit-btn {
+  background-color: #468964;
+  color: #ffffff;
   margin-top: 0.75rem;
-  padding: 0.3vw 0.75vw;
-  color: black;
+  padding: 1.75vw 6vw;
+  min-width: 110px;
+  max-width: 175px;
+  border-radius: 10px;
   font-size: calc(12px + 0.5vw);
-  background-color: var(--submit-bg-color);
-  border-top: 2px solid var(--btn-border-tl);
-  border-left: 2px solid var(--btn-border-tl);
-  border-bottom: 2px solid var(--btn-border-br);
-  border-right: 2px solid var(--btn-border-br);
+  border: none;
+  box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+  transform: translateZ(0);
+  transition: transform 0.3s ease;
+}
+.submit-btn:hover {
+  font-size: calc(12px + 0.55vw);
+  transform: translateZ(10px);
 }
 
-.submit-btn:hover {
-  -webkit-transition-duration: 0.25s;
-  -o-transition-duration: 0.25s;
-  transition-duration: 0.25s;
-  background-color: #bfbfc5;
+/* Submit button click effects: */
+.submit-btn:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-box-shadow: 0 0 10px 15px white;
+  box-shadow: 0 0 10px 15px white;
+  z-index: -1;
+}
+
+.submit-btn:active:after {
+  -webkit-box-shadow: 0 0 0 0 white;
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
 }
 
 form small {
@@ -66,15 +96,16 @@ form small {
 }
 
 label {
-  color: var(--name-font);
-  font-size: calc(12px + 0.5vw);
+  color: var(--main-text-color);
+  font-size: calc(12px + 0.75vw);
   padding: 0 0.35em;
 }
 
-input {
+#name-input {
+  color: var(--input-font-color);
   background-color: var(--input-bg-color);
   border: 1.5px solid lightgray;
-  box-shadow: 1px 1px 1px gray;
+  box-shadow: 3px 3px 3px var(--box-shadow-color);
 }
 
 dialog {
@@ -142,12 +173,15 @@ dialog::backdrop {
   color: red;
 }
 
+@media screen and (min-width: 750px) {
+  .submit-btn {
+    padding: 1vw 2vw;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --add-name-bg: hsl(0, 0%, 15%);
-    --name-font: hsl(0, 0%, 80%);
-    --input-bg-color: hsl(0, 0%, 85%);
-    --btn-border-tl: rgb(0, 128, 0);
-    --btn-border-br: rgb(0, 128, 0);
+    --input-bg-color: hsla(0, 3%, 30%, 0.25);
+    --input-font-color: hsl(0, 0%, 80%);
   }
 }
