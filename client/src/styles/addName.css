@@ -51,12 +51,19 @@
   font-family: Geneva, Times, sans-serif;
   font-size: calc(14px + 0.8vw);
   border: none;
+  -webkit-box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 3px 3px 4px 3px rgba(0, 0, 0, 0.3);
+  -webkit-transform: translateZ(0);
   transform: translateZ(0);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
   transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .submit-btn:hover {
   font-size: calc(14px + 0.85vw);
+  -webkit-transform: translateZ(10px);
   transform: translateZ(10px);
 }
 
@@ -97,7 +104,7 @@ form small {
 
 label {
   color: var(--main-text-color);
-  font-size: calc(12px + 0.75vw);
+  font-size: calc(14px + 0.8vw);
   padding: 0 0.35em;
 }
 
@@ -105,6 +112,7 @@ label {
   color: var(--input-font-color);
   background-color: var(--input-bg-color);
   border: 1.5px solid lightgray;
+  -webkit-box-shadow: 3px 3px 3px var(--box-shadow-color);
   box-shadow: 3px 3px 3px var(--box-shadow-color);
 }
 
@@ -125,6 +133,10 @@ dialog {
   border-radius: 5px;
 }
 
+dialog::-webkit-backdrop {
+  background: rgba(115, 115, 115, 0.6);
+}
+
 dialog::backdrop {
   background: rgba(115, 115, 115, 0.6);
 }
@@ -135,6 +147,7 @@ dialog::backdrop {
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
 }
@@ -176,6 +189,9 @@ dialog::backdrop {
 @media screen and (min-width: 750px) {
   .submit-btn {
     padding: 1vw 2vw;
+    font-size: calc(12px + 0.8vw);
+  }
+  label {
     font-size: calc(12px + 0.8vw);
   }
 }

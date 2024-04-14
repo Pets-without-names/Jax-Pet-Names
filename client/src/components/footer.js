@@ -8,7 +8,9 @@ function Footer() {
   return (
     <footer>
       <section className='contact'>
-        <p>Contact Info: petswithoutnames@gmail.com</p>
+        <a href='mailto:petswithoutnames@gmail.com'>
+          petswithoutnames@gmail.com
+        </a>
       </section>
       <section className='legal'>
         <p>
