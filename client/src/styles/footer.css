@@ -24,10 +24,11 @@ footer {
   color: var(--footer-font-color);
 }
 
+/* .contact,
 .legal,
 .links {
-  margin-top: 1.5rem;
-}
+  margin: 1.5rem 0;
+} */
 
 a {
   color: wheat;
@@ -46,9 +47,10 @@ a {
     text-align: center;
   }
 
+  .contact,
   .legal,
   .links {
-    margin-top: 0;
+    margin: 1.5rem 0;
   }
 }
 
