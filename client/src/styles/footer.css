@@ -24,15 +24,13 @@ footer {
   color: var(--footer-font-color);
 }
 
-footer section {
-  margin-top: 1.5rem;
-}
+/* .contact,
+.legal,
+.links {
+  margin: 1.5rem 0;
+} */
 
-footer section:last-child {
-  margin-bottom: 1.5em;
-}
-
-.links a {
+a {
   color: wheat;
 }
 
@@ -45,15 +43,19 @@ footer section:last-child {
   }
 
   footer section {
-    margin-right: 1.5rem;
     width: 100%;
     text-align: center;
+  }
+
+  .contact,
+  .legal,
+  .links {
+    margin: 1.5rem 0;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --footer-bg-color: hsla(0, 0%, 0%, 0.85); */
     --footer-font-color: hsl(39, 77%, 83%);
   }
 
