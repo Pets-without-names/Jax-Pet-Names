@@ -1,3 +1,38 @@
+.openai-container {
+  background-color: var(--header-background);
+  border: 1px solid green;
+  padding: 1em;
+}
+.openai-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+h2,
+p {
+  text-align: center;
+  color: var(--main-text-color);
+}
+
 button {
-  padding: 3em;
+  background-color: var(--generate-btn-color);
+  color: white;
+  /* width: 50%; */
+  border: none;
+  -webkit-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  max-width: 200px;
+  padding: 2vw;
+  font-family: Geneva, Times, sans-serif;
+  font-size: calc(14px + 0.8vw);
 }

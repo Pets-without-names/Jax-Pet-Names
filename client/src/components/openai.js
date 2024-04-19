@@ -78,7 +78,7 @@ function OpenaiComponent() {
           ></textarea>
         </div>
         <div className='button'>
-          <button onClick={handleClick}>Generate</button>
+          <button onClick={handleClick}>Show me!</button>
         </div>
         <div className='results-container'></div>
       </div>
