@@ -6,8 +6,8 @@ import '../styles/openai.css';
 function OpenaiComponent() {
   // eslint-disable-next-line
   const [prompt, setPrompt] = useState('');
-  const [quantity, setQuantity] = useState();
-  const [gender, setGender] = useState('Male');
+  const [quantity, setQuantity] = useState('');
+  const [gender, setGender] = useState('');
   // eslint-disable-next-line
   const [aiResponse, setAiResponse] = useState('');
 
@@ -15,20 +15,17 @@ function OpenaiComponent() {
   const {
     register,
     handleSubmit,
-    // eslint-disable-next-line
     reset,
-    // eslint-disable-next-line
     clearErrors,
-    // eslint-disable-next-line
     setValue,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
-    defaultValues: {
-      theme: '',
-      quantity: '1',
-      gender: 'Male',
-    },
+    // defaultValues: {
+    //   theme: '',
+    //   quantity: '1',
+    //   gender: 'male',
+    // },
   });
 
   const callOpenai = async () => {
@@ -42,7 +39,7 @@ function OpenaiComponent() {
           { role: 'system', content: 'You are a creative assistant.' },
           {
             role: 'user',
-            content: `create ${quantity} random ${gender} pet names.`,
+            content: `create ${quantity} random ${gender} pet names.  Return only the ${quantity} pet names.`,
           },
         ],
         model: 'gpt-3.5-turbo',
@@ -57,7 +54,6 @@ function OpenaiComponent() {
   };
 
   const onSubmit = () => {
-    console.log(quantity);
     callOpenai();
     reset();
   };
@@ -75,17 +71,12 @@ function OpenaiComponent() {
         onSubmit={handleSubmit(onSubmit, onError)}
       >
         <h3>You can generate up to 5 names and pick a theme</h3>
-        <div className='quantity-container'>
-          <label htmlFor='quantity'>Number of Pet Names</label>
+        <label htmlFor='quantity'>
+          Number of Pet Names{' '}
           <select
             name='quantity'
-            id='quantity'
             value={quantity}
-            onChange={(e) => {
-              setQuantity(e.target.value);
-              console.log(quantity);
-            }}
-            {...register('quantity', { required: 'Select a number' })}
+            onChange={(event) => setQuantity(event.target.value)}
           >
             <option value='1'>1</option>
             <option value='2'>2</option>
@@ -93,31 +84,32 @@ function OpenaiComponent() {
             <option value='4'>4</option>
             <option value='5'>5</option>
           </select>
-          <label htmlFor='gender'>Gender</label>
+        </label>
+
+        <label htmlFor='gender'>
+          Gender{' '}
           <select
             name='gender'
-            onChange={(e) => setGender(e.target.value)}
-            {...register('gender')}
+            onChange={(event) => setGender(event.target.value)}
           >
-            <option value='Male'>Male</option>
-            <option value='Female'>Female</option>
+            <option value='male'>Male</option>
+            <option value='female'>Female</option>
           </select>
-        </div>
-        <div className='text-container'>
-          <label htmlFor='theme'>
-            Theme:{' '}
-            <textarea
-              name='theme'
-              id='theme'
-              cols='40'
-              rows='2'
-              maxLength={75}
-              onChange={(e) => setPrompt(e.target.value)}
-              {...register('theme', { required: 'Please enter a theme' })}
-            ></textarea>
-          </label>
-          <p className='errors'>{errors.theme?.message}</p>
-        </div>
+        </label>
+
+        <label htmlFor='theme'>
+          Theme:{' '}
+          <textarea
+            name='theme'
+            id='theme'
+            cols='40'
+            rows='2'
+            maxLength={75}
+            onChange={(e) => setPrompt(e.target.value)}
+            {...register('theme', { required: 'Please enter a theme' })}
+          ></textarea>
+        </label>
+        <p className='errors'>{errors.theme?.message}</p>
         <div className='button'>
           <button type='submit'>Show me some names!</button>
         </div>
