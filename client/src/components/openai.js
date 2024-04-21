@@ -5,7 +5,7 @@ import '../styles/openai.css';
 
 function OpenaiComponent() {
   // eslint-disable-next-line
-  const [prompt, setPrompt] = useState('');
+  const [theme, setTheme] = useState('');
   const [quantity, setQuantity] = useState('');
   const [gender, setGender] = useState('');
   // eslint-disable-next-line
@@ -17,15 +17,14 @@ function OpenaiComponent() {
     handleSubmit,
     reset,
     clearErrors,
-    setValue,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
-    // defaultValues: {
-    //   theme: '',
-    //   quantity: '1',
-    //   gender: 'male',
-    // },
+    defaultValues: {
+      theme: '',
+      quantity: '1',
+      gender: 'male',
+    },
   });
 
   const callOpenai = async () => {
@@ -39,7 +38,8 @@ function OpenaiComponent() {
           { role: 'system', content: 'You are a creative assistant.' },
           {
             role: 'user',
-            content: `create ${quantity} random ${gender} pet names.  Return only the ${quantity} pet names.`,
+            content: `create ${quantity} random ${gender} pet names with a ${theme}.  
+            Return only the ${quantity} pet names.`,
           },
         ],
         model: 'gpt-3.5-turbo',
@@ -74,9 +74,10 @@ function OpenaiComponent() {
         <label htmlFor='quantity'>
           Number of Pet Names{' '}
           <select
-            name='quantity'
-            value={quantity}
-            onChange={(event) => setQuantity(event.target.value)}
+            {...register('quantity', {
+              value: { quantity },
+              onChange: (event) => setQuantity(event.target.value),
+            })}
           >
             <option value='1'>1</option>
             <option value='2'>2</option>
@@ -89,8 +90,10 @@ function OpenaiComponent() {
         <label htmlFor='gender'>
           Gender{' '}
           <select
-            name='gender'
-            onChange={(event) => setGender(event.target.value)}
+            {...register('gender', {
+              value: { gender },
+              onChange: (event) => setGender(event.target.value),
+            })}
           >
             <option value='male'>Male</option>
             <option value='female'>Female</option>
@@ -101,12 +104,13 @@ function OpenaiComponent() {
           Theme:{' '}
           <textarea
             name='theme'
-            id='theme'
             cols='40'
             rows='2'
-            maxLength={75}
-            onChange={(e) => setPrompt(e.target.value)}
-            {...register('theme', { required: 'Please enter a theme' })}
+            {...register('theme', {
+              required: 'Please enter a theme',
+              onChange: (event) => setTheme(event.target.value),
+              value: { theme },
+            })}
           ></textarea>
         </label>
         <p className='errors'>{errors.theme?.message}</p>
