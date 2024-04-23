@@ -1,14 +1,12 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Openai from 'openai';
 import '../styles/openai.css';
 
 function OpenaiComponent() {
-  // eslint-disable-next-line
   const [theme, setTheme] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [gender, setGender] = useState('');
-  // eslint-disable-next-line
+  const [quantity, setQuantity] = useState('1');
+  const [gender, setGender] = useState('male');
   const [aiResponse, setAiResponse] = useState('');
 
   // React Hook Form setup:
@@ -16,8 +14,8 @@ function OpenaiComponent() {
     register,
     handleSubmit,
     reset,
-    clearErrors,
-    formState: { errors },
+    // clearErrors,
+    formState: { errors, isSubmitSuccessful },
   } = useForm({
     mode: 'onBlur',
     defaultValues: {
@@ -35,19 +33,30 @@ function OpenaiComponent() {
     try {
       const completion = await openai.chat.completions.create({
         messages: [
-          { role: 'system', content: 'You are a creative assistant.' },
+          {
+            role: 'system',
+            content: `You are a creative assistant who generates creative and unique pet names.
+              Return the response in JSON format always using a key of pet_names.`,
+          },
           {
             role: 'user',
-            content: `create ${quantity} random ${gender} pet names with a ${theme}.  
-            Return only the ${quantity} pet names.`,
+            content: `create ${quantity} random ${gender} pet names with a ${theme} theme.  
+            Return ${quantity} pet names and only the names.
+            Never return more than five names.`,
           },
         ],
         model: 'gpt-3.5-turbo',
+        response_format: { type: 'json_object' },
         max_tokens: 75,
-        temperature: 0.8,
+        temperature: 0.5,
       });
-      console.log(completion.choices[0].message.content);
-      setAiResponse(completion.choices[0].message.content);
+      const names = JSON.parse(completion.choices[0].message.content);
+      const namesArray = names.pet_names;
+      let namesList = '';
+      for (let i = 0; i < namesArray.length; i++) {
+        namesList = namesList + ' ' + namesArray[i];
+      }
+      setAiResponse(namesList);
     } catch (error) {
       console.log(error);
     }
@@ -61,6 +70,16 @@ function OpenaiComponent() {
     console.log('error: ' + errors);
     //Other error handling code:
   };
+
+  useEffect(() => {
+    if (useForm.isSubmitSuccessful) {
+      reset({
+        theme: '',
+        quantity: '1',
+        gender: 'male',
+      });
+    }
+  }, [reset, isSubmitSuccessful, gender, quantity, theme]);
 
   return (
     <div className='openai-container'>
@@ -119,7 +138,7 @@ function OpenaiComponent() {
         </div>
       </form>
       <div className='results-container'>
-        <p>Results</p>
+        <p>{aiResponse}</p>
       </div>
     </div>
   );
