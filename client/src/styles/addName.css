@@ -42,7 +42,7 @@
 }
 
 .submit-btn {
-  background-color: #468964;
+  background-color: hsl(147, 32%, 41%);
   color: #ffffff;
   margin-top: 0.75rem;
   padding: 1.75vw 6vw;
@@ -62,9 +62,7 @@
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .submit-btn:hover {
-  font-size: calc(14px + 0.85vw);
-  -webkit-transform: translateZ(10px);
-  transform: translateZ(10px);
+  background-color: hsla(147, 32%, 41%, 0.85);
 }
 
 /* Submit button click effects: */
