@@ -2,21 +2,23 @@ name: Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   cypress-job:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
     - run: npm ci
     - run: docker compose build
     - run: docker compose up --detach
-    - uses: nick-fields/retry@v2
+    - uses: nick-fields/retry@v3
       with:
         timeout_seconds: 15
         max_attempts: 3
@@ -30,14 +32,14 @@ jobs:
       DB_URL: postgresql://postgres:postgres@localhost:5432/pet_names
       DB_SETUP_URL: postgresql://postgres:postgres@localhost:5432
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
     - run: npm ci
       working-directory: ./server
     - run: docker run -p 5432:5432 --name jax-pet-names-pg -e POSTGRES_PASSWORD=postgres -d postgres
       working-directory: ./server
-    - uses: nick-fields/retry@v2
+    - uses: nick-fields/retry@v3
       with:
         timeout_seconds: 15
         max_attempts: 3
