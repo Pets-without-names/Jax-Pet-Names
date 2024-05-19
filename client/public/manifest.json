@@ -8,6 +8,6 @@
       "type": "image/x-icon"
     }
   ],
-  "start_url": "www.namemypets.app",
+  "start_url": ".",
   "display": "standalone"
 }
