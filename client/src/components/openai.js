@@ -41,8 +41,11 @@ function OpenaiComponent() {
           {
             role: 'user',
             content: `create ${quantity} random ${gender} pet names with a ${theme} theme.  
-            Return ${quantity} pet names and only the names.
-            Never return more than five names.`,
+            Return ${quantity} pet names.
+            Return only the names.  
+            Never return a same name from the previous response.
+            Never return more than five names.
+            If the theme is not words return a value of null`,
           },
         ],
         model: 'gpt-3.5-turbo',
@@ -119,19 +122,20 @@ function OpenaiComponent() {
           </select>
         </label>
 
-        <label htmlFor='theme'>
-          Theme:{' '}
+        <div className='textarea'>
+          <label htmlFor='theme'>Theme: </label>
           <textarea
             name='theme'
-            cols='40'
-            rows='2'
+            cols='35'
+            rows='1'
+            maxLength={'35'}
             {...register('theme', {
               required: 'Please enter a theme',
               onChange: (event) => setTheme(event.target.value),
               value: { theme },
             })}
           ></textarea>
-        </label>
+        </div>
         <p className='errors'>{errors.theme?.message}</p>
         <div className='button'>
           <button type='submit'>Show me some names!</button>
