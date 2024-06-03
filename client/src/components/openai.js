@@ -36,7 +36,7 @@ function OpenaiComponent() {
           {
             role: 'system',
             content: `You are a creative assistant who generates creative and unique pet names.
-              Return the response in JSON format always using a key of pet_names.`,
+              Return the response as a JSON object with a key of names and the values in an array object.`,
           },
           {
             role: 'user',
@@ -53,12 +53,10 @@ function OpenaiComponent() {
         max_tokens: 75,
         temperature: 0.5,
       });
-      const names = JSON.parse(completion.choices[0].message.content);
-      const namesArray = names.pet_names;
-      let namesList = '';
-      for (let i = 0; i < namesArray.length; i++) {
-        namesList = namesList + ' ' + namesArray[i];
-      }
+      // console.log(completion);
+      const namesObject = JSON.parse(completion.choices[0].message.content);
+      const namesArray = namesObject.names;
+      const namesList = namesArray.map((name) => <li>{name}</li>);
       setAiResponse(namesList);
     } catch (error) {
       console.log(error);
@@ -123,10 +121,11 @@ function OpenaiComponent() {
         </label>
 
         <div className='textarea'>
-          <label htmlFor='theme'>Theme: </label>
+          <label htmlFor='theme' className='themeLabel'>
+            Theme:{' '}
+          </label>
           <textarea
             name='theme'
-            cols='35'
             rows='1'
             maxLength={'35'}
             {...register('theme', {
@@ -142,7 +141,7 @@ function OpenaiComponent() {
         </div>
       </form>
       <div className='results-container'>
-        <p>{aiResponse}</p>
+        <ul>{aiResponse}</ul>
       </div>
     </div>
   );

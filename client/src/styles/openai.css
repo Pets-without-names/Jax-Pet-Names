@@ -23,6 +23,34 @@ p {
   color: var(--main-text-color);
 }
 
+h3 {
+  margin: 0;
+  text-align: center;
+}
+
+label {
+  margin-top: 0.5em;
+}
+
+textarea {
+  resize: none;
+  padding: 4px;
+  width: 100%;
+}
+
+ul {
+  /* remove the bullets from the list items */
+  list-style-type: none;
+  width: 50%;
+  margin: auto;
+  -webkit-padding-start: 0px;
+  padding-inline-start: 0px;
+}
+
+li {
+  text-align: center;
+}
+
 button {
   background-color: var(--generate-btn-color);
   color: white;
@@ -31,7 +59,7 @@ button {
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   max-width: 200px;
-  padding: 1.5em;
+  padding: 1em;
   font-family: Geneva, Times, sans-serif;
   font-size: calc(14px + 0.8vw);
   -webkit-transition: -webkit-transform 0.3s ease;
@@ -73,20 +101,22 @@ button:active:after {
   transition: 0s;
 }
 
-textarea {
-  resize: none;
+.button {
+  margin-top: 1em;
+}
+
+.themeLabel {
+  text-align: center;
 }
 
 .textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: row;
-  -ms-flex: row;
-  flex: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .text-container,
@@ -95,7 +125,6 @@ textarea {
 }
 
 .results-container {
-  margin: 0 auto;
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -104,7 +133,7 @@ textarea {
   box-shadow: inset 0 0 10px rgb(200, 197, 197);
   border: 2px solid lightgray;
   border-radius: 1em;
-  padding: 1em 1.5em;
+  padding: 1em;
   margin: 1em auto;
   background-color: var(--results-bg-color);
 }
@@ -115,4 +144,28 @@ textarea {
   font-family: Moranga, sans-serif;
   font-weight: 500;
   font-size: 1.25rem;
+}
+
+@media screen and (min-width: 750px) {
+  .textarea {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  label {
+    margin-top: 1em;
+  }
+
+  .themeLabel {
+    margin: 0;
+  }
+
+  .textarea {
+    margin-top: 1em;
+  }
 }
