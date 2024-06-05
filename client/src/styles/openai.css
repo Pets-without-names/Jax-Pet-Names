@@ -117,6 +117,9 @@ button:active:after {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .text-container,
@@ -155,6 +158,8 @@ button:active:after {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    margin-top: 1em;
+    min-width: 300px;
   }
 
   label {
@@ -163,9 +168,5 @@ button:active:after {
 
   .themeLabel {
     margin: 0;
-  }
-
-  .textarea {
-    margin-top: 1em;
   }
 }

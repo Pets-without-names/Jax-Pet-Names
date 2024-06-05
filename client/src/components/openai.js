@@ -53,13 +53,13 @@ function OpenaiComponent() {
         max_tokens: 75,
         temperature: 0.5,
       });
-      // console.log(completion);
       const namesObject = JSON.parse(completion.choices[0].message.content);
       const namesArray = namesObject.names;
       const namesList = namesArray.map((name) => <li>{name}</li>);
       setAiResponse(namesList);
     } catch (error) {
       console.log(error);
+      setAiResponse(<li>'Oops. Something went wrong'</li>);
     }
   };
 
@@ -127,7 +127,7 @@ function OpenaiComponent() {
           <textarea
             name='theme'
             rows='1'
-            maxLength={'35'}
+            maxLength={'45'}
             {...register('theme', {
               required: 'Please enter a theme',
               onChange: (event) => setTheme(event.target.value),
