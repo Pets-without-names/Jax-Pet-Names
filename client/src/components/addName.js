@@ -103,6 +103,7 @@ function AddName() {
           <input
             type='text'
             id='name-input'
+            maxLength={30}
             name='name'
             {...register('name', { required: 'Name is required' })}
             value={inputValue}
