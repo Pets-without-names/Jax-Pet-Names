@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Openai from 'openai';
 import '../styles/openai.css';
@@ -13,9 +13,7 @@ function OpenaiComponent() {
   const {
     register,
     handleSubmit,
-    reset,
-    // clearErrors,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm({
     mode: 'onBlur',
     defaultValues: {
@@ -65,22 +63,21 @@ function OpenaiComponent() {
 
   const onSubmit = () => {
     callOpenai();
-    reset();
   };
   const onError = (errors) => {
     console.log('error: ' + errors);
     //Other error handling code:
   };
 
-  useEffect(() => {
-    if (useForm.isSubmitSuccessful) {
-      reset({
-        theme: '',
-        quantity: '1',
-        gender: 'male',
-      });
-    }
-  }, [reset, isSubmitSuccessful, gender, quantity, theme]);
+  // useEffect(() => {
+  //   if (useForm.isSubmitSuccessful) {
+  //     reset({
+  //       theme: '',
+  //       quantity: '1',
+  //       gender: 'male',
+  //     });
+  //   }
+  // }, [reset, isSubmitSuccessful, gender, quantity, theme]);
 
   return (
     <div className='openai-container'>
