@@ -69,16 +69,6 @@ function OpenaiComponent() {
     //Other error handling code:
   };
 
-  // useEffect(() => {
-  //   if (useForm.isSubmitSuccessful) {
-  //     reset({
-  //       theme: '',
-  //       quantity: '1',
-  //       gender: 'male',
-  //     });
-  //   }
-  // }, [reset, isSubmitSuccessful, gender, quantity, theme]);
-
   return (
     <div className='openai-container'>
       <h2>Let AI generate your pet names!</h2>
@@ -87,10 +77,10 @@ function OpenaiComponent() {
         autoComplete='off'
         onSubmit={handleSubmit(onSubmit, onError)}
       >
-        <h3>You can generate up to 5 names and pick a theme</h3>
+        {/* <h3>You can generate up to 5 names and pick a theme</h3> */}
         <label htmlFor='quantity'>
           Number of Pet Names{' '}
-          <select
+          <select className='openai-quantity'
             {...register('quantity', {
               value: { quantity },
               onChange: (event) => setQuantity(event.target.value),
@@ -117,24 +107,23 @@ function OpenaiComponent() {
           </select>
         </label>
 
-        <div className='textarea'>
-          <label htmlFor='theme' className='themeLabel'>
-            Theme:{' '}
-          </label>
+        <label htmlFor='theme' className='themeLabel'>
+          Enter a short theme:{' '}
           <textarea
-            name='theme'
-            rows='1'
-            maxLength={'45'}
-            {...register('theme', {
-              required: 'Please enter a theme',
-              onChange: (event) => setTheme(event.target.value),
-              value: { theme },
-            })}
-          ></textarea>
-        </div>
+          name='theme'
+          rows='1'
+          maxLength={'40'}
+          placeholder='"Disney characters" or "English Literature"'
+          {...register('theme', {
+            required: 'Please enter a theme',
+            onChange: (event) => setTheme(event.target.value),
+            value: { theme },
+          })}
+        ></textarea>
+        </label>
         <p className='errors'>{errors.theme?.message}</p>
         <div className='button'>
-          <button type='submit'>Show me some names!</button>
+          <button className='openai-btn' type='submit'>AI names!</button>
         </div>
       </form>
       <div className='results-container'>
