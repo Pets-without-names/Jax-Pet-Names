@@ -64,6 +64,7 @@ function OpenaiComponent() {
   const onSubmit = () => {
     callOpenai();
   };
+  
   const onError = (errors) => {
     console.log('error: ' + errors);
     //Other error handling code:
