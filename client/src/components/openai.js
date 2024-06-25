@@ -53,7 +53,8 @@ function OpenaiComponent() {
       });
       const namesObject = JSON.parse(completion.choices[0].message.content);
       const namesArray = namesObject.names;
-      const namesList = namesArray.map((name) => <li>{name}</li>);
+      const namesList = namesArray.map(
+        (name) => <li key={namesArray.indexOf(name)}>{name}</li>);
       setAiResponse(namesList);
     } catch (error) {
       console.log(error);
