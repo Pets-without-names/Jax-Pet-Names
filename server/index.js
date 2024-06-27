@@ -2,8 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const namesController = require('./src/namesController');
-const openaiController = require('./src/openaiController');
-const openaiController = require('./src/openaiController');
 const app = express();
 const port = 3001;
 
@@ -17,8 +15,6 @@ app.use(
 
 app.get('/names', namesController.index);
 app.get('/names/:id', namesController.show);
-app.get('/openai', openaiController.callAi);
-app.get('/openai', openaiController.ai);
 app.post('/names', namesController.create);
 app.put('/names/:id', namesController.update);
 app.delete('/names/:id', namesController.destroy);
