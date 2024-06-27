@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Openai from 'openai';
+// import Openai from 'openai';
 import '../styles/openai.css';
 
 function OpenaiComponent() {
@@ -23,47 +23,77 @@ function OpenaiComponent() {
     },
   });
 
-  const callOpenai = async () => {
-    const openai = new Openai({
-      apiKey: `${process.env.REACT_APP_OPENAI_KEY}`,
-      dangerouslyAllowBrowser: true,
-    });
-    try {
-      const completion = await openai.chat.completions.create({
-        messages: [
-          {
-            role: 'system',
-            content: `You are a creative assistant who generates creative and unique pet names.
-              Return the response as a JSON object with a key of names and the values in an array object.`,
-          },
-          {
-            role: 'user',
-            content: `create ${quantity} random ${gender} pet names with a ${theme} theme.  
-            Return ${quantity} pet names.
-            Return only the names.  
-            Never return a same name from the previous response.
-            Never return more than five names.
-            If the theme is not words return a value of null`,
-          },
-        ],
-        model: 'gpt-3.5-turbo',
-        response_format: { type: 'json_object' },
-        max_tokens: 75,
-        temperature: 0.5,
-      });
-      const namesObject = JSON.parse(completion.choices[0].message.content);
-      const namesArray = namesObject.names;
-      const namesList = namesArray.map(
-        (name) => <li key={namesArray.indexOf(name)}>{name}</li>);
-      setAiResponse(namesList);
-    } catch (error) {
-      console.log(error);
-      setAiResponse(<li>'Oops. Something went wrong'</li>);
-    }
-  };
+  // const callOpenai = async () => {
+  //   const openai = new Openai({
+  //     apiKey: `${process.env.REACT_APP_OPENAI_KEY}`,
+  //     dangerouslyAllowBrowser: true,
+  //   });
+  //   try {
+  //     const completion = await openai.chat.completions.create({
+  //       messages: [
+  //         {
+  //           role: 'system',
+  //           content: `You are a creative assistant who generates creative and unique pet names.
+  //             Return the response as a JSON object with a key of names and the values in an array object.`,
+  //         },
+  //         {
+  //           role: 'user',
+  //           content: `create ${quantity} random ${gender} pet names with a ${theme} theme.  
+  //           Return ${quantity} pet names.
+  //           Return only the names.  
+  //           Never return a same name from the previous response.
+  //           Never return more than five names.
+  //           If the theme is not words return a value of null`,
+  //         },
+  //       ],
+  //       model: 'gpt-3.5-turbo',
+  //       response_format: { type: 'json_object' },
+  //       max_tokens: 75,
+  //       temperature: 0.5,
+  //     });
+  //     const namesObject = JSON.parse(completion.choices[0].message.content);
+  //     const namesArray = namesObject.names;
+  //     const namesList = namesArray.map(
+  //       (name,i) => <li key={i}>{name}</li>);
+  //     setAiResponse(namesList);
+  //   } catch (error) {
+  //     console.log(error);
+  //     setAiResponse(<li>'Oops. Something went wrong'</li>);
+  //   }
+  // };
 
-  const onSubmit = () => {
-    callOpenai();
+  const onSubmit = (formData) => {
+    // callOpenai();
+    fetch(`${process.env.REACT_APP_HOST}/openai`, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        //unique constraint error(name already exists)
+        // if (response.status === 422) {
+        //   setUniqueError(true);
+        //   return Promise.reject(response);
+        // }
+        return response.json();
+      })
+      .then((data) => {
+        //Name successfully submitted to the database:
+        // if (!uniqueError) {
+        //   // setAddedName(data[0].name);
+        // }
+        console.log(data);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => {
+        // modalRef.current.showModal();
+        // //clears/resets the form values
+        // reset();
+        // setInputValue('');
+      });
   };
   
   const onError = (errors) => {
