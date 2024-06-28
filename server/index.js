@@ -16,7 +16,7 @@ app.use(
 
 app.get('/names', namesController.index);
 app.get('/names/:id', namesController.show);
-// app.get('/openai', aiController.ai);
+// app.get('/openai', aiController.ai);  This will throw a fetch error
 app.post('/names', namesController.create);
 app.put('/names/:id', namesController.update);
 app.delete('/names/:id', namesController.destroy);
