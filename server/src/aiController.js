@@ -1,6 +1,6 @@
 import Openai from 'openai';
 
-const ai = async(request, response) => {
+const ai = async (request, response) => {
   const data = {quantity, gender, theme} = request.body;
   const openai = new Openai({
     apiKey: `${process.env.OPENAI_KEY}`,
@@ -41,6 +41,7 @@ const ai = async(request, response) => {
     response.status(status).json(error);
   } 
 };
+
 const parseErrorStatus = (error) => {
   //Will need to change these:
   switch (error?.msg) {
@@ -53,4 +54,5 @@ const parseErrorStatus = (error) => {
       return 500;
   }
 };
-module.exports = ai;
+
+module.exports = {ai}

@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const namesController = require('./src/namesController');
-// const aiController = require('./src/openaiController.ai');
+// const aiController = require('./src/aiController');
 const app = express();
 const port = 3001;
 
@@ -16,10 +16,10 @@ app.use(
 
 app.get('/names', namesController.index);
 app.get('/names/:id', namesController.show);
-// app.get('/openai', aiController.ai);  This will throw a fetch error
 app.post('/names', namesController.create);
 app.put('/names/:id', namesController.update);
 app.delete('/names/:id', namesController.destroy);
+// app.post('/ainames', aiController.ai); //This will throw a ERR CONNECTION
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);

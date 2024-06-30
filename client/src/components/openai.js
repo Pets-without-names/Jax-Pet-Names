@@ -64,8 +64,8 @@ function OpenaiComponent() {
 
   const onSubmit = (formData) => {
     // callOpenai();
-    fetch(`${process.env.REACT_APP_HOST}/openai`, {
-      method: 'GET',
+    fetch(`${process.env.REACT_APP_HOST}/ainames`, {
+      method: 'POST',
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
@@ -73,11 +73,9 @@ function OpenaiComponent() {
       body: JSON.stringify(formData),
     })
       .then((response) => {
-        
         return response.json();
       })
       .then((data) => {
-       
       })
       .catch((error) => console.log(error))
       .finally(() => {
