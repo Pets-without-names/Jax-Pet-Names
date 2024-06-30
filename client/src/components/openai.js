@@ -1,6 +1,5 @@
 import { React, useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import Openai from 'openai';
 import '../styles/openai.css';
 
 function OpenaiComponent() {
@@ -63,7 +62,6 @@ function OpenaiComponent() {
   // };
 
   const onSubmit = (formData) => {
-    // callOpenai();
     fetch(`${process.env.REACT_APP_HOST}/ainames`, {
       method: 'POST',
       mode: 'cors',
@@ -77,8 +75,9 @@ function OpenaiComponent() {
       })
       .then((data) => {
       })
-      .catch((error) => console.log(error))
-      .finally(() => {
+      .catch((error) => {
+        console.log(error);
+        setAiResponse(<li>Oops.  Something went wrong!</li>)
       });
   };
   
