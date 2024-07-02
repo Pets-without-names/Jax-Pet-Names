@@ -1,12 +1,12 @@
 const OpenAI = require('openai');
 
 const ai = async (request, response) => {
-  const {theme, quantity, gender} = request.body;
+  const { theme, quantity, gender } = request.body;
   const openai = new OpenAI({
-    organization:'org-DhkAl70aE8X3otKSx9c7HKU7',
+    organization: 'org-DhkAl70aE8X3otKSx9c7HKU7',
     apiKey: `${process.env.OPENAI_KEY}`,
     dangerouslyAllowBrowser: true,
-    });
+  });
 
   try {
     const result = await openai.chat.completions.create({
@@ -40,16 +40,15 @@ const ai = async (request, response) => {
 };
 
 const parseErrorStatus = (error) => {
-  //Will need to change these:
   switch (error?.msg) {
-    case 'Name not found':
-      return 404;
-    case 'Invalid name fields':
-    case 'Name already exists':
-      return 422;
+    case 'Rate limit reached for requests':
+    case 'You exceeded your current quota, please check your plan and billing details':
+      return 429;
+    case 'The engine is currently overloaded, please try again later':
+      return 503;
     default:
       return 500;
   }
 };
 
-module.exports = {ai};
+module.exports = { ai };
