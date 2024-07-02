@@ -32,11 +32,6 @@ const ai = async (request, response) => {
       temperature: 0.5,
     });
     response.status(200).json(result);
-    // const namesObject = JSON.parse(completion.choices[0].message.content);
-    // const namesArray = namesObject.names;
-    // const namesList = namesArray.map(
-    //   (name,i) => <li key={i}>{name}</li>);
-    // setAiResponse(namesList);
   } catch (error) {
     console.log(error);
     const status = parseErrorStatus(error);
