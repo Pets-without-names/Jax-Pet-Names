@@ -22,45 +22,6 @@ function OpenaiComponent() {
     },
   });
 
-  // const callOpenai = async () => {
-  //   const openai = new Openai({
-  //     apiKey: `${process.env.REACT_APP_OPENAI_KEY}`,
-  //     dangerouslyAllowBrowser: true,
-  //   });
-  //   try {
-  //     const completion = await openai.chat.completions.create({
-  //       messages: [
-  //         {
-  //           role: 'system',
-  //           content: `You are a creative assistant who generates creative and unique pet names.
-  //             Return the response as a JSON object with a key of names and the values in an array object.`,
-  //         },
-  //         {
-  //           role: 'user',
-  //           content: `create ${quantity} random ${gender} pet names with a ${theme} theme.  
-  //           Return ${quantity} pet names.
-  //           Return only the names.  
-  //           Never return a same name from the previous response.
-  //           Never return more than five names.
-  //           If the theme is not words return a value of null`,
-  //         },
-  //       ],
-  //       model: 'gpt-3.5-turbo',
-  //       response_format: { type: 'json_object' },
-  //       max_tokens: 75,
-  //       temperature: 0.5,
-  //     });
-  //     const namesObject = JSON.parse(completion.choices[0].message.content);
-  //     const namesArray = namesObject.names;
-  //     const namesList = namesArray.map(
-  //       (name,i) => <li key={i}>{name}</li>);
-  //     setAiResponse(namesList);
-  //   } catch (error) {
-  //     console.log(error);
-  //     setAiResponse(<li>'Oops. Something went wrong'</li>);
-  //   }
-  // };
-
   const onSubmit = (formData) => {
     fetch(`${process.env.REACT_APP_HOST}/ainames`, {
       method: 'POST',
@@ -77,17 +38,15 @@ function OpenaiComponent() {
         //loop through the api response names:
         const namesData = JSON.parse(data.choices[0].message.content);
         const namesArray = namesData.names;
-        const namesList = namesArray.map(
-          (name,i) => <li key={i}>{name}</li>);
+        const namesList = namesArray.map((name, i) => <li key={i}>{name}</li>);
         setAiResponse(namesList);
-
       })
       .catch((error) => {
         console.log(error);
-        setAiResponse(<li>Oops.  Something went wrong!</li>)
+        setAiResponse(<li>Oops. Something went wrong!</li>);
       });
   };
-  
+
   const onError = (errors) => {
     console.log('error: ' + errors);
     //Other error handling code:
@@ -104,7 +63,8 @@ function OpenaiComponent() {
         {/* <h3>You can generate up to 5 names and pick a theme</h3> */}
         <label htmlFor='quantity'>
           Number of Pet Names{' '}
-          <select className='openai-quantity'
+          <select
+            className='openai-quantity'
             {...register('quantity', {
               value: { quantity },
               onChange: (event) => setQuantity(event.target.value),
@@ -134,20 +94,22 @@ function OpenaiComponent() {
         <label htmlFor='theme' className='themeLabel'>
           Enter a short theme:{' '}
           <textarea
-          name='theme'
-          rows='1'
-          maxLength={'40'}
-          placeholder='"Disney characters" or "English Literature"'
-          {...register('theme', {
-            required: 'Please enter a theme',
-            onChange: (event) => setTheme(event.target.value),
-            value: { theme },
-          })}
-        ></textarea>
+            name='theme'
+            rows='1'
+            maxLength={'40'}
+            placeholder='"Disney characters" or "English Literature"'
+            {...register('theme', {
+              required: 'Please enter a theme',
+              onChange: (event) => setTheme(event.target.value),
+              value: { theme },
+            })}
+          ></textarea>
         </label>
         <p className='errors'>{errors.theme?.message}</p>
         <div className='button'>
-          <button className='openai-btn' type='submit'>AI names!</button>
+          <button className='openai-btn' type='submit'>
+            AI names!
+          </button>
         </div>
       </form>
       <div className='results-container'>
