@@ -74,7 +74,13 @@ function OpenaiComponent() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        //loop through the api response names:
+        const namesData = JSON.parse(data.choices[0].message.content);
+        const namesArray = namesData.names;
+        const namesList = namesArray.map(
+          (name,i) => <li key={i}>{name}</li>);
+        setAiResponse(namesList);
+
       })
       .catch((error) => {
         console.log(error);
