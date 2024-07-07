@@ -48,7 +48,7 @@ function OpenaiComponent() {
   };
 
   const onError = (errors) => {
-    console.log('error: ' + errors.message);
+    console.log('error: ' + errors.message + ' ' + errors.name);
     //Other error handling code:
   };
 
