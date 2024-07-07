@@ -42,13 +42,13 @@ function OpenaiComponent() {
         setAiResponse(namesList);
       })
       .catch((error) => {
-        console.log(error);
+        console.log(error.message);
         setAiResponse(<li>Oops. Something went wrong!</li>);
       });
   };
 
   const onError = (errors) => {
-    console.log('error: ' + errors);
+    console.log('error: ' + errors.message);
     //Other error handling code:
   };
 

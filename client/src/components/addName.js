@@ -40,7 +40,7 @@ function AddName() {
   };
 
   const onError = (errors) => {
-    console.log('error: ' + errors);
+    console.log('error: ' + errors.message);
     //Other error handling code:
   };
 
