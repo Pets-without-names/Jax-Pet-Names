@@ -3,7 +3,7 @@ const OpenAI = require('openai');
 const ai = async (request, response) => {
   const { theme, quantity, gender } = request.body;
   const openai = new OpenAI({
-    organization: 'org-DhkAl70aE8X3otKSx9c7HKU7',
+    organization: `${process.env.ORG_KEY}`,
     apiKey: `${process.env.OPENAI_KEY}`,
     dangerouslyAllowBrowser: true,
   });

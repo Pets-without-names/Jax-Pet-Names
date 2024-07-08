@@ -13,11 +13,11 @@ ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
 function App() {
   return (
     <div className='app-container'>
-      <Header></Header>
+      <Header />
       <Main></Main>
-      <AddName></AddName>
-      <OpenaiComponent></OpenaiComponent>
-      <Footer></Footer>
+      <AddName />
+      <OpenaiComponent />
+      <Footer />
     </div>
   );
 }
