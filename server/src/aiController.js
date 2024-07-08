@@ -29,7 +29,7 @@ const ai = async (request, response) => {
       model: 'gpt-3.5-turbo',
       response_format: { type: 'json_object' },
       max_tokens: 75,
-      temperature: 0.5,
+      temperature: 0.9,
     });
     response.status(200).json(result);
   } catch (error) {
