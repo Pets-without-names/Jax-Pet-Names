@@ -1,0 +1,146 @@
+.openai-container {
+  background-color: var(--header-background);
+  border: 1px solid green;
+  padding: 1em;
+}
+.openai-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.openai-container > h2 {
+  margin-bottom: 0;
+  text-align: center;
+  color: var(--main-text-color);
+}
+
+.openai-container > h3 {
+  margin: 0;
+}
+
+form label {
+  margin-top: 0.5em;
+}
+
+textarea {
+  resize: none;
+  padding: 4px;
+  width: 100%;
+  background-color: var(--input-bg-color);
+  border: 1.5px solid lightgray;
+  box-shadow: 3px 3px 3px var(--box-shadow-color);
+}
+
+ul {
+  /* remove the bullets from the list items */
+  list-style-type: none;
+  font-size: larger;
+  width: 50%;
+  margin: auto;
+  -webkit-padding-start: 0px;
+  padding-inline-start: 0px;
+}
+
+li {
+  text-align: center;
+}
+
+.openai-btn {
+  margin-top: 1em;
+  background-color: var(--generate-btn-color);
+  color: white;
+  border: none;
+  -webkit-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  max-width: 220px;
+  padding: 0.75em;
+  font-family: Geneva, Times, sans-serif;
+  font-size: calc(12px + 0.70vw);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.openai-btn:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-box-shadow: 0 0 10px 15px white;
+  box-shadow: 0 0 10px 15px white;
+  z-index: -1;
+}
+
+.openai-btn:active:after {
+  -webkit-box-shadow: 0 0 0 0 white;
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+}
+
+.openai-btn {
+  margin-top: 1em;
+}
+
+.themeLabel {
+  text-align: center;
+}
+
+.results-container {
+  margin-top: 1em;
+}
+
+.results-container {
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: 50%;
+  min-height: 10%;
+  -webkit-box-shadow: inset 0 0 10px rgb(200, 197, 197);
+  box-shadow: inset 0 0 10px rgb(200, 197, 197);
+  border: 2px solid lightgray;
+  border-radius: 1em;
+  padding: 0.5em 0em;
+  margin: 1em auto;
+  background-color: var(--results-bg-color);
+}
+
+.results-container p {
+  text-align: center;
+  color: var(--results-color);
+  font-family: Moranga, sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+@media screen and (min-width: 700px) {
+  .results-container {
+    max-width: 400px;
+  }
+}

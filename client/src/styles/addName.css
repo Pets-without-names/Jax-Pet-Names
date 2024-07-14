@@ -62,7 +62,7 @@
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 .submit-btn:hover {
-  font-size: calc(14px + 0.85vw);
+  font-size: calc(12.5px + 0.85vw);
   -webkit-transform: translateZ(10px);
   transform: translateZ(10px);
 }

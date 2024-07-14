@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/JaxTurboNerd/Jax-Pet-Names#readme",
   "dependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "openai": "^4.52.2"
   },
   "devDependencies": {
     "cypress": "^12.17.4"

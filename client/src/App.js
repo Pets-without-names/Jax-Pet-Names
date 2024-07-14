@@ -2,6 +2,7 @@ import Header from './components/header';
 import Main from './components/main';
 import Footer from './components/footer';
 import AddName from './components/addName';
+import OpenaiComponent from './components/openai';
 import ReactGA from 'react-ga4';
 import './styles/app.css';
 
@@ -12,10 +13,11 @@ ReactGA.send({ hitType: 'pageview', page: window.location.pathname });
 function App() {
   return (
     <div className='app-container'>
-      <Header></Header>
+      <Header />
       <Main></Main>
-      <AddName></AddName>
-      <Footer></Footer>
+      <AddName />
+      <OpenaiComponent />
+      <Footer />
     </div>
   );
 }
