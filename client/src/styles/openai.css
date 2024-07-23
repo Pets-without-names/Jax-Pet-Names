@@ -65,7 +65,7 @@ li {
   max-width: 220px;
   padding: 0.75em;
   font-family: Geneva, Times, sans-serif;
-  font-size: calc(12px + 0.70vw);
+  font-size: calc(12px + 0.7vw);
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
   -o-transition: transform 0.3s ease;
@@ -120,7 +120,7 @@ li {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  max-width: 50%;
+  max-width: 70%;
   min-height: 10%;
   -webkit-box-shadow: inset 0 0 10px rgb(200, 197, 197);
   box-shadow: inset 0 0 10px rgb(200, 197, 197);
@@ -141,6 +141,6 @@ li {
 
 @media screen and (min-width: 700px) {
   .results-container {
-    max-width: 400px;
+    max-width: 500px;
   }
 }
