@@ -141,6 +141,6 @@ li {
 
 @media screen and (min-width: 700px) {
   .results-container {
-    max-width: 400px;
+    max-width: 500px;
   }
 }
