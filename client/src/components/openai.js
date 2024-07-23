@@ -60,7 +60,6 @@ function OpenaiComponent() {
         autoComplete='off'
         onSubmit={handleSubmit(onSubmit, onError)}
       >
-        {/* <h3>You can generate up to 5 names and pick a theme</h3> */}
         <label htmlFor='quantity'>
           Number of Pet Names{' '}
           <select
