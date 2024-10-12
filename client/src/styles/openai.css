@@ -144,3 +144,12 @@ li {
     max-width: 500px;
   }
 }
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  textarea,
+  textarea::placeholder,
+  ul {
+    color: white;
+  }
+}
