@@ -43,7 +43,7 @@ textarea {
 ul {
   /* remove the bullets from the list items */
   list-style-type: none;
-  font-size: larger;
+  font-size: 1.45em;
   width: 50%;
   margin: auto;
   -webkit-padding-start: 0px;
@@ -113,10 +113,6 @@ li {
 }
 
 .results-container {
-  margin-top: 1em;
-}
-
-.results-container {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
@@ -128,15 +124,8 @@ li {
   border-radius: 1em;
   padding: 0.5em 0em;
   margin: 1em auto;
+  margin-top: 1em;
   background-color: var(--results-bg-color);
-}
-
-.results-container p {
-  text-align: center;
-  color: var(--results-color);
-  font-family: Moranga, sans-serif;
-  font-weight: 500;
-  font-size: 1.25rem;
 }
 
 @media screen and (min-width: 700px) {
@@ -151,5 +140,12 @@ li {
   textarea::placeholder,
   ul {
     color: white;
+    font-weight: 300;
+  }
+
+  textarea {
+    font-weight: 300;
+    box-shadow: inset 0 0 5px rgb(200, 197, 197);
+    border: 1px solid lightgray;
   }
 }
