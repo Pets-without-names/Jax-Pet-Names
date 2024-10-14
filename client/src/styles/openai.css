@@ -58,6 +58,12 @@ li {
   text-align: center;
 }
 
+.button_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .openai-btn {
   margin-top: 1rem;
   background-color: var(--generate-btn-color);
@@ -66,8 +72,9 @@ li {
   -webkit-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  max-width: 220px;
-  padding: 0.75em;
+  width: 100%;
+  max-width: 250px;
+  padding: 1rem 0.25rem;
   font-family: Geneva, Times, sans-serif;
   font-size: calc(12px + 0.7vw);
   -webkit-transition: -webkit-transform 0.3s ease;
@@ -110,6 +117,7 @@ li {
 
 .openai-btn {
   margin-top: 1rem;
+  width: 100%;
 }
 
 .themeLabel {

@@ -142,7 +142,7 @@ function AddName() {
             Female
           </label>
         </div>
-        <div>
+        <div className='buttonContainer'>
           <button className='submit-btn' type='submit'>
             Add Name
           </button>

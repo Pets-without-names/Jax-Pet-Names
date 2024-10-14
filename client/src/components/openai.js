@@ -105,9 +105,9 @@ function OpenaiComponent() {
           ></textarea>
         </label>
         <p className='errors'>{errors.theme?.message}</p>
-        <div className='button'>
+        <div className='button_container'>
           <button className='openai-btn' type='submit'>
-            AI names!
+            AI Names
           </button>
         </div>
       </form>
