@@ -24,6 +24,10 @@ footer {
   color: var(--footer-font-color);
 }
 
+.contact p {
+  color: black;
+}
+
 .contact,
 .legal {
   margin-top: 1.5rem;
@@ -32,7 +36,7 @@ footer {
   margin: 1.5rem 0;
 }
 a {
-  color: wheat;
+  opacity: 0.75;
 }
 
 @media screen and (min-width: 750px) {
@@ -62,5 +66,12 @@ a {
 
   footer {
     background-color: var(--header-background);
+  }
+  a {
+    color: wheat;
+  }
+  .contact p {
+    color: white;
+    opacity: 0.8;
   }
 }
