@@ -13,7 +13,7 @@ const ai = async (request, response) => {
       messages: [
         {
           role: 'system',
-          content: `You are a creative assistant who generates creative and unique pet names.
+          content: `You are a creative assistant who generates colorful and unique pet names.
             Return the response as a JSON object with a key of names and the values in an array object.`,
         },
         {
@@ -23,6 +23,8 @@ const ai = async (request, response) => {
           Return only the names.  
           Never return a same name from the previous response.
           Never return more than five names.
+          It is ok to return compound words and two-word names or
+          have a mix of single word and two-word names.
           If the theme is not words return a value of null`,
         },
       ],

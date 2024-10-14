@@ -96,7 +96,7 @@ function OpenaiComponent() {
             name='theme'
             rows='1'
             maxLength={'40'}
-            placeholder='"Disney characters" or "English Literature"'
+            placeholder='"Disney characters"'
             {...register('theme', {
               required: 'Please enter a theme',
               onChange: (event) => setTheme(event.target.value),
