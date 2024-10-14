@@ -47,7 +47,8 @@ function Main() {
         <meta name='robots' content='index follow' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       </Helmet>
-      <h2>A tool to randomly generate a pet name!</h2>
+      <h2>A tool to randomly generate a pet name</h2>
+      <h3>Scroll down to have AI generate your pet names!</h3>
       <div className='flex-container'>
         <div className='content'>
           <div className='gender-btn-container'>

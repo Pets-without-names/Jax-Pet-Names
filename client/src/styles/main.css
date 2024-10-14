@@ -15,7 +15,8 @@ main {
   z-index: 2;
 }
 
-main h2 {
+main h2,
+main h3 {
   text-align: center;
   margin: 0;
   font-family: Moranga, Times, sans-serif;

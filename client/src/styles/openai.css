@@ -1,4 +1,5 @@
 .openai-container {
+  height: min-content;
   background-color: var(--header-background);
   padding: 1rem;
 }
@@ -127,7 +128,6 @@ li {
   border-radius: 20px;
   padding: 0.5rem 0rem;
   margin: 1rem auto;
-  margin-top: 1rem;
   background-color: var(--results-bg-color);
 }
 
