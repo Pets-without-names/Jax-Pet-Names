@@ -121,12 +121,12 @@ li {
   min-width: -moz-fit-content;
   min-width: fit-content;
   max-width: 60%;
-  min-height: 15%;
+  min-height: 75px;
   -webkit-box-shadow: inset 0 0 10px rgb(200, 197, 197);
   box-shadow: inset 0 0 10px rgb(200, 197, 197);
   border: 2px solid lightgray;
   border-radius: 20px;
-  padding: 0.5rem 0rem;
+  padding: 1.5rem 0rem;
   margin: 1rem auto;
   background-color: var(--results-bg-color);
 }
