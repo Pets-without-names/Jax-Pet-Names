@@ -96,7 +96,7 @@ function OpenaiComponent() {
             name='theme'
             rows='1'
             maxLength={'40'}
-            placeholder='"Disney characters" or "English Literature"'
+            placeholder='"Disney characters"'
             {...register('theme', {
               required: 'Please enter a theme',
               onChange: (event) => setTheme(event.target.value),
@@ -105,9 +105,9 @@ function OpenaiComponent() {
           ></textarea>
         </label>
         <p className='errors'>{errors.theme?.message}</p>
-        <div className='button'>
+        <div className='button_container'>
           <button className='openai-btn' type='submit'>
-            AI names!
+            AI Names
           </button>
         </div>
       </form>

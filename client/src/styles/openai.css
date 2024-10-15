@@ -1,7 +1,7 @@
 .openai-container {
+  height: min-content;
   background-color: var(--header-background);
-  border: 1px solid green;
-  padding: 1em;
+  padding: 1rem;
 }
 .openai-card {
   display: -webkit-box;
@@ -33,17 +33,22 @@ form label {
 
 textarea {
   resize: none;
-  padding: 4px;
+  padding: 0.4rem;
   width: 100%;
   background-color: var(--input-bg-color);
   border: 1.5px solid lightgray;
   box-shadow: 3px 3px 3px var(--box-shadow-color);
 }
 
+textarea::placeholder {
+  font-size: 14px;
+  text-align: center;
+}
+
 ul {
   /* remove the bullets from the list items */
   list-style-type: none;
-  font-size: 1.45em;
+  font-size: 1.45rem;
   width: 50%;
   margin: auto;
   -webkit-padding-start: 0px;
@@ -54,16 +59,23 @@ li {
   text-align: center;
 }
 
+.button_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .openai-btn {
-  margin-top: 1em;
+  margin-top: 1rem;
   background-color: var(--generate-btn-color);
   color: white;
   border: none;
   -webkit-box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
   box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  max-width: 220px;
-  padding: 0.75em;
+  width: 100%;
+  max-width: 250px;
+  padding: 1rem 0.25rem;
   font-family: Geneva, Times, sans-serif;
   font-size: calc(12px + 0.7vw);
   -webkit-transition: -webkit-transform 0.3s ease;
@@ -95,7 +107,7 @@ li {
   -webkit-box-shadow: 0 0 0 0 white;
   box-shadow: 0 0 0 0 white;
   position: absolute;
-  border-radius: 4em;
+  border-radius: 4rem;
   left: 0;
   top: 0;
   opacity: 1;
@@ -105,7 +117,8 @@ li {
 }
 
 .openai-btn {
-  margin-top: 1em;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .themeLabel {
@@ -116,21 +129,23 @@ li {
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
-  max-width: 70%;
-  min-height: 10%;
+  max-width: 60%;
+  min-height: 75px;
   -webkit-box-shadow: inset 0 0 10px rgb(200, 197, 197);
   box-shadow: inset 0 0 10px rgb(200, 197, 197);
   border: 2px solid lightgray;
-  border-radius: 1em;
-  padding: 0.5em 0em;
-  margin: 1em auto;
-  margin-top: 1em;
+  border-radius: 20px;
+  padding: 1.5rem 0rem;
+  margin: 1rem auto;
   background-color: var(--results-bg-color);
 }
 
 @media screen and (min-width: 700px) {
   .results-container {
-    max-width: 500px;
+    max-width: 400px;
+  }
+  textarea::placeholder {
+    font-size: 18px;
   }
 }
 

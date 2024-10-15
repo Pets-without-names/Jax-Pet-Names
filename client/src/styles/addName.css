@@ -39,13 +39,20 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
 }
-
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .submit-btn {
   background-color: #468964;
   color: #ffffff;
   margin-top: 0.75rem;
-  padding: 1.75vw 6vw;
+  width: 100%;
+  max-width: 250px;
+  padding: 0.75em 0.25em;
   min-width: 120px;
   border-radius: 10px;
   font-family: Geneva, Times, sans-serif;
